@@ -314,15 +314,16 @@
     .logo{display:flex;align-items:center;gap:.65rem;text-decoration:none;color:#0E1B26;font:600 1.32rem var(--font-head);white-space:nowrap;letter-spacing:-.01em;flex-shrink:0;min-width:0}
     .logo .wordmark{font-family:'Sora',var(--font-body);font-weight:700;font-size:clamp(1.05rem,5.5vw,1.4rem);letter-spacing:.01em;background:linear-gradient(115deg,#0E1B26 20%,var(--marine-deep) 90%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
     [data-theme="dark"] .logo .wordmark{background:linear-gradient(115deg,#F2EEE1 20%,#9FD3E8 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .logo .mark{position:relative;width:3.4rem;height:2.2rem;border-radius:11px;background:#0A1C30;display:grid;place-items:center;overflow:hidden;flex:none;border:1px solid rgba(233,161,59,.5);box-shadow:0 6px 16px -8px rgba(10,28,48,.5),inset 0 1px 1px rgba(233,161,59,.25)}
-    .logo .mark img{width:100%;height:100%;object-fit:cover;display:block}
-    .logo .mark::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.32) 50%,transparent 65%);transform:translateX(-130%);animation:markSheen 6s ease-in-out infinite;pointer-events:none}
-    @keyframes markSheen{0%,55%{transform:translateX(-130%)}92%,100%{transform:translateX(130%)}}
+    .logo .mark{width:4.6rem;height:2rem;display:grid;place-items:center;flex:none;transition:opacity .3s ease}
+    .logo .mark img{width:100%;height:100%;object-fit:contain;display:block}
+    /* Top-left destination stays empty until the flying logo lands */
+    body.intro-armed .logo .mark{opacity:0}
+
     .foot-logo{display:block;width:100%;max-width:250px;border-radius:14px;margin-bottom:1rem}
     @media (max-width:430px){
       .nav-in{gap:.6rem}
       .logo{gap:.45rem}
-      .logo .mark{width:2.4rem;height:1.55rem;border-radius:8px}
+      .logo .mark{width:3.4rem;height:1.5rem}
       .theme-btn{width:2.3rem;height:2.3rem}
       .menu-btn{padding:.45rem}
     }
@@ -783,7 +784,7 @@
   <nav class="nav" id="nav" aria-label="Primary">
     <div class="wrap nav-in">
       <a class="logo" href="#top" aria-label="Confident Wings, home">
-        <span class="mark"><img src="assets/img/wings-still.png" alt=""></span>
+        <span class="mark"><img src="assets/img/logo-transparent.png" alt=""></span>
         <span class="wordmark">Confident Wings</span>
       </a>
       <div class="nav-links">
@@ -1562,10 +1563,12 @@
       const skip = document.getElementById('introSkip');
       document.body.classList.add('intro-lock');
       document.body.classList.add('intro-blur'); /* page starts soft, focuses in at reveal */
+      document.body.classList.add('intro-armed'); /* nav logo spot stays empty until the flying logo lands */
       let done = false;
       const finish = () => {
         if (done) return; done = true;
         document.body.classList.remove('intro-blur'); /* content sharpens as overlay lifts */
+        document.body.classList.remove('intro-armed'); /* skipped: show the static logo */
         box.classList.add('done');
         document.body.classList.add('page-reveal');
         document.body.classList.remove('intro-lock');
@@ -1604,6 +1607,7 @@
         /* 4) wings glide to the nav logo over the same DUR */
         const mark = document.querySelector('.logo .mark');
         const cleanup = () => {
+          document.body.classList.remove('intro-armed'); /* static logo appears as the flying one settles onto it */
           document.body.classList.add('page-reveal');
           document.body.classList.remove('intro-lock');
           box.remove();
@@ -1613,7 +1617,9 @@
         const mr = mark.getBoundingClientRect();
         const dx = (mr.left + mr.width / 2) - (sr.left + sr.width / 2);
         const dy = (mr.top + mr.height / 2) - (sr.top + sr.height / 2);
-        const s = Math.min(mr.width / sr.width, mr.height / sr.height) || 0.12;
+        /* the wings occupy 900 of the 1080-unit comp: land them at the exact
+           size of the static logo they hand over to */
+        const s = (mr.width / sr.width) * (1080 / 900) || 0.12;
         try {
           const anim = el.animate([
             { transform: 'translate(0px, 0px) scale(1)', filter: 'blur(0px)', opacity: 1 },
