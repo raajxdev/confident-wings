@@ -693,10 +693,6 @@
     .intro::after{content:"";position:absolute;inset:0;pointer-events:none;
       background:radial-gradient(120% 120% at 50% 42%,transparent 52%,rgba(0,0,0,.62) 100%)}
     .intro-stage{position:absolute;inset:0}
-    .intro-glow{position:absolute;left:50%;top:44%;width:130vmin;height:130vmin;transform:translate(-50%,-50%);
-      background:radial-gradient(circle,rgba(200,162,79,.13),rgba(200,162,79,.04) 45%,transparent 65%);
-      animation:introGlow 3.2s ease-in-out infinite;pointer-events:none}
-    @keyframes introGlow{0%,100%{opacity:.75;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.07)}}
     .lottie-wrap{position:absolute;inset:0;margin:auto;width:min(96vmin,720px);height:min(96vmin,720px);will-change:transform,filter}
     .lottie-wrap svg{width:100%!important;height:100%!important;display:block}
     .intro-skip{position:absolute;bottom:1.8rem;right:1.6rem;padding:.62rem 1.35rem;border-radius:999px;
@@ -721,7 +717,6 @@
   <!-- LOGO INTRO: vector wings reveal (Lottie), then glide into the nav logo -->
   <div class="intro" id="intro" aria-hidden="true">
     <div class="intro-stage" id="introStage">
-      <div class="intro-glow" aria-hidden="true"></div>
       <div class="lottie-wrap" id="lottieWrap" aria-hidden="true"></div>
     </div>
     <button class="intro-skip" id="introSkip" type="button" tabindex="-1">Skip</button>
