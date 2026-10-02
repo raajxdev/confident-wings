@@ -1566,7 +1566,7 @@
         try {
           const anim = lottie.loadAnimation({
             container: wrap, renderer: 'svg', loop: false, autoplay: false,
-            path: 'assets/anim/wings-intro.json'
+            path: 'assets/anim/wings-intro-v2.json'
           });
           anim.addEventListener('DOMLoaded', () => { try { anim.play(); } catch (e) {} });
           anim.addEventListener('complete', () => setTimeout(() => glideToLogo(wrap), 450));
