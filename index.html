@@ -277,7 +277,7 @@
     .nav.scrolled{background:rgba(250,247,242,.92);box-shadow:0 12px 32px -20px rgba(31,42,35,.35)}
     .nav-in{height:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem}
     .logo{display:flex;align-items:center;gap:.65rem;text-decoration:none;color:var(--pine-deep);font:600 1.32rem var(--font-head);white-space:nowrap;letter-spacing:-.01em;flex-shrink:1;min-width:0}
-    .logo .wordmark{font-family:'Sora',var(--font-body);font-weight:700;font-size:clamp(1.02rem,5.2vw,1.35rem);letter-spacing:.01em;background:linear-gradient(115deg,var(--pine-deep) 20%,var(--marine-deep) 90%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+    .logo .wordmark{font-family:'Sora',var(--font-body);font-weight:700;font-size:clamp(1.05rem,5.5vw,1.4rem);letter-spacing:.01em;background:linear-gradient(115deg,var(--pine-deep) 20%,var(--marine-deep) 90%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
     [data-theme="dark"] .logo .wordmark{background:linear-gradient(115deg,#F2EEE1 20%,#9FD3E8 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
     .logo .mark{position:relative;width:3.4rem;height:2.2rem;border-radius:11px;background:#0A1C30;display:grid;place-items:center;overflow:hidden;flex:none;border:1px solid rgba(233,161,59,.5);box-shadow:0 6px 16px -8px rgba(10,28,48,.5),inset 0 1px 1px rgba(233,161,59,.25)}
     .logo .mark img{width:100%;height:100%;object-fit:contain;display:block}
@@ -285,9 +285,11 @@
     @keyframes markSheen{0%,55%{transform:translateX(-130%)}92%,100%{transform:translateX(130%)}}
     .foot-logo{display:block;width:100%;max-width:250px;border-radius:14px;margin-bottom:1rem}
     @media (max-width:430px){
-      .logo{gap:.55rem}
-      .logo .mark{width:2.7rem;height:1.75rem;border-radius:9px}
-      .theme-btn{width:2.5rem;height:2.5rem}
+      .nav-in{gap:.6rem}
+      .logo{gap:.45rem}
+      .logo .mark{width:2.4rem;height:1.55rem;border-radius:8px}
+      .theme-btn{width:2.3rem;height:2.3rem}
+      .menu-btn{padding:.45rem}
     }
     .logo .mark .ico{width:1.25rem;height:1.25rem}
     .nav-links{display:none;gap:1.6rem;align-items:center}
@@ -640,6 +642,12 @@
     /* =====================================================
        21. REDUCED MOTION
        ===================================================== */
+    /* Logo intro overlay: fullscreen animation on open, fades to static end frame */
+    .intro{position:fixed;inset:0;z-index:2000;background:#070D13;display:grid;place-items:center;transition:opacity .7s ease,visibility .7s}
+    .intro.done{opacity:0;visibility:hidden;pointer-events:none}
+    .intro-video{width:100%;height:100%;object-fit:contain}
+    .intro-skip{position:absolute;bottom:1.6rem;right:1.4rem;padding:.55rem 1.2rem;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:#EAF2F8;font:600 .85rem var(--font-body);letter-spacing:.08em;cursor:pointer}
+    body.intro-lock{overflow:hidden}
     @media (prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}
       *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important}
@@ -649,6 +657,13 @@
   </style>
 
 <body>
+  <!-- LOGO INTRO: plays once on open, then fades to the site -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <video class="intro-video" id="introVideo" muted playsinline preload="auto" poster="assets/videos/poster-logo.jpg" disablepictureinpicture>
+      <source src="assets/videos/logo-intro.mp4" type="video/mp4">
+    </video>
+    <button class="intro-skip" id="introSkip" type="button" tabindex="-1">Skip</button>
+  </div>
   <a class="skip" href="#main">Skip to content</a>
 
   <!-- SVG ICON SPRITE -->
@@ -1440,6 +1455,31 @@
       };
       if (btn) btn.addEventListener('click', () => apply(root.dataset.theme === 'dark' ? 'light' : 'dark'));
       apply(root.dataset.theme || 'light');
+    })();
+
+    /* ---------- Logo intro: animate on open, settle on static frame, fade out ---------- */
+    (function intro() {
+      const box = document.getElementById('intro');
+      if (!box) return;
+      if (reduce) { box.remove(); return; } /* calm mode: no intro animation */
+      const vid = document.getElementById('introVideo');
+      const skip = document.getElementById('introSkip');
+      document.body.classList.add('intro-lock');
+      let done = false;
+      const finish = () => {
+        if (done) return; done = true;
+        box.classList.add('done');
+        document.body.classList.remove('intro-lock');
+        setTimeout(() => box.remove(), 800);
+      };
+      if (vid) {
+        vid.addEventListener('ended', () => setTimeout(finish, 400));
+        vid.addEventListener('error', finish);
+        try { const p = vid.play(); if (p && p.catch) p.catch(() => {}); } catch (e) {}
+      }
+      if (skip) skip.addEventListener('click', e => { e.stopPropagation(); finish(); });
+      box.addEventListener('click', finish);
+      setTimeout(finish, 9500); /* hard fallback: never trap the visitor */
     })();
 
     /* ---------- Testimonial carousel (native scroll-snap + controls) ---------- */
