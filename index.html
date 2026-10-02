@@ -32,6 +32,16 @@
   <title>Confident Wings | Spoken English &amp; Public Speaking Institute</title>
   <meta name="description" content="Small-batch spoken English, public speaking, interview prep, kids and corporate training. Live practice, personal feedback and certification. Book a free demo class.">
   <meta name="theme-color" content="#FAF7F2">
+  <script>
+    /* Set theme before paint: stored choice, else system preference */
+    try {
+      var t = localStorage.getItem('cw-theme');
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+      var mc = document.querySelector('meta[name="theme-color"]');
+      if (mc) mc.setAttribute('content', t === 'dark' ? '#0B1712' : '#FAF7F2');
+    } catch (e) { document.documentElement.dataset.theme = 'light'; }
+  </script>
   <link rel="canonical" href="https://raajxdev.github.io/confident-wings/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Confident Wings | Give Your Voice Wings">
@@ -152,6 +162,48 @@
     }
 
     /* =====================================================
+       1b. DARK THEME — surfaces flip, brand hues stay
+       ===================================================== */
+    [data-theme="dark"]{
+      --paper:#0B1712;
+      --paper-2:#0E1E16;
+      --card:#12241B;
+      --ink:#F0EBDD;
+      --ink-soft:#CBD3C2;
+      --muted:#8FA398;
+      --line:#1F362B;
+      --shadow-1:0 14px 34px -18px rgba(0,0,0,.6);
+      --shadow-2:0 30px 64px -28px rgba(0,0,0,.7);
+    }
+    [data-theme="dark"] h1,[data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] h4{color:var(--ink)}
+    [data-theme="dark"] h1 em,[data-theme="dark"] h2 em{color:var(--terra)}
+    [data-theme="dark"] .nav{background:rgba(11,23,18,.72);border-bottom:1px solid rgba(240,235,221,.09)}
+    [data-theme="dark"] .nav.scrolled{background:rgba(11,23,18,.94);box-shadow:0 12px 32px -20px rgba(0,0,0,.7)}
+    [data-theme="dark"] .nav .logo{color:var(--ink)}
+    [data-theme="dark"] .mobile-menu{background:rgba(11,23,18,.97)}
+    [data-theme="dark"] .mobile-menu a:not(.btn){color:var(--ink)}
+    [data-theme="dark"] .stats-card{background:rgba(18,36,27,.72);border:1px solid rgba(240,235,221,.14);border-top:4px solid var(--marine)}
+    [data-theme="dark"] .chip{background:rgba(18,36,27,.66);border:1px solid rgba(240,235,221,.16);color:var(--ink)}
+    [data-theme="dark"] .chip--b{background:rgba(20,60,80,.55)}
+    [data-theme="dark"] .course{background:rgba(18,36,27,.6);border-color:var(--line)}
+    [data-theme="dark"] .story{background:rgba(18,36,27,.62);border:1px solid rgba(240,235,221,.14);border-top:4px solid var(--marine)}
+    [data-theme="dark"] .sec--tint{background:linear-gradient(180deg,#0D2030 0%,#0B1712 70%)}
+    [data-theme="dark"] .sec--dark{background:#070F0B}
+    [data-theme="dark"] .foot{background:#070F0B}
+    [data-theme="dark"] .q{color:var(--ink)}
+    [data-theme="dark"] .field input:focus,[data-theme="dark"] .field select:focus,[data-theme="dark"] .field textarea:focus{background:#16291F}
+    [data-theme="dark"] .sample-pill{color:#9FD3E8;background:rgba(20,107,138,.16);border-color:var(--marine)}
+    [data-theme="dark"] .timetable caption{color:var(--ink)}
+    [data-theme="dark"] .timetable .tag{background:rgba(46,125,91,.25);color:#9FD8B8}
+    [data-theme="dark"] .car-btn{border-color:var(--muted);color:var(--ink)}
+    [data-theme="dark"] .car-btn:hover:not(:disabled){background:var(--marine);border-color:var(--marine)}
+    [data-theme="dark"] .theme-btn{background:rgba(18,36,27,.6);border-color:var(--line);color:var(--amber)}
+    [data-theme="dark"] .stat b{background:linear-gradient(115deg,#7FC4DE 5%,#2FA3C7 60%,#9FD3E8 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    [data-theme="dark"] .orb--a{background:radial-gradient(circle,rgba(20,107,138,.32),transparent 70%)}
+    [data-theme="dark"] .orb--b{background:radial-gradient(circle,rgba(233,161,59,.16),transparent 70%)}
+    [data-theme="dark"] img{filter:saturate(.96)}
+
+    /* =====================================================
        2. BASE
        ===================================================== */
     *,*::before,*::after{box-sizing:border-box}
@@ -232,6 +284,14 @@
     .nav-links a:hover::after{transform:scaleX(1)}
     .nav-cta{display:none}
     .menu-btn{background:rgba(18,63,49,.08);border:1px solid var(--line);color:var(--pine-deep);padding:.55rem;cursor:pointer;border-radius:12px}
+    /* Theme toggle: sun in light mode, moon in dark mode */
+    .theme-btn{width:2.7rem;height:2.7rem;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.6);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);display:grid;place-items:center;cursor:pointer;color:var(--pine-deep);transition:transform .3s var(--ease),background-color .3s,color .3s;flex:none}
+    .theme-btn:hover{transform:translateY(-2px) rotate(12deg)}
+    .theme-btn:active{transform:scale(.92)}
+    .theme-btn .ico{width:1.25rem;height:1.25rem}
+    .theme-btn .icon-moon{display:none}
+    [data-theme="dark"] .theme-btn .icon-moon{display:block}
+    [data-theme="dark"] .theme-btn .icon-sun{display:none}
     .menu-btn .ico{width:1.6rem;height:1.6rem}
     .menu-btn .i-close{display:none}
     .menu-btn[aria-expanded="true"] .i-menu{display:none}
@@ -604,6 +664,7 @@
     <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></symbol>
     <symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7h.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></symbol>
     <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5 5l1.8 1.8M17.2 17.2L19 19M19 5l-1.8 1.8M6.8 17.2L5 19"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 13.2A8.5 8.5 0 1 1 10.8 3.5a7 7 0 0 0 9.7 9.7z"/></symbol>
     <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4z" fill="currentColor" stroke="none"/><path d="M19 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z" fill="currentColor" stroke="none"/></symbol>
   </svg>
 
@@ -626,6 +687,10 @@
         <a href="#faq">FAQ</a>
       </div>
       <a class="btn btn--terra btn--sm nav-cta" href="#contact">Book Free Demo</a>
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to dark theme">
+        <svg class="ico icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        <svg class="ico icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+      </button>
       <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
         <svg class="ico i-menu" aria-hidden="true"><use href="#i-menu"/></svg>
         <svg class="ico i-close" aria-hidden="true"><use href="#i-close"/></svg>
@@ -1343,6 +1408,21 @@
       setTimeout(() => $('#demo-name').focus({ preventScroll: true }), reduce ? 0 : 700);
     }));
     $$('[data-plan]').forEach(a => a.addEventListener('click', () => { chosenPlan = a.dataset.plan; }));
+
+    /* ---------- Light/dark theme ---------- */
+    (function theme() {
+      const root = document.documentElement;
+      const btn = document.getElementById('themeBtn');
+      const meta = document.querySelector('meta[name="theme-color"]');
+      const apply = t => {
+        root.dataset.theme = t;
+        try { localStorage.setItem('cw-theme', t); } catch (e) {}
+        if (meta) meta.setAttribute('content', t === 'dark' ? '#0B1712' : '#FAF7F2');
+        if (btn) btn.setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+      };
+      if (btn) btn.addEventListener('click', () => apply(root.dataset.theme === 'dark' ? 'light' : 'dark'));
+      apply(root.dataset.theme || 'light');
+    })();
 
     /* ---------- Testimonial carousel (native scroll-snap + controls) ---------- */
     (function carousel() {
