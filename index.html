@@ -280,7 +280,7 @@
     .logo .wordmark{font-family:'Sora',var(--font-body);font-weight:700;font-size:clamp(1.05rem,5.5vw,1.4rem);letter-spacing:.01em;background:linear-gradient(115deg,var(--pine-deep) 20%,var(--marine-deep) 90%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
     [data-theme="dark"] .logo .wordmark{background:linear-gradient(115deg,#F2EEE1 20%,#9FD3E8 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
     .logo .mark{position:relative;width:3.4rem;height:2.2rem;border-radius:11px;background:#0A1C30;display:grid;place-items:center;overflow:hidden;flex:none;border:1px solid rgba(233,161,59,.5);box-shadow:0 6px 16px -8px rgba(10,28,48,.5),inset 0 1px 1px rgba(233,161,59,.25)}
-    .logo .mark img{width:100%;height:100%;object-fit:contain;display:block}
+    .logo .mark img{width:100%;height:100%;object-fit:cover;display:block}
     .logo .mark::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.32) 50%,transparent 65%);transform:translateX(-130%);animation:markSheen 6s ease-in-out infinite;pointer-events:none}
     @keyframes markSheen{0%,55%{transform:translateX(-130%)}92%,100%{transform:translateX(130%)}}
     .foot-logo{display:block;width:100%;max-width:250px;border-radius:14px;margin-bottom:1rem}
@@ -642,10 +642,15 @@
     /* =====================================================
        21. REDUCED MOTION
        ===================================================== */
-    /* Logo intro overlay: fullscreen animation on open, fades to static end frame */
-    .intro{position:fixed;inset:0;z-index:2000;background:#070D13;display:grid;place-items:center;transition:opacity .7s ease,visibility .7s}
+    /* Logo intro: frosted-glass overlay, wings video (screen blend), then zoom into nav logo */
+    .intro{position:fixed;inset:0;z-index:2000;display:grid;place-items:center;
+      background:rgba(11,23,18,.42);
+      -webkit-backdrop-filter:blur(26px) saturate(150%);backdrop-filter:blur(26px) saturate(150%);
+      transition:opacity .7s ease,visibility .7s}
     .intro.done{opacity:0;visibility:hidden;pointer-events:none}
-    .intro-video{width:100%;height:100%;object-fit:contain}
+    .intro-stage{position:relative;width:min(80vw,380px);aspect-ratio:16/10;will-change:transform}
+    .intro-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:screen;transition:opacity .45s ease}
+    .intro-wings{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .45s ease}
     .intro-skip{position:absolute;bottom:1.6rem;right:1.4rem;padding:.55rem 1.2rem;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:#EAF2F8;font:600 .85rem var(--font-body);letter-spacing:.08em;cursor:pointer}
     body.intro-lock{overflow:hidden}
     @media (prefers-reduced-motion:reduce){
@@ -657,11 +662,14 @@
   </style>
 
 <body>
-  <!-- LOGO INTRO: plays once on open, then fades to the site -->
+  <!-- LOGO INTRO: wings animate over frosted glass, then fly into the nav logo -->
   <div class="intro" id="intro" aria-hidden="true">
-    <video class="intro-video" id="introVideo" muted playsinline preload="auto" poster="assets/videos/poster-logo.jpg" disablepictureinpicture>
-      <source src="assets/videos/logo-intro.mp4" type="video/mp4">
-    </video>
+    <div class="intro-stage" id="introStage">
+      <video class="intro-video" id="introVideo" muted playsinline preload="auto" poster="assets/videos/poster-logo.jpg" disablepictureinpicture>
+        <source src="assets/videos/logo-intro.mp4" type="video/mp4">
+      </video>
+      <img class="intro-wings" id="introWings" src="assets/img/wings-still.png" alt="">
+    </div>
     <button class="intro-skip" id="introSkip" type="button" tabindex="-1">Skip</button>
   </div>
   <a class="skip" href="#main">Skip to content</a>
@@ -705,7 +713,7 @@
   <nav class="nav" id="nav" aria-label="Primary">
     <div class="wrap nav-in">
       <a class="logo" href="#top" aria-label="Confident Wings, home">
-        <span class="mark"><img src="assets/img/logo-emblem.png" alt=""></span>
+        <span class="mark"><img src="assets/img/wings-still.png" alt=""></span>
         <span class="wordmark">Confident Wings</span>
       </a>
       <div class="nav-links">
@@ -1457,12 +1465,14 @@
       apply(root.dataset.theme || 'light');
     })();
 
-    /* ---------- Logo intro: animate on open, settle on static frame, fade out ---------- */
+    /* ---------- Logo intro: video over frosted glass, then wings fly into the nav logo ---------- */
     (function intro() {
       const box = document.getElementById('intro');
       if (!box) return;
       if (reduce) { box.remove(); return; } /* calm mode: no intro animation */
+      const stage = document.getElementById('introStage');
       const vid = document.getElementById('introVideo');
+      const wings = document.getElementById('introWings');
       const skip = document.getElementById('introSkip');
       document.body.classList.add('intro-lock');
       let done = false;
@@ -1472,14 +1482,30 @@
         document.body.classList.remove('intro-lock');
         setTimeout(() => box.remove(), 800);
       };
+      const zoomToLogo = () => {
+        if (done) return;
+        const mark = document.querySelector('.logo .mark');
+        if (!mark || !stage) { finish(); return; }
+        if (vid) vid.style.opacity = '0';
+        if (wings) wings.style.opacity = '1';
+        const sr = stage.getBoundingClientRect();
+        const mr = mark.getBoundingClientRect();
+        const dx = (mr.left + mr.width / 2) - (sr.left + sr.width / 2);
+        const dy = (mr.top + mr.height / 2) - (sr.top + sr.height / 2);
+        const s = Math.min(mr.width / sr.width, mr.height / sr.height) || 0.12;
+        void stage.offsetWidth; /* reflow so the transition runs */
+        stage.style.transition = 'transform .9s cubic-bezier(.22,.8,.24,1)';
+        stage.style.transform = `translate(${dx}px, ${dy}px) scale(${s})`;
+        setTimeout(finish, 950);
+      };
       if (vid) {
-        vid.addEventListener('ended', () => setTimeout(finish, 400));
+        vid.addEventListener('ended', () => setTimeout(zoomToLogo, 350));
         vid.addEventListener('error', finish);
         try { const p = vid.play(); if (p && p.catch) p.catch(() => {}); } catch (e) {}
-      }
+      } else { setTimeout(zoomToLogo, 600); }
       if (skip) skip.addEventListener('click', e => { e.stopPropagation(); finish(); });
       box.addEventListener('click', finish);
-      setTimeout(finish, 9500); /* hard fallback: never trap the visitor */
+      setTimeout(finish, 12000); /* hard fallback: never trap the visitor */
     })();
 
     /* ---------- Testimonial carousel (native scroll-snap + controls) ---------- */
