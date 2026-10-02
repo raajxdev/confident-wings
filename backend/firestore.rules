@@ -1,0 +1,95 @@
+rules_version = '2';
+
+// Confident Wings — Firestore security rules (lead capture).
+//
+// Design: clients may ONLY create documents in `leads/{id}`. Every field is
+// validated server-side. Reads, updates and deletes are denied for all
+// clients; leads are viewed in the Firebase console by project members.
+// The Firebase web API key is public by design — THESE RULES are the
+// security boundary.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---- lead validation -------------------------------------------------
+    function isValidLead(d) {
+      return
+        // exact field set — no extra keys allowed
+        d.keys().hasOnly(['type', 'name', 'phone', 'course', 'resource', 'message', 'plan', 'page', 'createdAt'])
+
+        // type enum
+        && d.type is string
+        && d.type in ['demo', 'contact', 'resource']
+
+        // name: 2–60 chars
+        && d.name is string
+        && d.name.size() >= 2
+        && d.name.size() <= 60
+
+        // phone: Indian mobile, 10 digits, starts 6–9
+        && d.phone is string
+        && d.phone.matches('^[6-9][0-9]{9}$')
+
+        // page: capped path string
+        && d.page is string
+        && d.page.size() <= 200
+
+        // createdAt: real timestamp, sane window (rejects stale/replay junk)
+        && d.createdAt is timestamp
+        && d.createdAt <= request.time + duration.value(5, 'm')
+        && d.createdAt >= request.time - duration.value(7, 'd')
+
+        // course: optional, must match a frontend <select> option value (slug)
+        && (!('course' in d) || (
+             d.course is string
+             && d.course.size() <= 60
+             && d.course in [
+                  'spoken-english',
+                  'public-speaking',
+                  'interview-prep',
+                  'kids-teens',
+                  'corporate'
+                ]))
+
+        // resource: optional, must match a frontend data-resource slug
+        && (!('resource' in d) || (
+             d.resource is string
+             && d.resource.size() <= 80
+             && d.resource in [
+                  'sentences',
+                  'interview',
+                  'vocabulary'
+                ]))
+
+        // message: optional, length-capped
+        && (!('message' in d) || (
+             d.message is string
+             && d.message.size() <= 500))
+
+        // plan: optional pricing-plan interest from the plan-choice buttons
+        && (!('plan' in d) || (
+             d.plan is string
+             && d.plan.size() <= 40
+             && d.plan in [
+                  'Foundation',
+                  'Confidence Pro',
+                  '1:1 Mentor'
+                ]))
+
+        // cross-field requirements
+        && (d.type != 'demo' || 'course' in d)
+        && (d.type != 'resource' || 'resource' in d);
+    }
+
+    // ---- leads collection: create-only -----------------------------------
+    match /leads/{leadId} {
+      allow create: if isValidLead(request.resource.data);
+      allow read, update, delete: if false;
+    }
+
+    // ---- everything else: denied ------------------------------------------
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
