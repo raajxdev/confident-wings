@@ -681,15 +681,31 @@
     /* =====================================================
        21. REDUCED MOTION
        ===================================================== */
-    /* Logo intro: black backdrop, fullscreen video, then wings fly into the nav logo */
-    .intro{position:fixed;inset:0;z-index:2000;display:grid;place-items:center;background:#000;
-      transition:opacity .7s ease,visibility .7s}
+    /* Logo intro: cinematic black stage — vignette, gold glow, fullscreen video,
+       graceful settle, then wings fly into the nav logo */
+    .intro{position:fixed;inset:0;z-index:2000;display:grid;place-items:center;background:#000;overflow:hidden;
+      transition:opacity .8s ease,visibility .8s}
     .intro.done{opacity:0;visibility:hidden;pointer-events:none}
+    .intro::after{content:"";position:absolute;inset:0;pointer-events:none;
+      background:radial-gradient(120% 120% at 50% 42%,transparent 52%,rgba(0,0,0,.62) 100%)}
     .intro-stage{position:absolute;inset:0}
-    .intro-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:screen;transition:opacity .35s ease}
-    .intro-settle{position:absolute;inset:0;margin:auto;width:min(80vw,380px);aspect-ratio:16/10;opacity:0;transition:opacity .35s ease;will-change:transform}
-    .intro-wings{width:100%;height:100%;object-fit:cover;display:block}
-    .intro-skip{position:absolute;bottom:1.6rem;right:1.4rem;padding:.55rem 1.2rem;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:#EAF2F8;font:600 .85rem var(--font-body);letter-spacing:.08em;cursor:pointer}
+    .intro-glow{position:absolute;left:50%;top:44%;width:130vmin;height:130vmin;transform:translate(-50%,-50%);
+      background:radial-gradient(circle,rgba(200,162,79,.13),rgba(200,162,79,.04) 45%,transparent 65%);
+      animation:introGlow 3.2s ease-in-out infinite;pointer-events:none}
+    @keyframes introGlow{0%,100%{opacity:.75;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.07)}}
+    .intro-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:screen;
+      opacity:0;transition:opacity .9s ease}
+    .intro-video.on{opacity:1}
+    .intro-settle{position:absolute;inset:0;margin:auto;width:min(82vw,400px);aspect-ratio:16/10;
+      opacity:0;will-change:transform,opacity;pointer-events:none}
+    .intro-wings{width:100%;height:100%;object-fit:cover;display:block;
+      filter:drop-shadow(0 0 34px rgba(200,162,79,.35))}
+    .intro-skip{position:absolute;bottom:1.8rem;right:1.6rem;padding:.62rem 1.35rem;border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);
+      -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:rgba(234,242,248,.85);
+      font:600 .76rem var(--font-body);letter-spacing:.24em;text-transform:uppercase;cursor:pointer;
+      transition:background-color .3s,border-color .3s}
+    .intro-skip:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.4)}
     body.intro-lock{overflow:hidden}
     @media (prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}
@@ -700,9 +716,10 @@
   </style>
 
 <body>
-  <!-- LOGO INTRO: fullscreen wings animation, then wings fly into the nav logo -->
+  <!-- LOGO INTRO: cinematic fullscreen wings, settle, then fly into the nav logo -->
   <div class="intro" id="intro" aria-hidden="true">
     <div class="intro-stage" id="introStage">
+      <div class="intro-glow" aria-hidden="true"></div>
       <video class="intro-video" id="introVideo" muted playsinline preload="auto" poster="assets/videos/poster-logo.jpg" disablepictureinpicture>
         <source src="assets/videos/logo-intro.mp4" type="video/mp4">
       </video>
@@ -1516,7 +1533,7 @@
       apply(root.dataset.theme || 'light');
     })();
 
-    /* ---------- Logo intro: fullscreen video, then wings fly into the nav logo ---------- */
+    /* ---------- Logo intro: cinematic fullscreen video, graceful settle, wings fly into nav logo ---------- */
     (function intro() {
       const box = document.getElementById('intro');
       if (!box) return;
@@ -1530,33 +1547,46 @@
         if (done) return; done = true;
         box.classList.add('done');
         document.body.classList.remove('intro-lock');
-        setTimeout(() => box.remove(), 800);
+        setTimeout(() => box.remove(), 900);
       };
+      /* Phase 2: video dissolves, wings still materialises large then settles down smoothly */
+      const settleWings = () => {
+        if (done || !settle) { finish(); return; }
+        if (vid) vid.classList.remove('on');
+        settle.style.transition = 'none';
+        settle.style.transform = 'scale(1.55)';
+        settle.style.opacity = '1';
+        void settle.offsetWidth; /* reflow so the settle-down transition runs */
+        settle.style.transition = 'transform 1s cubic-bezier(.22,.8,.24,1), opacity .5s ease';
+        settle.style.transform = 'scale(1)';
+        setTimeout(zoomToLogo, 1050);
+      };
+      /* Phase 3: the settled wings fly into the nav logo */
       const zoomToLogo = () => {
         if (done) return;
         const mark = document.querySelector('.logo .mark');
         if (!mark || !settle) { finish(); return; }
-        if (vid) vid.style.opacity = '0';
-        settle.style.opacity = '1';
         const sr = settle.getBoundingClientRect();
         const mr = mark.getBoundingClientRect();
         const dx = (mr.left + mr.width / 2) - (sr.left + sr.width / 2);
         const dy = (mr.top + mr.height / 2) - (sr.top + sr.height / 2);
         const s = Math.min(mr.width / sr.width, mr.height / sr.height) || 0.12;
-        void settle.offsetWidth; /* reflow so the transition runs */
-        settle.style.transition = 'transform .9s cubic-bezier(.22,.8,.24,1)';
+        void settle.offsetWidth;
+        settle.style.transition = 'transform 1s cubic-bezier(.22,.8,.24,1)';
         settle.style.transform = `translate(${dx}px, ${dy}px) scale(${s})`;
-        setTimeout(finish, 950);
+        setTimeout(finish, 1050);
       };
       if (vid) {
-        vid.playbackRate = 1.6; /* shorter intro: ~5s instead of 8s */
-        vid.addEventListener('ended', () => setTimeout(zoomToLogo, 350));
+        vid.playbackRate = 1.6; /* tighter intro: ~5s of animation */
+        vid.addEventListener('canplay', () => vid.classList.add('on'), { once: true });
+        vid.addEventListener('ended', () => setTimeout(settleWings, 300));
         vid.addEventListener('error', finish);
         try { const p = vid.play(); if (p && p.catch) p.catch(() => {}); } catch (e) {}
-      } else { setTimeout(zoomToLogo, 600); }
+        setTimeout(() => vid.classList.add('on'), 1200); /* safety: never stuck invisible */
+      } else { setTimeout(settleWings, 600); }
       if (skip) skip.addEventListener('click', e => { e.stopPropagation(); finish(); });
       box.addEventListener('click', finish);
-      setTimeout(finish, 9000); /* hard fallback: never trap the visitor */
+      setTimeout(finish, 10000); /* hard fallback: never trap the visitor */
     })();
 
     /* ---------- Testimonial carousel (native scroll-snap + controls) ---------- */
