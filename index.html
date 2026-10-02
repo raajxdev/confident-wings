@@ -63,7 +63,7 @@
     "name": "Confident Wings",
     "description": "Spoken English and public speaking institute",
     "url": "https://raajxdev.github.io/confident-wings/",
-    "logo": "https://raajxdev.github.io/confident-wings/assets/img/logo-full.jpg",
+    "logo": "https://raajxdev.github.io/confident-wings/assets/img/logo-transparent.png",
     "telephone": "+91-80014-19550",
     "email": "hello@confidentwings.in",
     "address": {
@@ -322,7 +322,6 @@
     /* Top-left destination stays empty until the flying logo lands */
     body.intro-armed .logo .mark{opacity:0}
 
-    .foot-logo{display:block;width:100%;max-width:250px;border-radius:14px;margin-bottom:1rem}
     @media (max-width:430px){
       .nav-in{gap:.6rem}
       .logo{gap:.45rem}
@@ -678,7 +677,8 @@
     .foot-grid{display:grid;gap:2.5rem}
     @media (min-width:800px){.foot-grid{grid-template-columns:1.5fr 1fr 1fr 1.2fr}}
     .foot .logo{color:#FDFBF6}
-    .foot .logo .mark{background:rgba(253,251,246,.12);color:var(--amber)}
+    /* Footer wordmark: light-to-gold gradient so it reads on the dark footer */
+    .foot .logo .wordmark{background:linear-gradient(115deg,#F2EEE1 20%,#C8A24F 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
     .foot h4{font:600 1.08rem var(--font-head);color:#FDFBF6;margin-bottom:1rem}
     .foot ul{display:grid;gap:.6rem}
     .foot a{text-decoration:none}
@@ -1388,7 +1388,8 @@
       <div class="foot-grid">
         <div>
           <a class="logo" href="#top" aria-label="Confident Wings, home">
-            <img class="foot-logo" src="assets/img/logo-full.jpg" alt="Confident Wings logo">
+            <span class="mark"><img src="assets/img/logo-transparent.png" alt=""></span>
+            <span class="wordmark">Confident Wings</span>
           </a>
           <p class="about">Spoken English and public speaking coaching that helps you speak with clarity, courage and calm.</p>
           <div class="social">
