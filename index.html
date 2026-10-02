@@ -681,8 +681,8 @@
     /* =====================================================
        21. REDUCED MOTION
        ===================================================== */
-    /* Logo intro: cinematic black stage — vignette, gold glow, fullscreen video,
-       graceful settle, then wings fly into the nav logo */
+    /* Logo intro: cinematic black stage — vignette, gold glow, vector wings reveal,
+       then the wings glide into the nav logo */
     .intro{position:fixed;inset:0;z-index:2000;display:grid;place-items:center;background:#000;overflow:hidden;
       transition:opacity .8s ease,visibility .8s}
     .intro.done{opacity:0;visibility:hidden;pointer-events:none}
@@ -693,13 +693,8 @@
       background:radial-gradient(circle,rgba(200,162,79,.13),rgba(200,162,79,.04) 45%,transparent 65%);
       animation:introGlow 3.2s ease-in-out infinite;pointer-events:none}
     @keyframes introGlow{0%,100%{opacity:.75;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.07)}}
-    .intro-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:screen;
-      opacity:0;transition:opacity .9s ease}
-    .intro-video.on{opacity:1}
-    .intro-settle{position:absolute;inset:0;margin:auto;width:min(82vw,400px);aspect-ratio:16/10;
-      opacity:0;will-change:transform,opacity;pointer-events:none}
-    .intro-wings{width:100%;height:100%;object-fit:cover;display:block;
-      filter:drop-shadow(0 0 34px rgba(200,162,79,.35))}
+    .lottie-wrap{position:absolute;inset:0;margin:auto;width:min(96vmin,720px);height:min(96vmin,720px);will-change:transform}
+    .lottie-wrap svg{width:100%!important;height:100%!important;display:block}
     .intro-skip{position:absolute;bottom:1.8rem;right:1.6rem;padding:.62rem 1.35rem;border-radius:999px;
       border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);
       -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:rgba(234,242,248,.85);
@@ -716,14 +711,11 @@
   </style>
 
 <body>
-  <!-- LOGO INTRO: cinematic fullscreen wings, settle, then fly into the nav logo -->
+  <!-- LOGO INTRO: vector wings reveal (Lottie), then glide into the nav logo -->
   <div class="intro" id="intro" aria-hidden="true">
     <div class="intro-stage" id="introStage">
       <div class="intro-glow" aria-hidden="true"></div>
-      <video class="intro-video" id="introVideo" muted playsinline preload="auto" poster="assets/videos/poster-logo.jpg" disablepictureinpicture>
-        <source src="assets/videos/logo-intro.mp4" type="video/mp4">
-      </video>
-      <div class="intro-settle" id="introSettle"><img class="intro-wings" src="assets/img/wings-still.png" alt=""></div>
+      <div class="lottie-wrap" id="lottieWrap" aria-hidden="true"></div>
     </div>
     <button class="intro-skip" id="introSkip" type="button" tabindex="-1">Skip</button>
   </div>
@@ -1424,6 +1416,7 @@
     window.CW_CONFIG = { firebase: null };
   </script>
   <script src="backend/cw-backend.js"></script>
+  <script src="assets/js/lottie.min.js"></script>
 
   <!-- =====================================================
        SCRIPT (vanilla JS, no dependencies)
@@ -1533,13 +1526,12 @@
       apply(root.dataset.theme || 'light');
     })();
 
-    /* ---------- Logo intro: cinematic fullscreen video, graceful settle, wings fly into nav logo ---------- */
+    /* ---------- Logo intro: vector wings reveal (Lottie), then glide into the nav logo ---------- */
     (function intro() {
       const box = document.getElementById('intro');
       if (!box) return;
       if (reduce) { box.remove(); return; } /* calm mode: no intro animation */
-      const settle = document.getElementById('introSettle');
-      const vid = document.getElementById('introVideo');
+      const wrap = document.getElementById('lottieWrap');
       const skip = document.getElementById('introSkip');
       document.body.classList.add('intro-lock');
       let done = false;
@@ -1549,41 +1541,43 @@
         document.body.classList.remove('intro-lock');
         setTimeout(() => box.remove(), 900);
       };
-      /* Phase 2+3 (one continuous motion): video dissolves, wings materialise,
-         settle gracefully, then glide into the nav logo — no stops, no jumps */
-      const settleWings = () => {
-        if (done || !settle) { finish(); return; }
+      /* Glide the revealed wings into the nav logo — one smooth motion */
+      const glideToLogo = (el) => {
+        if (done) return;
         const mark = document.querySelector('.logo .mark');
-        if (!mark) { finish(); return; }
-        if (vid) { vid.style.transition = 'opacity .45s ease'; vid.classList.remove('on'); }
-        const sr = settle.getBoundingClientRect();
+        if (!mark || !el) { finish(); return; }
+        const sr = el.getBoundingClientRect();
         const mr = mark.getBoundingClientRect();
         const dx = (mr.left + mr.width / 2) - (sr.left + sr.width / 2);
         const dy = (mr.top + mr.height / 2) - (sr.top + sr.height / 2);
         const s = Math.min(mr.width / sr.width, mr.height / sr.height) || 0.12;
-        settle.style.opacity = '1';
         try {
-          const anim = settle.animate([
-            { transform: 'scale(1.32)', opacity: 0 },
-            { transform: 'scale(1.1)', opacity: 1, offset: 0.32 },
-            { transform: 'scale(1)', opacity: 1, offset: 0.52 },
-            { transform: `translate(${dx * 0.14}px, ${dy * 0.14}px) scale(${1 - (1 - s) * 0.3})`, opacity: 1, offset: 0.68 },
+          const anim = el.animate([
+            { transform: 'translate(0px, 0px) scale(1)', opacity: 1 },
+            { transform: `translate(${dx * 0.12}px, ${dy * 0.12}px) scale(${1 - (1 - s) * 0.25})`, opacity: 1, offset: 0.45 },
             { transform: `translate(${dx}px, ${dy}px) scale(${s})`, opacity: 1 }
-          ], { duration: 2400, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'forwards' });
+          ], { duration: 1600, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'forwards' });
           anim.onfinish = () => setTimeout(finish, 120);
-        } catch (e) { setTimeout(finish, 600); }
+        } catch (e) { setTimeout(finish, 400); }
       };
-      if (vid) {
-        vid.playbackRate = 1.6; /* tighter intro: ~5s of animation */
-        vid.addEventListener('canplay', () => vid.classList.add('on'), { once: true });
-        vid.addEventListener('ended', () => setTimeout(settleWings, 300));
-        vid.addEventListener('error', finish);
-        try { const p = vid.play(); if (p && p.catch) p.catch(() => {}); } catch (e) {}
-        setTimeout(() => vid.classList.add('on'), 1200); /* safety: never stuck invisible */
-      } else { setTimeout(settleWings, 600); }
+      const startLottie = () => {
+        if (done) return;
+        if (typeof lottie === 'undefined') { finish(); return; } /* player failed: skip intro */
+        try {
+          const anim = lottie.loadAnimation({
+            container: wrap, renderer: 'svg', loop: false, autoplay: false,
+            path: 'assets/anim/wings-intro.json'
+          });
+          anim.addEventListener('DOMLoaded', () => { try { anim.play(); } catch (e) {} });
+          anim.addEventListener('complete', () => setTimeout(() => glideToLogo(wrap), 450));
+          anim.addEventListener('data_failed', finish);
+          setTimeout(() => { try { if (anim.isPaused) anim.play(); } catch (e) {} }, 1600);
+        } catch (e) { finish(); }
+      };
+      startLottie();
       if (skip) skip.addEventListener('click', e => { e.stopPropagation(); finish(); });
       box.addEventListener('click', finish);
-      setTimeout(finish, 10000); /* hard fallback: never trap the visitor */
+      setTimeout(finish, 11000); /* hard fallback: never trap the visitor */
     })();
 
     /* ---------- Testimonial carousel (native scroll-snap + controls) ---------- */
