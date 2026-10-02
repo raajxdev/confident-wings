@@ -686,8 +686,10 @@
     /* Logo intro: cinematic black stage — vignette, gold glow, vector wings reveal,
        then the wings glide into the nav logo */
     .intro{position:fixed;inset:0;z-index:2000;display:grid;place-items:center;background:#000;overflow:hidden;
-      transition:opacity .8s ease,visibility .8s}
+      transition:opacity .7s ease,visibility .7s}
     .intro.done{opacity:0;visibility:hidden;pointer-events:none}
+    .intro.done .intro-stage{transform:scale(1.045)}
+    .intro-stage{transition:transform .7s cubic-bezier(.16,1,.3,1)}
     .intro::after{content:"";position:absolute;inset:0;pointer-events:none;
       background:radial-gradient(120% 120% at 50% 42%,transparent 52%,rgba(0,0,0,.62) 100%)}
     .intro-stage{position:absolute;inset:0}
@@ -695,7 +697,7 @@
       background:radial-gradient(circle,rgba(200,162,79,.13),rgba(200,162,79,.04) 45%,transparent 65%);
       animation:introGlow 3.2s ease-in-out infinite;pointer-events:none}
     @keyframes introGlow{0%,100%{opacity:.75;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.07)}}
-    .lottie-wrap{position:absolute;inset:0;margin:auto;width:min(96vmin,720px);height:min(96vmin,720px);will-change:transform}
+    .lottie-wrap{position:absolute;inset:0;margin:auto;width:min(96vmin,720px);height:min(96vmin,720px);will-change:transform,filter}
     .lottie-wrap svg{width:100%!important;height:100%!important;display:block}
     .intro-skip{position:absolute;bottom:1.8rem;right:1.6rem;padding:.62rem 1.35rem;border-radius:999px;
       border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);
@@ -704,6 +706,9 @@
       transition:background-color .3s,border-color .3s}
     .intro-skip:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.4)}
     body.intro-lock{overflow:hidden}
+    /* Main page reveal as the intro lifts */
+    body.page-reveal main{animation:pageReveal .8s cubic-bezier(.16,1,.3,1) both}
+    @keyframes pageReveal{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
     @media (prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}
       *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important}
@@ -1544,10 +1549,12 @@
       const finish = () => {
         if (done) return; done = true;
         box.classList.add('done');
+        document.body.classList.add('page-reveal');
         document.body.classList.remove('intro-lock');
-        setTimeout(() => box.remove(), 900);
+        setTimeout(() => box.remove(), 800);
       };
-      /* Glide the revealed wings into the nav logo — one smooth motion */
+      /* Glide the revealed wings into the nav logo — one smooth motion,
+         with motion blur while it zooms out and shrinks */
       const glideToLogo = (el) => {
         if (done) return;
         const mark = document.querySelector('.logo .mark');
@@ -1559,10 +1566,10 @@
         const s = Math.min(mr.width / sr.width, mr.height / sr.height) || 0.12;
         try {
           const anim = el.animate([
-            { transform: 'translate(0px, 0px) scale(1)', opacity: 1 },
-            { transform: `translate(${dx * 0.12}px, ${dy * 0.12}px) scale(${1 - (1 - s) * 0.25})`, opacity: 1, offset: 0.45 },
-            { transform: `translate(${dx}px, ${dy}px) scale(${s})`, opacity: 1 }
-          ], { duration: 1600, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'forwards' });
+            { transform: 'translate(0px, 0px) scale(1)', filter: 'blur(0px)', opacity: 1 },
+            { transform: `translate(${dx * 0.12}px, ${dy * 0.12}px) scale(${1 - (1 - s) * 0.25})`, filter: 'blur(6px)', opacity: 1, offset: 0.45 },
+            { transform: `translate(${dx}px, ${dy}px) scale(${s})`, filter: 'blur(0px)', opacity: 1 }
+          ], { duration: 1400, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'forwards' });
           anim.onfinish = () => setTimeout(finish, 120);
         } catch (e) { setTimeout(finish, 400); }
       };
@@ -1574,8 +1581,8 @@
             container: wrap, renderer: 'svg', loop: false, autoplay: false,
             path: 'assets/anim/wings-intro-v2.json'
           });
-          anim.addEventListener('DOMLoaded', () => { try { anim.play(); } catch (e) {} });
-          anim.addEventListener('complete', () => setTimeout(() => glideToLogo(wrap), 450));
+          anim.addEventListener('DOMLoaded', () => { try { anim.setSpeed(1.15); anim.play(); } catch (e) {} });
+          anim.addEventListener('complete', () => setTimeout(() => glideToLogo(wrap), 350));
           anim.addEventListener('data_failed', finish);
           setTimeout(() => { try { if (anim.isPaused) anim.play(); } catch (e) {} }, 1600);
         } catch (e) { finish(); }
