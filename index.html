@@ -31,15 +31,18 @@
   <!-- ============ SEO ============ -->
   <title>Confident Wings | Spoken English &amp; Public Speaking Institute</title>
   <meta name="description" content="Small-batch spoken English, public speaking, interview prep, kids and corporate training. Live practice, personal feedback and certification. Book a free demo class.">
-  <meta name="theme-color" content="#FAF7F2">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FAF7F2">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#090D12">
   <script>
     /* Set theme before paint: stored choice, else system preference */
     try {
       var t = localStorage.getItem('cw-theme');
       if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       document.documentElement.dataset.theme = t;
-      var mc = document.querySelector('meta[name="theme-color"]');
-      if (mc) mc.setAttribute('content', t === 'dark' ? '#0B1712' : '#FAF7F2');
+      document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) {
+        m.removeAttribute('media');
+        m.setAttribute('content', t === 'dark' ? '#090D12' : '#FAF7F2');
+      });
     } catch (e) { document.documentElement.dataset.theme = 'light'; }
   </script>
   <link rel="canonical" href="https://raajxdev.github.io/confident-wings/">
@@ -1552,7 +1555,10 @@
       const apply = t => {
         root.dataset.theme = t;
         try { localStorage.setItem('cw-theme', t); } catch (e) {}
-        if (meta) meta.setAttribute('content', t === 'dark' ? '#0B1712' : '#FAF7F2');
+        document.querySelectorAll('meta[name="theme-color"]').forEach(m => {
+          m.removeAttribute('media');
+          m.setAttribute('content', t === 'dark' ? '#090D12' : '#FAF7F2');
+        });
         if (btn) btn.setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
       };
       if (btn) btn.addEventListener('click', () => apply(root.dataset.theme === 'dark' ? 'light' : 'dark'));
