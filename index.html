@@ -705,9 +705,13 @@
     .intro::after{content:"";position:absolute;inset:0;pointer-events:none;
       background:radial-gradient(120% 120% at 50% 42%,transparent 52%,rgba(0,0,0,.62) 100%)}
     .intro-stage{position:absolute;inset:0}
-    .intro-accent{position:absolute;right:-20%;bottom:-22%;width:135vmin;height:135vmin;pointer-events:none;opacity:0;
-      background:radial-gradient(circle,rgba(47,163,199,.48),rgba(47,163,199,.20) 45%,transparent 72%);
-      filter:blur(18px);will-change:opacity,transform}
+    .intro-accent{position:absolute;right:-20%;bottom:-24%;width:140vmin;height:140vmin;pointer-events:none;opacity:0;
+      border-radius:58% 42% 55% 45% / 52% 60% 40% 48%;
+      background:radial-gradient(circle at 42% 40%,rgba(47,163,199,.48),rgba(47,163,199,.20) 45%,transparent 72%);
+      filter:blur(20px);will-change:opacity,transform}
+    /* Page content starts blurred during the intro, then focuses into view */
+    main,.nav,footer{transition:filter 1.5s cubic-bezier(.16,1,.3,1)}
+    body.intro-blur main,body.intro-blur .nav,body.intro-blur footer{filter:blur(14px)}
     .lottie-wrap{position:absolute;inset:0;margin:auto;width:min(96vmin,720px);height:min(96vmin,720px);will-change:transform,filter}
     .lottie-wrap svg{width:100%!important;height:100%!important;display:block}
     .intro-skip{position:absolute;bottom:1.8rem;right:1.6rem;padding:.62rem 1.35rem;border-radius:999px;
@@ -1556,9 +1560,11 @@
       const wrap = document.getElementById('lottieWrap');
       const skip = document.getElementById('introSkip');
       document.body.classList.add('intro-lock');
+      document.body.classList.add('intro-blur'); /* page starts soft, focuses in at reveal */
       let done = false;
       const finish = () => {
         if (done) return; done = true;
+        document.body.classList.remove('intro-blur'); /* content sharpens as overlay lifts */
         box.classList.add('done');
         document.body.classList.add('page-reveal');
         document.body.classList.remove('intro-lock');
@@ -1571,10 +1577,10 @@
         const accent = document.getElementById('introAccent');
         if (accent) try {
           accent.animate([
-            { opacity: 0, transform: 'translate(5%, 5%) scale(.94)' },
-            { opacity: 1, transform: 'translate(0, 0) scale(1)', offset: .38 },
-            { opacity: 0, transform: 'translate(-5%, -5%) scale(1.06)' }
-          ], { duration: 1700, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'forwards' });
+            { opacity: 0, transform: 'translate(9%, 9%) scale(.5) rotate(0deg)' },
+            { opacity: 1, transform: 'translate(2%, 2%) scale(.88) rotate(3deg)', offset: .42 },
+            { opacity: 0, transform: 'translate(-4%, -4%) scale(1.3) rotate(6deg)' }
+          ], { duration: 1800, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'forwards' });
         } catch (e) {}
         const mark = document.querySelector('.logo .mark');
         if (!mark || !el) { finish(); return; }
