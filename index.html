@@ -277,7 +277,7 @@
     .nav.scrolled{background:rgba(250,247,242,.92);box-shadow:0 12px 32px -20px rgba(31,42,35,.35)}
     .nav-in{height:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem}
     .logo{display:flex;align-items:center;gap:.65rem;text-decoration:none;color:var(--pine-deep);font:600 1.32rem var(--font-head);white-space:nowrap;letter-spacing:-.01em;flex-shrink:1;min-width:0}
-    .logo .wordmark{font-family:'Sora',var(--font-body);font-weight:700;font-size:1.08rem;letter-spacing:.01em;background:linear-gradient(115deg,var(--pine-deep) 20%,var(--marine-deep) 90%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+    .logo .wordmark{font-family:'Sora',var(--font-body);font-weight:700;font-size:clamp(1.02rem,5.2vw,1.35rem);letter-spacing:.01em;background:linear-gradient(115deg,var(--pine-deep) 20%,var(--marine-deep) 90%);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
     [data-theme="dark"] .logo .wordmark{background:linear-gradient(115deg,#F2EEE1 20%,#9FD3E8 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
     .logo .mark{position:relative;width:3.4rem;height:2.2rem;border-radius:11px;background:#0A1C30;display:grid;place-items:center;overflow:hidden;flex:none;border:1px solid rgba(233,161,59,.5);box-shadow:0 6px 16px -8px rgba(10,28,48,.5),inset 0 1px 1px rgba(233,161,59,.25)}
     .logo .mark img{width:100%;height:100%;object-fit:contain;display:block}
@@ -286,8 +286,7 @@
     .foot-logo{display:block;width:100%;max-width:250px;border-radius:14px;margin-bottom:1rem}
     @media (max-width:430px){
       .logo{gap:.55rem}
-      .logo .wordmark{font-size:.98rem}
-      .logo .mark{width:2.9rem;height:1.9rem;border-radius:9px}
+      .logo .mark{width:2.7rem;height:1.75rem;border-radius:9px}
       .theme-btn{width:2.5rem;height:2.5rem}
     }
     .logo .mark .ico{width:1.25rem;height:1.25rem}
