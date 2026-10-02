@@ -9,8 +9,8 @@
   2. GALLERY VIDEOS: now using three local clips (assets/videos/) supplied by
      Raaj. Swap in better/longer clips any time by replacing the .mp4 files.
   3. EMAIL hello@confidentwings.in — confirm it actually receives mail.
-  4. PRICES ARE UNVERIFIED: Foundation ₹5,999 / Confidence Pro ₹11,999 /
-     1:1 Mentor ₹24,999. Confirm with Sir before publishing.
+  4. PRICES ARE UNVERIFIED: Foundation ₹4,999 / Confidence Pro ₹9,999 /
+     1:1 Mentor ₹19,999. Confirm with Sir before publishing.
   5. UNVERIFIED CLAIMS: "12,500+ learners trained", testimonial
      names/identities, "100K+ followers" wording, and the
      certification promises. Verify before launch.
@@ -639,13 +639,14 @@
     /* =====================================================
        21. REDUCED MOTION
        ===================================================== */
-    /* Logo intro: black backdrop, wings video (screen blend), then zoom into nav logo */
+    /* Logo intro: black backdrop, fullscreen video, then wings fly into the nav logo */
     .intro{position:fixed;inset:0;z-index:2000;display:grid;place-items:center;background:#000;
       transition:opacity .7s ease,visibility .7s}
     .intro.done{opacity:0;visibility:hidden;pointer-events:none}
-    .intro-stage{position:relative;width:min(80vw,380px);aspect-ratio:16/10;will-change:transform}
-    .intro-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:screen;transition:opacity .45s ease}
-    .intro-wings{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .45s ease}
+    .intro-stage{position:absolute;inset:0}
+    .intro-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:screen;transition:opacity .35s ease}
+    .intro-settle{position:absolute;inset:0;margin:auto;width:min(80vw,380px);aspect-ratio:16/10;opacity:0;transition:opacity .35s ease;will-change:transform}
+    .intro-wings{width:100%;height:100%;object-fit:cover;display:block}
     .intro-skip{position:absolute;bottom:1.6rem;right:1.4rem;padding:.55rem 1.2rem;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:#EAF2F8;font:600 .85rem var(--font-body);letter-spacing:.08em;cursor:pointer}
     body.intro-lock{overflow:hidden}
     @media (prefers-reduced-motion:reduce){
@@ -657,13 +658,13 @@
   </style>
 
 <body>
-  <!-- LOGO INTRO: wings animate over frosted glass, then fly into the nav logo -->
+  <!-- LOGO INTRO: fullscreen wings animation, then wings fly into the nav logo -->
   <div class="intro" id="intro" aria-hidden="true">
     <div class="intro-stage" id="introStage">
       <video class="intro-video" id="introVideo" muted playsinline preload="auto" poster="assets/videos/poster-logo.jpg" disablepictureinpicture>
         <source src="assets/videos/logo-intro.mp4" type="video/mp4">
       </video>
-      <img class="intro-wings" id="introWings" src="assets/img/wings-still.png" alt="">
+      <div class="intro-settle" id="introSettle"><img class="intro-wings" src="assets/img/wings-still.png" alt=""></div>
     </div>
     <button class="intro-skip" id="introSkip" type="button" tabindex="-1">Skip</button>
   </div>
@@ -1069,7 +1070,7 @@
           <article class="plan reveal">
             <h3>Foundation</h3>
             <p class="for">For steady, everyday fluency</p>
-            <p class="price">₹5,999 <small>/ 6 weeks</small></p>
+            <p class="price">₹4,999 <small>/ 6 weeks</small></p>
             <ul>
               <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>2 live classes a week</li>
               <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Batch of up to 10 learners</li>
@@ -1083,7 +1084,7 @@
             <span class="pop-flag"><svg class="ico ico--fill" aria-hidden="true"><use href="#i-star"/></svg>Most popular</span>
             <h3>Confidence Pro</h3>
             <p class="for">For visible, lasting change</p>
-            <p class="price">₹11,999 <small>/ 12 weeks</small></p>
+            <p class="price">₹9,999 <small>/ 12 weeks</small></p>
             <ul>
               <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>3 live classes a week</li>
               <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Small batch of 8 learners</li>
@@ -1097,7 +1098,7 @@
           <article class="plan reveal">
             <h3>1:1 Mentor</h3>
             <p class="for">For fast, focused results</p>
-            <p class="price">₹24,999 <small>/ 12 weeks</small></p>
+            <p class="price">₹19,999 <small>/ 12 weeks</small></p>
             <ul>
               <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Private sessions, your schedule</li>
               <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Plan built around your goal</li>
@@ -1460,14 +1461,13 @@
       apply(root.dataset.theme || 'light');
     })();
 
-    /* ---------- Logo intro: video over frosted glass, then wings fly into the nav logo ---------- */
+    /* ---------- Logo intro: fullscreen video, then wings fly into the nav logo ---------- */
     (function intro() {
       const box = document.getElementById('intro');
       if (!box) return;
       if (reduce) { box.remove(); return; } /* calm mode: no intro animation */
-      const stage = document.getElementById('introStage');
+      const settle = document.getElementById('introSettle');
       const vid = document.getElementById('introVideo');
-      const wings = document.getElementById('introWings');
       const skip = document.getElementById('introSkip');
       document.body.classList.add('intro-lock');
       let done = false;
@@ -1480,27 +1480,28 @@
       const zoomToLogo = () => {
         if (done) return;
         const mark = document.querySelector('.logo .mark');
-        if (!mark || !stage) { finish(); return; }
+        if (!mark || !settle) { finish(); return; }
         if (vid) vid.style.opacity = '0';
-        if (wings) wings.style.opacity = '1';
-        const sr = stage.getBoundingClientRect();
+        settle.style.opacity = '1';
+        const sr = settle.getBoundingClientRect();
         const mr = mark.getBoundingClientRect();
         const dx = (mr.left + mr.width / 2) - (sr.left + sr.width / 2);
         const dy = (mr.top + mr.height / 2) - (sr.top + sr.height / 2);
         const s = Math.min(mr.width / sr.width, mr.height / sr.height) || 0.12;
-        void stage.offsetWidth; /* reflow so the transition runs */
-        stage.style.transition = 'transform .9s cubic-bezier(.22,.8,.24,1)';
-        stage.style.transform = `translate(${dx}px, ${dy}px) scale(${s})`;
+        void settle.offsetWidth; /* reflow so the transition runs */
+        settle.style.transition = 'transform .9s cubic-bezier(.22,.8,.24,1)';
+        settle.style.transform = `translate(${dx}px, ${dy}px) scale(${s})`;
         setTimeout(finish, 950);
       };
       if (vid) {
+        vid.playbackRate = 1.6; /* shorter intro: ~5s instead of 8s */
         vid.addEventListener('ended', () => setTimeout(zoomToLogo, 350));
         vid.addEventListener('error', finish);
         try { const p = vid.play(); if (p && p.catch) p.catch(() => {}); } catch (e) {}
       } else { setTimeout(zoomToLogo, 600); }
       if (skip) skip.addEventListener('click', e => { e.stopPropagation(); finish(); });
       box.addEventListener('click', finish);
-      setTimeout(finish, 12000); /* hard fallback: never trap the visitor */
+      setTimeout(finish, 9000); /* hard fallback: never trap the visitor */
     })();
 
     /* ---------- Testimonial carousel (native scroll-snap + controls) ---------- */
