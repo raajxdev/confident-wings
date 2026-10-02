@@ -6,16 +6,17 @@
   1. TIMETABLE TIMES are placeholders. The #schedule table shows sample slots
      (marked "Sample schedule" on the page). Replace with Sir's real batch
      timings.
-  2. YOUTUBE VIDEO IDS: the three gallery tiles use data-video="VIDEO_ID_1",
-     VIDEO_ID_2, VIDEO_ID_3. Replace with the real YouTube video IDs.
+  2. GALLERY VIDEOS: now using three local clips (assets/videos/) supplied by
+     Raaj. Swap in better/longer clips any time by replacing the .mp4 files.
   3. EMAIL hello@confidentwings.in — confirm it actually receives mail.
   4. PRICES ARE UNVERIFIED: Foundation ₹5,999 / Confidence Pro ₹11,999 /
      1:1 Mentor ₹24,999. Confirm with Sir before publishing.
   5. UNVERIFIED CLAIMS: "8,500+ students trained", "96% learners reach their
      goal", testimonial names/identities, "100K+ followers" wording, and the
      certification promises. Verify before launch.
-  6. COACH PHOTO is an abstract SVG placeholder — replace with a real photo
-     of Susanta Mondal.
+  6. COACH PHOTO: now Sir's real portrait (assets/img/sir.jpg). NOTE — his
+     banner spells the name "Sushanta Mondal" but the site says
+     "Susanta Mondal". Confirm the correct spelling.
   7. SOCIAL LINKS: Instagram, YouTube and LinkedIn still point to generic
      homepages — replace with Sir's real profile URLs.
   8. GOOGLE MAPS embed is a generic "Bhyabla Station, Basirhat" query —
@@ -53,6 +54,7 @@
     "name": "Confident Wings",
     "description": "Spoken English and public speaking institute",
     "url": "https://raajxdev.github.io/confident-wings/",
+    "logo": "https://raajxdev.github.io/confident-wings/assets/img/logo-full.jpg",
     "telephone": "+91-80014-19550",
     "email": "hello@confidentwings.in",
     "address": {
@@ -133,6 +135,8 @@
       --terra-deep:#9A3E1E;
       --terra-soft:#F7E3D4;
       --amber:#E9A13B;
+      --marine:#146B8A;
+      --marine-deep:#0E5468;
       --line:#E6DCC7;
       --wa:#128C7E;
 
@@ -216,7 +220,9 @@
     .nav.scrolled{background:rgba(250,247,242,.92);box-shadow:0 12px 32px -20px rgba(31,42,35,.35)}
     .nav-in{height:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem}
     .logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--pine-deep);font:600 1.32rem var(--font-head)}
-    .logo .mark{width:2rem;height:2rem;border-radius:12px;background:var(--pine);color:var(--terra-soft);display:grid;place-items:center}
+    .logo .mark{width:2rem;height:2rem;border-radius:12px;background:var(--pine);color:var(--terra-soft);display:grid;place-items:center;overflow:hidden}
+    .logo .mark img{width:100%;height:100%;object-fit:cover;display:block}
+    .foot-logo{display:block;width:100%;max-width:250px;border-radius:14px;margin-bottom:1rem}
     .logo .mark .ico{width:1.25rem;height:1.25rem}
     .nav-links{display:none;gap:1.6rem;align-items:center}
     .nav-links a{color:var(--ink-soft);text-decoration:none;font-size:.94rem;font-weight:500;position:relative;padding:.3rem 0}
@@ -273,7 +279,7 @@
     /* =====================================================
        6. MARQUEE STRIP
        ===================================================== */
-    .marquee{background:var(--pine);color:#F3EFE2;overflow:hidden;padding:1rem 0;border-block:1px solid var(--pine-deep)}
+    .marquee{background:linear-gradient(90deg,var(--marine-deep),var(--marine));color:#F3EFE2;overflow:hidden;padding:1rem 0;border-block:1px solid var(--marine-deep)}
     .marquee-track{display:flex;gap:3rem;width:max-content;animation:scrollx 30s linear infinite;font:600 .95rem var(--font-body);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
     .marquee-track span{display:flex;align-items:center;gap:3rem}
     .marquee-track .sep{color:var(--amber)}
@@ -365,7 +371,7 @@
        ===================================================== */
     .coach{display:grid;gap:0;background:var(--card);border:1px solid var(--line);border-radius:calc(var(--r-card) + 6px);overflow:hidden;box-shadow:var(--shadow-1);max-width:920px;margin-inline:auto}
     .coach .ph{background:linear-gradient(135deg,var(--pine) 0%,var(--pine-deep) 100%);min-height:300px;position:relative;overflow:hidden}
-    .coach .ph svg{width:100%;height:100%;position:absolute;inset:0}
+    .coach .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center}
     .coach .body{padding:2.4rem 2.1rem}
     .coach .role{color:var(--terra);font-weight:700;font-size:.92rem;letter-spacing:.08em;text-transform:uppercase;margin-top:.4rem}
     .coach .body>p{margin-top:1rem;color:var(--muted)}
@@ -407,20 +413,17 @@
       .videos{grid-template-columns:1.5fr 1fr;grid-template-rows:1fr 1fr}
       .video:first-child{grid-row:span 2}
     }
-    .video{position:relative;display:flex;align-items:flex-end;min-height:230px;border-radius:var(--r-card);overflow:hidden;border:1px solid rgba(253,251,246,.14);padding:0;text-align:left;cursor:pointer;color:#FDFBF6;background:linear-gradient(135deg,#17493A,#0C2C22);isolation:isolate;font:inherit;transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+    .video{position:relative;display:flex;align-items:flex-end;min-height:280px;border-radius:var(--r-card);overflow:hidden;border:1px solid rgba(253,251,246,.14);padding:0;margin:0;text-align:left;color:#FDFBF6;background:#0C2C22;isolation:isolate;font:inherit}
+    .video video{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;background:#0C2C22}
     .video:hover{transform:translateY(-6px);box-shadow:0 26px 50px -20px rgba(0,0,0,.5)}
-    .video::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(60% 70% at 80% 18%,rgba(233,161,59,.28),transparent 70%),linear-gradient(to top,rgba(8,24,18,.88),transparent 62%)}
-    .video .cap{padding:1.4rem 1.5rem;max-width:26em}
+    .video::after{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(60% 70% at 80% 18%,rgba(233,161,59,.28),transparent 70%),linear-gradient(to top,rgba(8,24,18,.88),transparent 62%);pointer-events:none}
+    .video .cap{position:relative;z-index:2;padding:1.4rem 1.5rem;max-width:26em}
     .video .cap b{display:block;font:600 1.25rem var(--font-head)}
     .video .cap span{font-size:.92rem;color:#B9C7B9}
-    .play{position:absolute;top:50%;left:50%;width:4.2rem;height:4.2rem;margin:-2.1rem 0 0 -2.1rem;border-radius:50%;background:var(--terra);color:#fff;display:grid;place-items:center;box-shadow:0 0 0 0 rgba(192,83,44,.5);transition:transform .35s var(--ease)}
+    .play{position:absolute;top:50%;left:50%;width:4.2rem;height:4.2rem;margin:-2.1rem 0 0 -2.1rem;border-radius:50%;background:var(--marine);color:#fff;display:grid;place-items:center;box-shadow:0 0 0 0 rgba(20,107,138,.5);transition:transform .35s var(--ease)}
     .play .ico{width:1.6rem;height:1.6rem;margin-left:.2rem}
     .video:hover .play{transform:scale(1.12)}
     .video:active .play{transform:scale(.96)}
-    dialog.vmodal{width:min(900px,94vw);padding:0;border:0;border-radius:var(--r-card);background:#0C2C22;overflow:hidden;color:#FDFBF6}
-    dialog.vmodal::backdrop{background:rgba(12,44,34,.75);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
-    .vframe{aspect-ratio:16/9;display:grid;place-items:center;text-align:center;padding:1.5rem}
-    .vframe iframe{width:100%;height:100%;border:0}
     .vclose{position:absolute;top:.7rem;right:.7rem;z-index:2;width:2.6rem;height:2.6rem;border-radius:50%;border:0;background:rgba(250,247,242,.16);color:#fff;cursor:pointer;display:grid;place-items:center}
 
     /* =====================================================
@@ -447,7 +450,7 @@
     .plan--pop li .ico{color:var(--amber)}
     .plan .btn{margin-top:auto}
     .batch-note{margin-top:2.2rem;text-align:center;color:var(--muted);font-size:.97rem}
-    .sample-pill{display:inline-flex;align-items:center;gap:.45rem;font:600 .8rem var(--font-body);letter-spacing:.06em;color:var(--terra-deep);background:var(--terra-soft);border:1px dashed var(--terra);border-radius:999px;padding:.45rem 1rem;margin-top:1.1rem}
+    .sample-pill{display:inline-flex;align-items:center;gap:.45rem;font:600 .8rem var(--font-body);letter-spacing:.06em;color:var(--marine-deep);background:#E2F0F6;border:1px dashed var(--marine);border-radius:999px;padding:.45rem 1rem;margin-top:1.1rem}
 
     /* =====================================================
        16. SCHEDULE TABLE
@@ -594,7 +597,7 @@
   <nav class="nav" id="nav" aria-label="Primary">
     <div class="wrap nav-in">
       <a class="logo" href="#top" aria-label="Confident Wings, home">
-        <span class="mark"><svg class="ico ico--fill" aria-hidden="true"><use href="#i-leaf"/></svg></span>
+        <span class="mark"><img src="assets/img/logo-emblem.png" alt=""></span>
         Confident Wings
       </a>
       <div class="nav-links">
@@ -665,7 +668,7 @@
               </g>
             </g>
           </svg>
-          <div class="chip chip--a"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg>Max 10 per batch</div>
+          <div class="chip chip--a"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg>Small, focused batches</div>
           <div class="chip chip--b"><svg class="ico" aria-hidden="true"><use href="#i-award"/></svg>14 years of coaching</div>
         </div>
       </div>
@@ -709,7 +712,7 @@
           <footer>Susanta Mondal, founder</footer>
           <div class="facts">
             <div><b>2012</b><span>Year we opened</span></div>
-            <div><b>10</b><span>Max learners per batch</span></div>
+            <div><b>1:1</b><span>Personal feedback every session</span></div>
             <div><b>5</b><span>Courses offered</span></div>
           </div>
         </aside>
@@ -802,7 +805,7 @@
             <span class="n">01</span>
             <svg class="ico" aria-hidden="true"><use href="#i-users"/></svg>
             <h3>Small batches</h3>
-            <p>No more than 10 learners, so you speak in every class and your coach knows your name and your goals.</p>
+            <p>Small batches, so you speak in every class — your coach knows your name and your goals.</p>
           </div>
           <div class="why reveal">
             <span class="n">02</span>
@@ -853,17 +856,7 @@
         </div>
         <article class="coach reveal">
           <div class="ph">
-            <!-- TODO: replace this placeholder artwork with a real photo of Susanta Mondal -->
-            <svg viewBox="0 0 400 480" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Portrait placeholder for Susanta Mondal">
-              <defs>
-                <linearGradient id="phg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#17493A"/><stop offset="1" stop-color="#0C2C22"/></linearGradient>
-              </defs>
-              <rect width="400" height="480" fill="url(#phg)"/>
-              <circle cx="320" cy="90" r="120" fill="#C0532C" opacity=".22"/>
-              <circle cx="200" cy="180" r="70" fill="#E9A13B" opacity=".85"/>
-              <path d="M60 480c0-94 62-154 140-154s140 60 140 154z" fill="#E9A13B" opacity=".85"/>
-              <path d="M40 60q20-16 40 0q20-16 40 0" stroke="#FAF7F2" stroke-width="4" fill="none" stroke-linecap="round" opacity=".5"/>
-            </svg>
+            <img src="assets/img/sir.jpg" alt="Susanta Mondal, founder and head trainer of Confident Wings">
           </div>
           <div class="body">
             <h3>Susanta Mondal</h3>
@@ -921,29 +914,30 @@
         <div class="sec-head reveal">
           <p class="eyebrow">07 · On stage</p>
           <h2 id="gallery-title">Watch our learners take the <em>stage</em></h2>
-          <p class="lead">Short clips from our monthly open mic nights, filmed with permission.</p>
+          <p class="lead">Real clips from our classrooms — online and offline, filmed with permission.</p>
         </div>
         <div class="videos" data-stagger>
-          <button class="video reveal" type="button" data-video="VIDEO_ID_1" data-title="Open mic night highlights">
-            <span class="play" aria-hidden="true"><svg class="ico"><use href="#i-play"/></svg></span>
-            <span class="cap"><b>Open mic night highlights</b><span>Twelve first-time speakers, one evening</span></span>
-          </button>
-          <button class="video reveal" type="button" data-video="VIDEO_ID_2" data-title="Riya's first keynote">
-            <span class="play" aria-hidden="true"><svg class="ico"><use href="#i-play"/></svg></span>
-            <span class="cap"><b>Riya's first keynote</b><span>Public Speaking, batch 14</span></span>
-          </button>
-          <button class="video reveal" type="button" data-video="VIDEO_ID_3" data-title="Junior elocution finals">
-            <span class="play" aria-hidden="true"><svg class="ico"><use href="#i-play"/></svg></span>
-            <span class="cap"><b>Junior elocution finals</b><span>Kids and Teens showcase</span></span>
-          </button>
+          <figure class="video reveal">
+            <video controls preload="metadata" playsinline poster="assets/videos/poster-conversation.jpg">
+              <source src="assets/videos/student-conversation.mp4" type="video/mp4">
+            </video>
+            <figcaption class="cap"><b>Student conversation practice</b><span>Two learners discuss exam prep — in English</span></figcaption>
+          </figure>
+          <figure class="video reveal">
+            <video controls preload="metadata" playsinline poster="assets/videos/poster-online.jpg">
+              <source src="assets/videos/online-class.mp4" type="video/mp4">
+            </video>
+            <figcaption class="cap"><b>Live online class</b><span>A real session over video call</span></figcaption>
+          </figure>
+          <figure class="video reveal">
+            <video controls preload="metadata" playsinline poster="assets/videos/poster-classroom.jpg">
+              <source src="assets/videos/classroom-practice.mp4" type="video/mp4">
+            </video>
+            <figcaption class="cap"><b>Speaking practice, live</b><span>Sir with a young learner in class</span></figcaption>
+          </figure>
         </div>
       </div>
     </section>
-
-    <dialog class="vmodal" id="vmodal" aria-label="Video player">
-      <button class="vclose" id="vclose" type="button" aria-label="Close video"><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg></button>
-      <div class="vframe" id="vframe"></div>
-    </dialog>
 
     <!-- PRICING -->
     <section class="sec sec--white" id="pricing" aria-labelledby="pricing-title">
@@ -1181,8 +1175,7 @@
       <div class="foot-grid">
         <div>
           <a class="logo" href="#top" aria-label="Confident Wings, home">
-            <span class="mark"><svg class="ico ico--fill" aria-hidden="true"><use href="#i-leaf"/></svg></span>
-            Confident Wings
+            <img class="foot-logo" src="assets/img/logo-full.jpg" alt="Confident Wings logo">
           </a>
           <p class="about">Spoken English and public speaking coaching that helps you speak with clarity, courage and calm.</p>
           <div class="social">
@@ -1370,25 +1363,6 @@
       });
       addEventListener('resize', build);
       build();
-    })();
-
-    /* ---------- Video modal (iframe loads only on click, so the page stays fast) ---------- */
-    (function videos() {
-      const dlg = $('#vmodal'), frame = $('#vframe'); let opener = null;
-      $$('[data-video]').forEach(btn => btn.addEventListener('click', () => {
-        opener = btn;
-        const id = btn.dataset.video;
-        if (id.startsWith('VIDEO_ID')) {
-          frame.innerHTML = '<p>Add a YouTube video ID in this tile\'s <code>data-video</code> attribute to play it here.</p>';
-        } else {
-          frame.innerHTML = `<iframe title="${btn.dataset.title}" src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
-        }
-        dlg.showModal();
-      }));
-      const close = () => dlg.close();
-      $('#vclose').addEventListener('click', close);
-      dlg.addEventListener('click', e => { if (e.target === dlg) close(); });
-      dlg.addEventListener('close', () => { frame.innerHTML = ''; if (opener) opener.focus(); });
     })();
 
     /* ---------- FAQ accordion ---------- */
