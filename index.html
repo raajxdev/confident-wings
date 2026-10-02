@@ -697,20 +697,19 @@
        ===================================================== */
     /* Logo intro: cinematic black stage — vignette, gold glow, vector wings reveal,
        then the wings glide into the nav logo */
-    .intro{position:fixed;inset:0;z-index:2000;display:grid;place-items:center;background:#000;overflow:hidden;
+    .intro{position:fixed;inset:0;z-index:2000;display:grid;place-items:center;overflow:hidden;
       transition:opacity .7s ease,visibility .7s}
+    .intro-bg{position:absolute;inset:0;background:#000;will-change:mask-image,opacity}
     .intro.done{opacity:0;visibility:hidden;pointer-events:none}
     .intro.done .intro-stage{transform:scale(1.045)}
     .intro-stage{transition:transform .7s cubic-bezier(.16,1,.3,1)}
-    .intro::after{content:"";position:absolute;inset:0;pointer-events:none;
-      background:radial-gradient(120% 120% at 50% 42%,transparent 52%,rgba(0,0,0,.62) 100%)}
     .intro-stage{position:absolute;inset:0}
     .intro-accent{position:absolute;right:-20%;bottom:-24%;width:140vmin;height:140vmin;pointer-events:none;opacity:0;
       border-radius:58% 42% 55% 45% / 52% 60% 40% 48%;
       background:radial-gradient(circle at 42% 40%,rgba(47,163,199,.48),rgba(47,163,199,.20) 45%,transparent 72%);
       filter:blur(20px);will-change:opacity,transform}
     /* Page content starts blurred during the intro, then focuses into view */
-    main,.nav,footer{transition:filter 1.5s cubic-bezier(.16,1,.3,1)}
+    main,.nav,footer{transition:filter 1.25s cubic-bezier(.16,1,.3,1)}
     body.intro-blur main,body.intro-blur .nav,body.intro-blur footer{filter:blur(14px)}
     .lottie-wrap{position:absolute;inset:0;margin:auto;width:min(96vmin,720px);height:min(96vmin,720px);will-change:transform,filter}
     .lottie-wrap svg{width:100%!important;height:100%!important;display:block}
@@ -735,6 +734,7 @@
 <body>
   <!-- LOGO INTRO: vector wings reveal (Lottie), then glide into the nav logo -->
   <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-bg" id="introBg" aria-hidden="true"></div>
     <div class="intro-stage" id="introStage">
       <div class="intro-accent" id="introAccent" aria-hidden="true"></div>
       <div class="lottie-wrap" id="lottieWrap" aria-hidden="true"></div>
@@ -1570,20 +1570,44 @@
         document.body.classList.remove('intro-lock');
         setTimeout(() => box.remove(), 800);
       };
-      /* Glide the revealed wings into the nav logo — one smooth motion,
-         with motion blur while it zooms out and shrinks */
+      /* One continuous cinematic transition: the wings zoom out to the nav logo
+         WHILE the black stage wipes away from the bottom-right and the page
+         sharpens into focus underneath. All start on the same frame. */
       const glideToLogo = (el) => {
-        if (done) return;
+        if (done) return; done = true;
+        const DUR = 1200;
+        const ease = 'cubic-bezier(.16,1,.3,1)';
+        box.style.pointerEvents = 'none';
+        if (skip) skip.style.display = 'none';
+        /* 1) page begins sharpening right now (blur -> focus, 1.25s) */
+        document.body.classList.remove('intro-blur');
+        /* 2) black stage wipes away from the bottom-right corner */
+        const bg = document.getElementById('introBg');
+        if (bg) try {
+          const m0 = 'radial-gradient(circle at 100% 100%, transparent 0%, #000 22%)';
+          const m1 = 'radial-gradient(circle at 100% 100%, transparent 155%, #000 178%)';
+          bg.animate([
+            { webkitMaskImage: m0, maskImage: m0 },
+            { webkitMaskImage: m1, maskImage: m1 }
+          ], { duration: DUR, easing: ease, fill: 'forwards' });
+        } catch (e) { bg.style.transition = 'opacity .5s'; bg.style.opacity = '0'; }
+        /* 3) blue accent blooms from the bottom-right during the reveal */
         const accent = document.getElementById('introAccent');
         if (accent) try {
           accent.animate([
             { opacity: 0, transform: 'translate(9%, 9%) scale(.5) rotate(0deg)' },
             { opacity: 1, transform: 'translate(2%, 2%) scale(.88) rotate(3deg)', offset: .42 },
             { opacity: 0, transform: 'translate(-4%, -4%) scale(1.3) rotate(6deg)' }
-          ], { duration: 1800, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'forwards' });
+          ], { duration: DUR, easing: ease, fill: 'forwards' });
         } catch (e) {}
+        /* 4) wings glide to the nav logo over the same DUR */
         const mark = document.querySelector('.logo .mark');
-        if (!mark || !el) { finish(); return; }
+        const cleanup = () => {
+          document.body.classList.add('page-reveal');
+          document.body.classList.remove('intro-lock');
+          box.remove();
+        };
+        if (!mark || !el) { setTimeout(cleanup, DUR); return; }
         const sr = el.getBoundingClientRect();
         const mr = mark.getBoundingClientRect();
         const dx = (mr.left + mr.width / 2) - (sr.left + sr.width / 2);
@@ -1592,11 +1616,15 @@
         try {
           const anim = el.animate([
             { transform: 'translate(0px, 0px) scale(1)', filter: 'blur(0px)', opacity: 1 },
-            { transform: `translate(${dx * 0.12}px, ${dy * 0.12}px) scale(${1 - (1 - s) * 0.25})`, filter: 'blur(6px)', opacity: 1, offset: 0.45 },
+            { transform: `translate(${dx * 0.12}px, ${dy * 0.12}px) scale(${1 - (1 - s) * 0.25})`, filter: 'blur(5px)', opacity: 1, offset: 0.45 },
             { transform: `translate(${dx}px, ${dy}px) scale(${s})`, filter: 'blur(0px)', opacity: 1 }
-          ], { duration: 1400, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'forwards' });
-          anim.onfinish = () => setTimeout(finish, 120);
-        } catch (e) { setTimeout(finish, 400); }
+          ], { duration: DUR, easing: ease, fill: 'forwards' });
+          /* crossfade the flying wings into the real nav logo at the very end */
+          setTimeout(() => { try {
+            box.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 260, easing: 'ease', fill: 'forwards' });
+          } catch (e) {} }, DUR - 260);
+          anim.onfinish = cleanup;
+        } catch (e) { setTimeout(cleanup, DUR); }
       };
       const startLottie = () => {
         if (done) return;
@@ -1607,7 +1635,7 @@
             path: 'assets/anim/wings-intro-v2.json'
           });
           anim.addEventListener('DOMLoaded', () => { try { anim.setSpeed(1.15); anim.play(); } catch (e) {} });
-          anim.addEventListener('complete', () => setTimeout(() => glideToLogo(wrap), 350));
+          anim.addEventListener('complete', () => glideToLogo(wrap)); /* no pause: glide starts the instant the emblem lands */
           anim.addEventListener('data_failed', finish);
           setTimeout(() => { try { if (anim.isPaused) anim.play(); } catch (e) {} }, 1600);
         } catch (e) { finish(); }
