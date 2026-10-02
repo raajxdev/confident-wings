@@ -1,0 +1,57 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Lottie debug</title></head>
+<body style="background:#111;color:#eee;font-family:monospace;padding:20px">
+<h2>Lottie diagnostics</h2>
+<div id="log" style="white-space:pre-wrap"></div>
+<div style="display:flex;gap:20px;margin-top:20px">
+  <div><h3>A: mini circle (inline data)</h3><div id="boxA" style="width:300px;height:300px;background:#000"></div></div>
+  <div><h3>B: wings JSON (via path)</h3><div id="boxB" style="width:300px;height:300px;background:#000"></div></div>
+</div>
+<script src="assets/js/lottie.min.js"></script>
+<script>
+const log = m => { document.getElementById('log').textContent += m + "\n"; };
+log("typeof lottie: " + typeof lottie);
+log("lottie.version: " + (lottie && lottie.version));
+const mini = {"v":"5.7.4","fr":60,"ip":0,"op":120,"w":400,"h":400,"nm":"t","ddd":0,"assets":[],
+"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"c","sr":1,
+"ks":{"o":{"a":0,"k":100},"r":{"a":0,"k":0},"p":{"a":0,"k":[0,0,0]},"a":{"a":0,"k":[0,0,0]},"s":{"a":0,"k":[100,100,100]}},
+"ao":0,"shapes":[
+{"ty":"gr","it":[{"ty":"el","p":{"a":0,"k":[200,200]},"s":{"a":0,"k":[200,200]}},
+{"ty":"fl","c":{"a":0,"k":[1,0,0,1]},"o":{"a":0,"k":100},"r":1,"bm":0}],"nm":"g","np":2,"cix":2,"bm":0,"ix":1},
+{"ty":"tr","o":{"a":0,"k":100},"r":{"a":0,"k":0},"p":{"a":0,"k":[0,0]},"a":{"a":0,"k":[0,0]},"s":{"a":0,"k":[100,100]},"nm":"T"}],
+"ip":0,"op":120,"st":0,"bm":0}],"markers":[]};
+try {
+  const a = lottie.loadAnimation({container:document.getElementById('boxA'),renderer:'svg',loop:true,autoplay:true,animationData:mini});
+  window._a = a;
+  a.addEventListener('DOMLoaded', () => log("A DOMLoaded, totalFrames=" + a.totalFrames));
+  a.addEventListener('data_failed', () => log("A data_failed"));
+} catch(e){ log("A threw: " + e); }
+try {
+  const b = lottie.loadAnimation({container:document.getElementById('boxB'),renderer:'svg',loop:false,autoplay:false,path:'assets/anim/wings-intro.json'});
+  window._b = b;
+  b.addEventListener('DOMLoaded', () => { log("B DOMLoaded, totalFrames=" + b.totalFrames); try{ b.play(); }catch(e){ log("B play threw: "+e); } });
+  b.addEventListener('data_failed', () => log("B data_failed"));
+  b.addEventListener('complete', () => log("B complete"));
+} catch(e){ log("B threw: " + e); }
+setTimeout(() => {
+  try {
+    const a = window._a, b = window._b;
+    log("t+3s A: frame=" + (a&&a.currentFrame) + " paused=" + (a&&a.isPaused) +
+        " svgChildren=" + document.querySelectorAll('#boxA svg g').length);
+    log("t+3s B: frame=" + (b&&b.currentFrame) + " paused=" + (b&&b.isPaused) +
+        " totalFrames=" + (b&&b.totalFrames) +
+        " svgChildren=" + document.querySelectorAll('#boxB svg g').length);
+    log("B svg html len: " + (document.querySelector('#boxB svg')||{outerHTML:''}).outerHTML.length);
+  } catch(e){ log("probe threw: " + e); }
+}, 3000);
+// JSON fetch check
+fetch('assets/anim/wings-intro.json').then(r => {
+  log("JSON fetch: http " + r.status + " len=" + r.headers.get('content-length'));
+  return r.text();
+}).then(t => {
+  log("JSON first chars: " + t.slice(0, 60));
+  try { const j = JSON.parse(t); log("JSON parses, layers=" + j.layers.length + " w=" + j.w + " op=" + j.op); }
+  catch(e){ log("JSON PARSE FAILED: " + e); }
+}).catch(e => log("JSON fetch threw: " + e));
+</script>
+</body></html>
