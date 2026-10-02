@@ -73,7 +73,32 @@
       "addressRegion": "West Bengal",
       "postalCode": "743412",
       "addressCountry": "IN"
-    }
+    },
+    "location": [
+      {
+        "@type": "Place",
+        "name": "Confident Wings — Basirhat",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Near Bhyabla Station",
+          "addressLocality": "Basirhat",
+          "addressRegion": "West Bengal",
+          "postalCode": "743412",
+          "addressCountry": "IN"
+        }
+      },
+      {
+        "@type": "Place",
+        "name": "Confident Wings — Hasnabad",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Near Hasnabad BDO Office",
+          "addressLocality": "Hasnabad",
+          "addressRegion": "West Bengal",
+          "addressCountry": "IN"
+        }
+      }
+    ]
   }
   </script>
   <script type="application/ld+json">
@@ -624,6 +649,10 @@
     .info a:hover{text-decoration:underline}
     .map{border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-1);aspect-ratio:16/8;background:var(--paper-2);border:1px solid var(--line)}
     .map iframe{width:100%;height:100%;border:0}
+    .map-grid{display:grid;gap:1.6rem}
+    @media (min-width:960px){.map-grid{grid-template-columns:1fr 1fr}}
+    .map-label{margin:.7rem .2rem 0;font-size:.92rem;font-weight:600;color:var(--muted)}
+    [data-theme="dark"] .form-card{background:rgba(16,24,35,.72);border:1px solid rgba(237,242,246,.14)}
 
     .wa-float{position:fixed;right:1.1rem;bottom:1.1rem;z-index:90;width:3.7rem;height:3.7rem;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 14px 30px -8px rgba(0,0,0,.45);transition:transform .35s var(--ease)}
     .wa-float:hover{transform:scale(1.1) rotate(-6deg)}
@@ -1281,16 +1310,28 @@
               </form>
             </div>
             <ul class="info" aria-label="Contact details">
-              <li><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><span>Near Bhyabla Station, Basirhat, North 24 Parganas, West Bengal, India, 743412</span></li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><span><strong>Basirhat</strong> — Near Bhyabla Station, Basirhat, North 24 Parganas, West Bengal, India, 743412</span></li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><span><strong>Hasnabad</strong> — Near Hasnabad BDO Office, Hasnabad, North 24 Parganas, West Bengal, India</span></li>
               <li><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><a href="tel:+918001419550">+91 80014 19550</a></li>
               <li><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:hello@confidentwings.in">hello@confidentwings.in</a></li>
               <li><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg><span>Mon to Sun, 8 am to 8 pm</span></li>
             </ul>
           </div>
         </div>
-        <div class="map reveal" style="margin-top:1.6rem">
-          <!-- GOOGLE MAP: replace the src with the "Embed a map" link from Google Maps -->
-          <iframe title="Map showing the Confident Wings institute location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Bhyabla+Station+Basirhat+North+24+Parganas+India&amp;output=embed"></iframe>
+        <div class="map-grid reveal" style="margin-top:1.6rem">
+          <div>
+            <div class="map">
+              <!-- GOOGLE MAP: replace the src with the "Embed a map" link from Google Maps -->
+              <iframe title="Map showing the Confident Wings Basirhat location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Bhyabla+Station+Basirhat+North+24+Parganas+India&amp;output=embed"></iframe>
+            </div>
+            <p class="map-label">Basirhat — near Bhyabla Station</p>
+          </div>
+          <div>
+            <div class="map">
+              <iframe title="Map showing the Confident Wings Hasnabad location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Hasnabad+BDO+Office+Hasnabad+North+24+Parganas+West+Bengal+India&amp;output=embed"></iframe>
+            </div>
+            <p class="map-label">Hasnabad — near BDO Office</p>
+          </div>
         </div>
       </div>
     </section>
@@ -1341,7 +1382,8 @@
         <div>
           <h4>Get in touch</h4>
           <ul>
-            <li>Near Bhyabla Station, Basirhat, West Bengal, India</li>
+            <li><strong>Basirhat:</strong> Near Bhyabla Station, Basirhat, West Bengal, India</li>
+            <li><strong>Hasnabad:</strong> Near Hasnabad BDO Office, Hasnabad, West Bengal, India</li>
             <li><a href="tel:+918001419550">+91 80014 19550</a></li>
             <li><a href="mailto:hello@confidentwings.in">hello@confidentwings.in</a></li>
           </ul>
