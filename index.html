@@ -296,6 +296,11 @@
     .btn--ghostlight:hover{background:rgba(253,251,246,.12);border-color:#FDFBF6}
     .btn--sm{padding:.7rem 1.25rem;font-size:.95rem}
     .coach-social{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin-top:1rem}
+    /* Coach social buttons: brand-colour glyphs, white on filled hover */
+    .coach-social a[href*="facebook.com"] .ico{color:#1877F2}
+    .coach-social a[href*="instagram.com"] .ico{color:#E1306C}
+    .coach-social a[href*="youtube.com"] .ico{color:#FF0000}
+    .coach-social a:hover .ico{color:#fff}
     .btn--icon{padding:.7rem .8rem}
     .btn--block{width:100%}
 
@@ -678,6 +683,13 @@
     .social a{width:2.7rem;height:2.7rem;border-radius:50%;border:1px solid rgba(253,251,246,.28);display:grid;place-items:center;color:#FDFBF6;transition:background-color .3s,color .3s,transform .3s var(--ease)}
     .social a:hover{background:var(--terra);border-color:var(--terra);color:#fff;transform:translateY(-3px)}
     .social a:active{transform:scale(.94)}
+    /* Social brand colours: glyph in brand colour, circle fills on hover */
+    .social a[aria-label="Facebook"]{color:#1877F2;border-color:rgba(24,119,242,.5)}
+    .social a[aria-label="Instagram"]{color:#E1306C;border-color:rgba(225,48,108,.5)}
+    .social a[aria-label="YouTube"]{color:#FF0000;border-color:rgba(255,0,0,.5)}
+    .social a[aria-label="Facebook"]:hover{background:#1877F2;border-color:#1877F2;color:#fff}
+    .social a[aria-label="YouTube"]:hover{background:#FF0000;border-color:#FF0000;color:#fff}
+    .social a[aria-label="Instagram"]:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-color:transparent;color:#fff}
     .copy{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(253,251,246,.14);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem;font-size:.88rem}
 
     /* =====================================================
