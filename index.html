@@ -1,35 +1,58 @@
 <!DOCTYPE html>
+<!--
+  ============================================================================
+  TODO — PLACEHOLDERS TO REPLACE BEFORE PUBLIC LAUNCH
+  ============================================================================
+  1. TIMETABLE TIMES are placeholders. The #schedule table shows sample slots
+     (marked "Sample schedule" on the page). Replace with Sir's real batch
+     timings.
+  2. YOUTUBE VIDEO IDS: the three gallery tiles use data-video="VIDEO_ID_1",
+     VIDEO_ID_2, VIDEO_ID_3. Replace with the real YouTube video IDs.
+  3. EMAIL hello@confidentwings.in — confirm it actually receives mail.
+  4. PRICES ARE UNVERIFIED: Foundation ₹5,999 / Confidence Pro ₹11,999 /
+     1:1 Mentor ₹24,999. Confirm with Sir before publishing.
+  5. UNVERIFIED CLAIMS: "8,500+ students trained", "96% learners reach their
+     goal", testimonial names/identities, "100K+ followers" wording, and the
+     certification promises. Verify before launch.
+  6. COACH PHOTO is an abstract SVG placeholder — replace with a real photo
+     of Susanta Mondal.
+  7. SOCIAL LINKS: Instagram, YouTube and LinkedIn still point to generic
+     homepages — replace with Sir's real profile URLs.
+  8. GOOGLE MAPS embed is a generic "Bhyabla Station, Basirhat" query —
+     replace with the precise "Embed a map" link from Google Maps.
+  ============================================================================
+-->
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>document.documentElement.classList.add('js');</script>
 
-  <!-- ============ SEO (edit title, description, URLs) ============ -->
+  <!-- ============ SEO ============ -->
   <title>Confident Wings | Spoken English &amp; Public Speaking Institute</title>
   <meta name="description" content="Small-batch spoken English, public speaking, interview prep, kids and corporate training. Live practice, personal feedback and certification. Book a free demo class.">
-  <meta name="theme-color" content="#0B1F3A">
-  <link rel="canonical" href="https://souvikn522.github.io/Spoken-English-confident-wings-/">
+  <meta name="theme-color" content="#FAF7F2">
+  <link rel="canonical" href="https://raajxdev.github.io/confident-wings/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Confident Wings | Give Your Voice Wings">
   <meta property="og:description" content="Speak English fluently and present with confidence. Small batches, live practice, personal feedback.">
-  <meta property="og:url" content="https://souvikn522.github.io/Spoken-English-confident-wings-/">
+  <meta property="og:url" content="https://raajxdev.github.io/confident-wings/">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230B1F3A'/%3E%3Cpath d='M24 7C14 7 9 13 9 21l-2 4 2.600-1c1.200.7 2.600 1 4.400 1 8 0 11-7 10-18z' fill='%23D4A441'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23123F31'/%3E%3Ccircle cx='20' cy='11' r='5' fill='%23C0532C'/%3E%3Cpath d='M5 23c6-1 9-4 11-9-4 1-8 4-11 9z' fill='%23FAF7F2'/%3E%3C/svg%3E">
 
-  <!-- Fonts: Playfair Display (headings) + Inter (body) -->
+  <!-- Fonts: Fraunces (display serif) + DM Sans (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&display=swap" rel="stylesheet">
 
-  <!-- Structured data for search engines (edit details) -->
+  <!-- Structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     "name": "Confident Wings",
     "description": "Spoken English and public speaking institute",
-    "url": "https://souvikn522.github.io/Spoken-English-confident-wings-/",
+    "url": "https://raajxdev.github.io/confident-wings/",
     "telephone": "+91-80014-19550",
     "email": "hello@confidentwings.in",
     "address": {
@@ -40,6 +63,34 @@
       "postalCode": "743412",
       "addressCountry": "IN"
     }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Confident Wings",
+    "description": "Spoken English and public speaking institute in Basirhat, West Bengal",
+    "url": "https://raajxdev.github.io/confident-wings/",
+    "telephone": "+91-80014-19550",
+    "email": "hello@confidentwings.in",
+    "priceRange": "₹₹",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Near Bhyabla Station",
+      "addressLocality": "Basirhat",
+      "addressRegion": "West Bengal",
+      "postalCode": "743412",
+      "addressCountry": "IN"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Confident Wings",
+    "url": "https://raajxdev.github.io/confident-wings/"
   }
   </script>
   <script type="application/ld+json">
@@ -65,28 +116,33 @@
 
   <style>
     /* =====================================================
-       1. DESIGN TOKENS  (change brand colours & fonts here)
+       1. DESIGN TOKENS — "Paper & Pine" editorial system
        ===================================================== */
     :root{
-      --navy:#0B1F3A;
-      --navy-2:#142C50;
-      --gold:#D4A441;
-      --gold-soft:#F1D9A0;
-      --gold-deep:#8A6414;      /* gold that is readable as TEXT on cream/white */
-      --cream:#FAF6EE;
-      --cream-2:#F2EBDB;
-      --white:#FFFFFF;
-      --ink:#18263C;
-      --muted:#56627A;
+      --paper:#FAF7F2;
+      --paper-2:#F3EDDF;
+      --card:#FFFFFF;
+      --ink:#1F2A23;
+      --ink-soft:#33402F;
+      --muted:#5E6A5C;
+      --pine:#123F31;
+      --pine-deep:#0C2C22;
+      --leaf:#2E7D5B;
+      --leaf-soft:#E3EFE7;
+      --terra:#C0532C;
+      --terra-deep:#9A3E1E;
+      --terra-soft:#F7E3D4;
+      --amber:#E9A13B;
+      --line:#E6DCC7;
       --wa:#128C7E;
 
-      --font-head:'Playfair Display', Georgia, 'Times New Roman', serif;
-      --font-body:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      --font-head:'Fraunces', Georgia, 'Times New Roman', serif;
+      --font-body:'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
-      --r-card:24px;
+      --r-card:22px;
       --r-field:14px;
-      --shadow-1:0 12px 32px -14px rgba(11,31,58,.22);
-      --shadow-2:0 28px 60px -26px rgba(11,31,58,.40);
+      --shadow-1:0 14px 34px -18px rgba(31,42,35,.25);
+      --shadow-2:0 30px 64px -28px rgba(31,42,35,.38);
       --ease:cubic-bezier(.22,.8,.24,1);
       --nav-h:72px;
     }
@@ -96,283 +152,337 @@
        ===================================================== */
     *,*::before,*::after{box-sizing:border-box}
     html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-    body{margin:0;font-family:var(--font-body);font-size:1.0625rem;line-height:1.7;color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased}
+    body{margin:0;font-family:var(--font-body);font-size:1.0625rem;line-height:1.7;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
     img,svg{display:block;max-width:100%}
-    h1,h2,h3,h4{font-family:var(--font-head);font-weight:600;line-height:1.15;margin:0;color:var(--navy)}
-    h1{font-size:clamp(2.7rem,7.2vw,5.2rem);line-height:1.04;letter-spacing:-.01em}
-    h2{font-size:clamp(2rem,4.6vw,3.2rem);letter-spacing:-.005em}
-    h3{font-size:1.4rem}
+    h1,h2,h3,h4{font-family:var(--font-head);font-weight:600;line-height:1.12;margin:0;color:var(--pine-deep);letter-spacing:-.01em}
+    h1{font-size:clamp(2.9rem,8vw,5.4rem);line-height:1.02}
+    h1 em,h2 em{font-style:italic;color:var(--terra)}
+    h2{font-size:clamp(2rem,4.8vw,3.1rem)}
+    h3{font-size:1.35rem}
     p{margin:0}
     ul,ol{margin:0;padding:0;list-style:none}
     a{color:inherit}
-    section[id]{scroll-margin-top:calc(var(--nav-h) - 8px)}
+    section[id]{scroll-margin-top:calc(var(--nav-h) - 4px)}
 
     .wrap{width:min(1160px,100% - 2.5rem);margin-inline:auto}
-    .sec{padding-block:clamp(4.5rem,9vw,7.5rem);position:relative;overflow:hidden}
-    .sec--white{background:var(--white)}
-    .sec--navy{background:var(--navy);color:#DCE4F1}
-    .sec--navy h2,.sec--navy h3{color:var(--white)}
-    .sec-head{max-width:640px;margin:0 auto clamp(2.5rem,5vw,4rem);text-align:center}
-    .sec-head p{margin-top:1rem;color:var(--muted)}
-    .sec--navy .sec-head p{color:#B9C6DB}
-    .gold-text{color:var(--gold-deep)}
+    .sec{padding-block:clamp(4.5rem,9vw,7rem);position:relative;overflow:hidden}
+    .sec--white{background:var(--card)}
+    .sec--dark{background:var(--pine-deep);color:#E9EFE9}
+    .sec--dark h2,.sec--dark h3{color:#FDFBF6}
+    .sec--dark .eyebrow{color:var(--amber)}
 
-    /* Visible keyboard focus everywhere */
-    :focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
-    .skip{position:absolute;left:1rem;top:-4rem;background:var(--gold);color:var(--navy);padding:.7rem 1.1rem;border-radius:999px;font-weight:600;z-index:200;text-decoration:none}
+    /* Editorial section header: numbered eyebrow + display heading */
+    .eyebrow{display:flex;align-items:center;gap:.7rem;font:600 .82rem/1 var(--font-body);letter-spacing:.22em;text-transform:uppercase;color:var(--terra);margin-bottom:1.1rem}
+    .eyebrow::before{content:"";width:2.2rem;height:2px;background:var(--terra);border-radius:2px}
+    .sec-head{max-width:660px;margin-bottom:clamp(2.4rem,5vw,3.8rem)}
+    .sec-head.center{margin-inline:auto;text-align:center}
+    .sec-head.center .eyebrow{justify-content:center}
+    .sec-head p.lead{margin-top:1rem;color:var(--muted);font-size:1.1rem}
+    .sec--dark .sec-head p.lead{color:#B9C7B9}
+
+    :focus-visible{outline:3px solid var(--terra);outline-offset:3px;border-radius:8px}
+    .skip{position:absolute;left:1rem;top:-4rem;background:var(--pine);color:#fff;padding:.7rem 1.1rem;border-radius:999px;font-weight:600;z-index:200;text-decoration:none}
     .skip:focus{top:1rem}
     .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-    /* Icons (SVG sprite, see top of <body>) */
     .ico{width:1.5rem;height:1.5rem;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
     .ico--fill{fill:currentColor;stroke:none}
 
-    /* Scroll reveal (fade-up). Content stays visible if JS is off. */
-    /* The script removes the .reveal class after the entrance, so card hover effects take over cleanly. */
+    /* Scroll reveal */
     .js .reveal{transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--rd,0s)}
-    .js .reveal:not(.in){opacity:0;transform:translateY(24px)}
+    .js .reveal:not(.in){opacity:0;transform:translateY(26px)}
 
     /* =====================================================
-       3. BUTTONS
+       3. BUTTONS — light press feedback
        ===================================================== */
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.95rem 1.7rem;border-radius:999px;border:1.5px solid transparent;font:600 1rem/1 var(--font-body);text-decoration:none;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s var(--ease),background-color .25s,color .25s,border-color .25s}
-    .btn:hover{transform:translateY(-3px)}
-    .btn:active{transform:translateY(0)}
-    .btn--gold{background:var(--gold);color:var(--navy);box-shadow:0 10px 24px -10px rgba(212,164,65,.8)}
-    .btn--gold:hover{background:#E0B552;box-shadow:0 16px 30px -10px rgba(212,164,65,.9)}
-    .btn--ghost{color:var(--white);border-color:rgba(255,255,255,.4)}
-    .btn--ghost:hover{background:rgba(255,255,255,.1);border-color:var(--white)}
-    .btn--outline{color:var(--navy);border-color:var(--navy)}
-    .btn--outline:hover{background:var(--navy);color:var(--white)}
-    .btn--navy{background:var(--navy);color:var(--white)}
-    .btn--navy:hover{background:var(--navy-2);box-shadow:var(--shadow-1)}
-    .btn--sm{padding:.7rem 1.2rem;font-size:.95rem}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.95rem 1.75rem;border-radius:999px;border:1.5px solid transparent;font:600 1rem/1 var(--font-body);text-decoration:none;cursor:pointer;transition:transform .25s var(--ease),box-shadow .3s var(--ease),background-color .25s,color .25s,border-color .25s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn:active{transform:scale(.96)}
+    .btn--terra{background:var(--terra);color:#fff;box-shadow:0 12px 26px -12px rgba(192,83,44,.75)}
+    .btn--terra:hover{background:var(--terra-deep)}
+    .btn--pine{background:var(--pine);color:#fff}
+    .btn--pine:hover{background:var(--pine-deep);box-shadow:var(--shadow-1)}
+    .btn--outline{color:var(--pine);border-color:var(--pine)}
+    .btn--outline:hover{background:var(--pine);color:#fff}
+    .btn--ghostlight{color:#FDFBF6;border-color:rgba(253,251,246,.45)}
+    .btn--ghostlight:hover{background:rgba(253,251,246,.12);border-color:#FDFBF6}
+    .btn--sm{padding:.7rem 1.25rem;font-size:.95rem}
     .btn--block{width:100%}
 
     /* =====================================================
-       4. NAVBAR (glassmorphism)
+       4. NAVBAR — frosted paper glass
        ===================================================== */
-    .nav{position:fixed;inset:0 0 auto 0;z-index:100;height:var(--nav-h);background:rgba(11,31,58,.55);-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%);border-bottom:1px solid rgba(255,255,255,.1);transition:background-color .3s,box-shadow .3s}
-    .nav.scrolled{background:rgba(11,31,58,.84);box-shadow:0 10px 30px -18px rgba(0,0,0,.6)}
+    .nav{position:fixed;inset:0 0 auto 0;z-index:100;height:var(--nav-h);background:rgba(250,247,242,.7);-webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%);border-bottom:1px solid rgba(31,42,35,.08);transition:box-shadow .3s,background-color .3s}
+    .nav.scrolled{background:rgba(250,247,242,.92);box-shadow:0 12px 32px -20px rgba(31,42,35,.35)}
     .nav-in{height:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem}
-    .logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--white);font:600 1.3rem var(--font-head)}
-    .logo .ico{width:1.9rem;height:1.9rem;color:var(--gold)}
-    .nav-links{display:none;gap:1.8rem;align-items:center}
-    .nav-links a{color:#E6ECF6;text-decoration:none;font-size:.95rem;font-weight:500;position:relative;padding:.3rem 0}
-    .nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+    .logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--pine-deep);font:600 1.32rem var(--font-head)}
+    .logo .mark{width:2rem;height:2rem;border-radius:12px;background:var(--pine);color:var(--terra-soft);display:grid;place-items:center}
+    .logo .mark .ico{width:1.25rem;height:1.25rem}
+    .nav-links{display:none;gap:1.6rem;align-items:center}
+    .nav-links a{color:var(--ink-soft);text-decoration:none;font-size:.94rem;font-weight:500;position:relative;padding:.3rem 0}
+    .nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:100%;border-radius:2px;background:var(--terra);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+    .nav-links a:hover{color:var(--pine-deep)}
     .nav-links a:hover::after{transform:scaleX(1)}
     .nav-cta{display:none}
-    .menu-btn{background:none;border:0;color:var(--white);padding:.5rem;cursor:pointer;border-radius:10px}
-    .menu-btn .ico{width:1.7rem;height:1.7rem}
+    .menu-btn{background:rgba(18,63,49,.08);border:1px solid var(--line);color:var(--pine-deep);padding:.55rem;cursor:pointer;border-radius:12px}
+    .menu-btn .ico{width:1.6rem;height:1.6rem}
     .menu-btn .i-close{display:none}
     .menu-btn[aria-expanded="true"] .i-menu{display:none}
     .menu-btn[aria-expanded="true"] .i-close{display:block}
-    .mobile-menu{position:fixed;inset:var(--nav-h) 0 auto 0;z-index:99;background:rgba(11,31,58,.96);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);padding:1rem 1.5rem 1.8rem;display:none;border-bottom:1px solid rgba(255,255,255,.1)}
+    .mobile-menu{position:fixed;inset:var(--nav-h) 0 auto 0;z-index:99;background:rgba(250,247,242,.96);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);padding:1rem 1.5rem 1.8rem;display:none;border-bottom:1px solid var(--line)}
     .mobile-menu.open{display:block}
-    .mobile-menu a:not(.btn){display:block;color:var(--white);text-decoration:none;padding:.85rem 0;border-bottom:1px solid rgba(255,255,255,.1);font-weight:500}
+    .mobile-menu a:not(.btn){display:block;color:var(--pine-deep);text-decoration:none;padding:.8rem 0;border-bottom:1px solid var(--line);font-weight:500}
     .mobile-menu .btn{margin-top:1.2rem;width:100%}
-    @media (min-width:980px){
+    @media (min-width:1020px){
       .nav-links,.nav-cta{display:flex}
       .menu-btn,.mobile-menu{display:none!important}
     }
 
     /* =====================================================
-       5. HERO
+       5. HERO — editorial split + sunrise art
        ===================================================== */
-    .hero{position:relative;background:radial-gradient(120% 90% at 85% 10%,#1B3A66 0%,var(--navy) 55%,#07142A 100%);color:var(--white);padding:calc(var(--nav-h) + 3rem) 0 8rem;overflow:hidden;min-height:100svh;display:flex;align-items:center}
-    .hero-glow{position:absolute;right:-12%;top:-10%;width:70vw;height:70vw;max-width:900px;max-height:900px;background:radial-gradient(circle,rgba(212,164,65,.28),transparent 62%);pointer-events:none;will-change:transform}
-    .hero-grid{position:relative;display:grid;gap:2rem;align-items:center}
-    .hero-copy{max-width:600px}
-    .hero-tag{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem 1rem;border-radius:999px;border:1px solid rgba(212,164,65,.5);color:var(--gold-soft);font-size:.9rem;margin-bottom:1.4rem;background:rgba(212,164,65,.08)}
-    .hero h1{color:var(--cream)}
-    .hero .lead{margin-top:1.4rem;font-size:clamp(1.05rem,2vw,1.25rem);color:#C9D5E8;max-width:34em}
-    .cta-row{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.2rem}
-    .hero .fine{margin-top:1.1rem;font-size:.92rem;color:#9FB0CA}
-    .hero-art{position:relative;will-change:transform;max-width:560px;width:100%;margin-inline:auto}
-    .hero-curve{position:absolute;left:0;bottom:-1px;width:100%;height:clamp(40px,7vw,90px)}
-    @media (min-width:900px){
-      .hero-grid{grid-template-columns:1.05fr .95fr;gap:1rem}
+    .hero{position:relative;padding:calc(var(--nav-h) + 3.5rem) 0 5rem;overflow:hidden;background:
+      radial-gradient(46rem 30rem at 88% -6%,rgba(233,161,59,.16),transparent 60%),
+      radial-gradient(40rem 26rem at -8% 30%,rgba(46,125,91,.10),transparent 60%),
+      var(--paper)}
+    .hero-grid{position:relative;display:grid;gap:3rem;align-items:center}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:.6rem;font:600 .8rem/1 var(--font-body);letter-spacing:.24em;text-transform:uppercase;color:var(--pine);margin-bottom:1.4rem}
+    .hero-eyebrow .dot{width:.55rem;height:.55rem;border-radius:50%;background:var(--terra)}
+    .hero h1{max-width:12ch}
+    .hero .lead{margin-top:1.5rem;font-size:clamp(1.05rem,2vw,1.25rem);color:var(--muted);max-width:33em}
+    .cta-row{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.3rem}
+    .hero .fine{margin-top:1.1rem;font-size:.93rem;color:var(--muted);display:flex;align-items:center;gap:.5rem}
+    .hero .fine .ico{width:1.1rem;height:1.1rem;color:var(--leaf)}
+
+    /* Sunrise art: layered arcs + drifting birds, floating glass chips */
+    .hero-art{position:relative;max-width:560px;width:100%;margin-inline:auto}
+    .rise{width:100%;height:auto}
+    .bird{animation:drift 9s ease-in-out infinite}
+    .bird.b2{animation-delay:-3s}
+    .bird.b3{animation-delay:-6s}
+    @keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(14px,-10px)}}
+    .chip{position:absolute;display:flex;align-items:center;gap:.55rem;background:rgba(255,255,255,.62);-webkit-backdrop-filter:blur(14px) saturate(150%);backdrop-filter:blur(14px) saturate(150%);border:1px solid rgba(255,255,255,.8);box-shadow:var(--shadow-1);border-radius:16px;padding:.7rem 1rem;font-size:.88rem;font-weight:600;color:var(--pine-deep);animation:floaty 7s ease-in-out infinite}
+    .chip .ico{width:1.2rem;height:1.2rem;color:var(--terra)}
+    .chip--a{top:6%;left:-2%}
+    .chip--b{bottom:10%;right:-1%;animation-delay:-3.5s}
+    @keyframes floaty{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}
+    @media (min-width:960px){
+      .hero-grid{grid-template-columns:1.02fr .98fr;gap:2rem}
     }
 
-    /* Wing animation: feathers fan open once on load, then breathe gently */
-    .f{transform-origin:0 0;transform:rotate(calc(var(--a) * .12 - 28deg));opacity:0;transition:transform 1.5s var(--ease) var(--d),opacity .9s ease var(--d)}
-    #wing.open .f{transform:rotate(var(--a));opacity:1}
-    .wing-idle{transform-origin:0 0}
-    #wing.open .wing-idle{animation:flap 7s ease-in-out 3s infinite}
-    @keyframes flap{0%,100%{transform:rotate(0)}50%{transform:rotate(-3.5deg)}}
+    /* =====================================================
+       6. MARQUEE STRIP
+       ===================================================== */
+    .marquee{background:var(--pine);color:#F3EFE2;overflow:hidden;padding:1rem 0;border-block:1px solid var(--pine-deep)}
+    .marquee-track{display:flex;gap:3rem;width:max-content;animation:scrollx 30s linear infinite;font:600 .95rem var(--font-body);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+    .marquee-track span{display:flex;align-items:center;gap:3rem}
+    .marquee-track .sep{color:var(--amber)}
+    @keyframes scrollx{to{transform:translateX(-50%)}}
 
     /* =====================================================
-       6. STATS STRIP
+       7. STATS — glass card
        ===================================================== */
-    .stats{position:relative;z-index:3;margin-top:-3.8rem}
-    .stats-card{background:var(--white);border-radius:var(--r-card);box-shadow:var(--shadow-2);padding:1.6rem 1.2rem;display:grid;gap:1.4rem;text-align:center}
-    .stat b{display:block;font:600 clamp(2.2rem,5vw,3rem)/1.1 var(--font-head);color:var(--navy)}
-    .stat span{color:var(--muted);font-size:.98rem}
+    .stats{position:relative;z-index:3;margin-top:-2.6rem}
+    .stats-card{background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%);border:1px solid rgba(255,255,255,.9);border-radius:var(--r-card);box-shadow:var(--shadow-2);padding:1.8rem 1.4rem;display:grid;gap:1.5rem;text-align:center}
+    .stat b{display:block;font:600 clamp(2.3rem,5vw,3.1rem)/1.1 var(--font-head);color:var(--pine)}
+    .stat b .suffix{color:var(--terra)}
+    .stat span{color:var(--muted);font-size:.97rem}
     @media (min-width:700px){
-      .stats-card{grid-template-columns:repeat(3,1fr);padding:2.2rem 2rem;gap:0}
-      .stat+.stat{border-left:1px solid var(--cream-2)}
+      .stats-card{grid-template-columns:repeat(3,1fr);padding:2.3rem 2rem;gap:0}
+      .stat+.stat{border-left:1px solid var(--line)}
     }
-
+  </style>
+</head>
+  <style>
     /* =====================================================
-       7. ABOUT
+       8. ABOUT
        ===================================================== */
-    .about-grid{display:grid;gap:3rem;align-items:center}
+    .about-grid{display:grid;gap:3rem;align-items:start}
     .about-copy p{margin-top:1.2rem;color:var(--muted)}
-    .about-copy h2{max-width:14em}
-    .ticks{margin-top:1.8rem;display:grid;gap:.8rem}
-    .ticks li{display:flex;gap:.8rem;align-items:flex-start}
-    .ticks .ico{color:var(--gold-deep);margin-top:.15rem;width:1.3rem;height:1.3rem}
-    .mission{position:relative;background:var(--navy);border-radius:var(--r-card);padding:2.4rem 2rem;color:#DCE4F1;overflow:hidden;box-shadow:var(--shadow-2)}
-    .mission .wm{position:absolute;right:-2.5rem;bottom:-3rem;width:15rem;height:15rem;color:var(--gold);opacity:.14;transform:rotate(-12deg)}
-    .mission blockquote{margin:0;position:relative;font:500 clamp(1.4rem,3vw,1.8rem)/1.4 var(--font-head);color:var(--white)}
-    .mission footer{margin-top:1.2rem;color:var(--gold-soft);font-size:.95rem;position:relative}
-    .facts{position:relative;margin-top:2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;border-top:1px solid rgba(255,255,255,.15);padding-top:1.4rem}
-    .facts b{display:block;font:600 1.5rem var(--font-head);color:var(--gold)}
-    .facts span{font-size:.88rem;color:#B9C6DB;line-height:1.4;display:block}
-    @media (min-width:900px){.about-grid{grid-template-columns:1.1fr .9fr;gap:5rem}}
+    .ticks{margin-top:1.9rem;display:grid;gap:.9rem}
+    .ticks li{display:flex;gap:.85rem;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:.95rem 1.1rem;box-shadow:var(--shadow-1)}
+    .ticks .ico{color:var(--leaf);margin-top:.15rem;width:1.35rem;height:1.35rem}
+    .ticks li span{font-size:.99rem}
+    .mission{position:relative;background:var(--pine);border-radius:var(--r-card);padding:2.5rem 2.1rem;color:#DDE7DC;overflow:hidden;box-shadow:var(--shadow-2)}
+    .mission::before{content:"“";position:absolute;top:-1.6rem;left:1.2rem;font:700 7rem/1 var(--font-head);color:var(--terra);opacity:.55}
+    .mission blockquote{margin:1.2rem 0 0;position:relative;font:500 clamp(1.35rem,2.8vw,1.7rem)/1.45 var(--font-head);color:#FDFBF6}
+    .mission footer{margin-top:1.2rem;color:var(--amber);font-size:.95rem;font-weight:600;position:relative}
+    .facts{position:relative;margin-top:2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;border-top:1px solid rgba(253,251,246,.18);padding-top:1.5rem}
+    .facts b{display:block;font:600 1.55rem var(--font-head);color:var(--amber)}
+    .facts span{font-size:.86rem;color:#B9C7B9;line-height:1.45;display:block;margin-top:.2rem}
+    @media (min-width:960px){.about-grid{grid-template-columns:1.05fr .95fr;gap:4.5rem}}
 
     /* =====================================================
-       8. COURSES
+       9. COURSES
        ===================================================== */
-    .grid-3{display:grid;gap:1.5rem}
+    .grid-3{display:grid;gap:1.4rem}
     @media (min-width:700px){.grid-3{grid-template-columns:repeat(2,1fr)}}
     @media (min-width:1020px){.grid-3{grid-template-columns:repeat(3,1fr)}}
-    .course{display:flex;flex-direction:column;background:var(--cream);border-radius:var(--r-card);padding:2rem 1.8rem;border:1px solid var(--cream-2);transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .3s}
-    .course:hover{transform:translateY(-8px);box-shadow:var(--shadow-2);border-color:var(--gold)}
-    .course .badge{width:3.4rem;height:3.4rem;border-radius:16px;background:var(--navy);color:var(--gold);display:grid;place-items:center;margin-bottom:1.3rem;transition:transform .45s var(--ease)}
-    .course:hover .badge{transform:rotate(-8deg) scale(1.06)}
+    .course{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-card);padding:2rem 1.8rem;transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .3s}
+    .course:hover{transform:translateY(-8px);box-shadow:var(--shadow-2);border-color:var(--terra)}
+    .course .badge{width:3.3rem;height:3.3rem;border-radius:15px;background:var(--leaf-soft);color:var(--pine);display:grid;place-items:center;margin-bottom:1.3rem;transition:transform .45s var(--ease),background-color .3s,color .3s}
+    .course:hover .badge{transform:rotate(-8deg) scale(1.06);background:var(--pine);color:var(--terra-soft)}
+    .course .badge .ico{width:1.6rem;height:1.6rem}
     .course p{margin-top:.7rem;color:var(--muted);font-size:1rem}
-    .meta{margin:1.3rem 0 1.6rem;display:grid;gap:.5rem;font-size:.95rem;color:var(--ink)}
+    .meta{margin:1.3rem 0 1.6rem;display:grid;gap:.55rem;font-size:.95rem}
     .meta li{display:flex;align-items:center;gap:.6rem}
-    .meta .ico{width:1.15rem;height:1.15rem;color:var(--gold-deep)}
+    .meta .ico{width:1.15rem;height:1.15rem;color:var(--terra)}
     .course .btn{margin-top:auto;align-self:flex-start}
-    .course--cta{background:var(--navy);border-color:var(--navy);color:#C9D5E8;justify-content:center}
-    .course--cta h3{color:var(--white)}
-    .course--cta p{color:#B9C6DB}
+    .course--cta{background:var(--pine);border-color:var(--pine);color:#CBD8CB;justify-content:center}
+    .course--cta h3{color:#FDFBF6}
+    .course--cta p{color:#AFC0AE}
     .course--cta .btn{margin-top:1.6rem}
 
     /* =====================================================
-       9. WHY CHOOSE US
+       10. WHY CHOOSE US (dark pine)
        ===================================================== */
-    .why-grid{display:grid;gap:1.4rem}
+    .why-grid{display:grid;gap:1.3rem}
     @media (min-width:700px){.why-grid{grid-template-columns:repeat(2,1fr)}}
     @media (min-width:1020px){.why-grid{grid-template-columns:repeat(4,1fr)}}
-    .why{padding:2rem 1.6rem;border-radius:var(--r-card);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);transition:background-color .35s,transform .45s var(--ease),border-color .35s}
-    .why:hover{background:rgba(255,255,255,.09);transform:translateY(-6px);border-color:rgba(212,164,65,.6)}
-    .why .ico{width:2.2rem;height:2.2rem;color:var(--gold);margin-bottom:1.2rem}
-    .why p{margin-top:.6rem;font-size:.98rem;color:#B9C6DB}
+    .why{padding:2rem 1.6rem;border-radius:var(--r-card);background:rgba(253,251,246,.055);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(253,251,246,.14);transition:background-color .35s,transform .45s var(--ease),border-color .35s}
+    .why:hover{background:rgba(253,251,246,.1);transform:translateY(-6px);border-color:rgba(233,161,59,.55)}
+    .why .n{display:block;font:600 .85rem var(--font-body);letter-spacing:.2em;color:var(--amber);margin-bottom:1rem}
+    .why .ico{width:2.1rem;height:2.1rem;color:var(--amber);margin-bottom:1.1rem}
+    .why p{margin-top:.6rem;font-size:.97rem;color:#B9C7B9}
 
     /* =====================================================
-       10. LEARNING JOURNEY (timeline)
+       11. LEARNING JOURNEY — editorial numerals
        ===================================================== */
-    .steps{position:relative;display:grid;gap:2.2rem}
-    .step{position:relative;padding-left:4.4rem}
-    .step::before{content:"";position:absolute;left:1.35rem;top:3.1rem;bottom:-2.2rem;width:2px;background:linear-gradient(var(--gold),rgba(212,164,65,.15))}
-    .step:last-child::before{display:none}
-    .step-n{position:absolute;left:0;top:0;width:2.8rem;height:2.8rem;border-radius:50%;background:var(--navy);color:var(--gold);display:grid;place-items:center;font:600 1.15rem var(--font-head);box-shadow:0 0 0 6px var(--cream)}
-    .step p{margin-top:.5rem;color:var(--muted);font-size:1rem}
+    .steps{display:grid;gap:0;position:relative}
+    .step{position:relative;padding:2rem 0 2rem 5.2rem;border-top:1px dashed var(--line)}
+    .step:last-child{border-bottom:1px dashed var(--line)}
+    .step-n{position:absolute;left:0;top:1.6rem;font:600 3rem/1 var(--font-head);color:var(--terra);opacity:.9}
+    .step h3{font-size:1.5rem}
+    .step p{margin-top:.5rem;color:var(--muted);font-size:1rem;max-width:44em}
     @media (min-width:900px){
-      .steps{grid-template-columns:repeat(4,1fr);gap:1.6rem}
-      .step{padding:4.4rem 0 0}
-      .step::before{left:2.8rem;right:-1.6rem;top:1.4rem;bottom:auto;width:auto;height:2px;background:linear-gradient(90deg,var(--gold),rgba(212,164,65,.25))}
+      .steps{grid-template-columns:repeat(4,1fr);gap:2rem}
+      .step{border-top:2px solid var(--line);border-bottom:none;padding:2.6rem 0 0}
+      .step-n{top:0;font-size:3.4rem}
     }
 
     /* =====================================================
-       11. TRAINERS
+       12. COACH — feature card
        ===================================================== */
-    .trainers{display:grid;gap:1.5rem}
-    @media (min-width:640px){.trainers{grid-template-columns:repeat(2,1fr)}}
-    @media (min-width:1020px){.trainers{grid-template-columns:repeat(4,1fr)}}
-    .trainer{background:var(--cream);border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-1);transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
-    .trainer:hover{transform:translateY(-8px);box-shadow:var(--shadow-2)}
-    .trainer .ph{aspect-ratio:5/6;overflow:hidden;background:var(--navy)}
-    .trainer img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
-    .trainer:hover img{transform:scale(1.05)}
-    .trainer .body{padding:1.4rem 1.4rem 1.7rem}
-    .trainer .role{color:var(--gold-deep);font-weight:600;font-size:.92rem;margin-top:.15rem}
-    .trainer p{margin-top:.7rem;color:var(--muted);font-size:.97rem;line-height:1.6}
+    .coach{display:grid;gap:0;background:var(--card);border:1px solid var(--line);border-radius:calc(var(--r-card) + 6px);overflow:hidden;box-shadow:var(--shadow-1);max-width:920px;margin-inline:auto}
+    .coach .ph{background:linear-gradient(135deg,var(--pine) 0%,var(--pine-deep) 100%);min-height:300px;position:relative;overflow:hidden}
+    .coach .ph svg{width:100%;height:100%;position:absolute;inset:0}
+    .coach .body{padding:2.4rem 2.1rem}
+    .coach .role{color:var(--terra);font-weight:700;font-size:.92rem;letter-spacing:.08em;text-transform:uppercase;margin-top:.4rem}
+    .coach .body>p{margin-top:1rem;color:var(--muted)}
+    .coach .btn{margin-top:1.5rem}
+    @media (min-width:820px){
+      .coach{grid-template-columns:.9fr 1.1fr}
+      .coach .ph{min-height:100%}
+    }
 
     /* =====================================================
-       12. TESTIMONIALS (scroll-snap carousel)
+       13. TESTIMONIALS — scroll-snap carousel
        ===================================================== */
     .carousel{position:relative}
     .track{display:flex;gap:1.25rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:.5rem .25rem 1.5rem;-webkit-overflow-scrolling:touch}
     .track::-webkit-scrollbar{display:none}
-    .story{flex:0 0 100%;scroll-snap-align:start;background:var(--white);border-radius:var(--r-card);padding:2.2rem 1.9rem;box-shadow:var(--shadow-1);display:flex;flex-direction:column}
+    .story{flex:0 0 100%;scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--terra);border-radius:var(--r-card);padding:2.2rem 1.9rem;box-shadow:var(--shadow-1);display:flex;flex-direction:column}
     @media (min-width:900px){.story{flex-basis:calc((100% - 1.25rem)/2)}}
-    .stars{display:flex;gap:.2rem;color:var(--gold)}
+    .stars{display:flex;gap:.2rem;color:var(--amber)}
     .stars .ico{width:1.1rem;height:1.1rem}
-    .story blockquote{margin:1.1rem 0 1.6rem;font:500 1.2rem/1.55 var(--font-head);color:var(--navy)}
+    .story blockquote{margin:1.1rem 0 1.6rem;font:500 1.22rem/1.55 var(--font-head);color:var(--pine-deep)}
     .person{display:flex;align-items:center;gap:.9rem;margin-top:auto}
-    .avatar{width:3rem;height:3rem;border-radius:50%;background:var(--navy);color:var(--gold);display:grid;place-items:center;font:600 1.05rem var(--font-head)}
-    .person b{display:block;font-weight:600;color:var(--navy);line-height:1.3}
+    .avatar{width:3rem;height:3rem;border-radius:50%;background:var(--pine);color:var(--terra-soft);display:grid;place-items:center;font:600 1.02rem var(--font-head)}
+    .person b{display:block;font-weight:600;color:var(--pine-deep);line-height:1.3}
     .person span{font-size:.9rem;color:var(--muted)}
     .car-ctrl{display:flex;align-items:center;justify-content:center;gap:1.2rem;margin-top:.5rem}
-    .car-btn{width:3rem;height:3rem;border-radius:50%;border:1.5px solid var(--navy);background:transparent;color:var(--navy);display:grid;place-items:center;cursor:pointer;transition:background-color .25s,color .25s,transform .3s var(--ease)}
-    .car-btn:hover:not(:disabled){background:var(--navy);color:var(--white);transform:scale(1.06)}
+    .car-btn{width:3rem;height:3rem;border-radius:50%;border:1.5px solid var(--pine);background:transparent;color:var(--pine);display:grid;place-items:center;cursor:pointer;transition:background-color .25s,color .25s,transform .3s var(--ease)}
+    .car-btn:hover:not(:disabled){background:var(--pine);color:#fff;transform:scale(1.06)}
+    .car-btn:active{transform:scale(.94)}
     .car-btn:disabled{opacity:.35;cursor:default}
     .dots{display:flex;gap:.55rem}
-    .dot{width:.7rem;height:.7rem;border-radius:999px;border:0;background:rgba(11,31,58,.22);cursor:pointer;padding:0;transition:width .35s var(--ease),background-color .3s}
-    .dot[aria-current="true"]{width:1.9rem;background:var(--gold)}
+    .dot{width:.7rem;height:.7rem;border-radius:999px;border:0;background:rgba(18,63,49,.25);cursor:pointer;padding:0;transition:width .35s var(--ease),background-color .3s}
+    .dot[aria-current="true"]{width:1.9rem;background:var(--terra)}
 
     /* =====================================================
-       13. GALLERY / VIDEOS
+       14. GALLERY (dark)
        ===================================================== */
     .videos{display:grid;gap:1.2rem}
     @media (min-width:800px){
-      .videos{grid-template-columns:1.6fr 1fr;grid-template-rows:1fr 1fr}
+      .videos{grid-template-columns:1.5fr 1fr;grid-template-rows:1fr 1fr}
       .video:first-child{grid-row:span 2}
     }
-    .video{position:relative;display:flex;align-items:flex-end;min-height:230px;border-radius:var(--r-card);overflow:hidden;border:0;padding:0;text-align:left;cursor:pointer;color:var(--white);background:linear-gradient(135deg,#1B3A66,#0E2848);isolation:isolate;font:inherit}
-    .video::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(60% 70% at 80% 20%,rgba(212,164,65,.35),transparent 70%)}
-    .video::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(7,20,42,.85),transparent 60%)}
-    .video .feather-bg{position:absolute;right:-1rem;top:-1rem;width:11rem;height:11rem;color:var(--gold);opacity:.16;z-index:-1;transform:rotate(18deg);transition:transform .8s var(--ease)}
-    .video:hover .feather-bg{transform:rotate(30deg) scale(1.08)}
+    .video{position:relative;display:flex;align-items:flex-end;min-height:230px;border-radius:var(--r-card);overflow:hidden;border:1px solid rgba(253,251,246,.14);padding:0;text-align:left;cursor:pointer;color:#FDFBF6;background:linear-gradient(135deg,#17493A,#0C2C22);isolation:isolate;font:inherit;transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+    .video:hover{transform:translateY(-6px);box-shadow:0 26px 50px -20px rgba(0,0,0,.5)}
+    .video::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(60% 70% at 80% 18%,rgba(233,161,59,.28),transparent 70%),linear-gradient(to top,rgba(8,24,18,.88),transparent 62%)}
     .video .cap{padding:1.4rem 1.5rem;max-width:26em}
     .video .cap b{display:block;font:600 1.25rem var(--font-head)}
-    .video .cap span{font-size:.92rem;color:#C9D5E8}
-    .play{position:absolute;top:50%;left:50%;width:4.2rem;height:4.2rem;margin:-2.1rem 0 0 -2.1rem;border-radius:50%;background:var(--gold);color:var(--navy);display:grid;place-items:center;box-shadow:0 0 0 0 rgba(212,164,65,.55);transition:transform .35s var(--ease)}
+    .video .cap span{font-size:.92rem;color:#B9C7B9}
+    .play{position:absolute;top:50%;left:50%;width:4.2rem;height:4.2rem;margin:-2.1rem 0 0 -2.1rem;border-radius:50%;background:var(--terra);color:#fff;display:grid;place-items:center;box-shadow:0 0 0 0 rgba(192,83,44,.5);transition:transform .35s var(--ease)}
     .play .ico{width:1.6rem;height:1.6rem;margin-left:.2rem}
     .video:hover .play{transform:scale(1.12)}
-    dialog.vmodal{width:min(900px,94vw);padding:0;border:0;border-radius:var(--r-card);background:#000;overflow:hidden}
-    dialog.vmodal::backdrop{background:rgba(7,20,42,.8);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
-    .vframe{aspect-ratio:16/9;display:grid;place-items:center;color:#fff;text-align:center;padding:1.5rem}
+    .video:active .play{transform:scale(.96)}
+    dialog.vmodal{width:min(900px,94vw);padding:0;border:0;border-radius:var(--r-card);background:#0C2C22;overflow:hidden;color:#FDFBF6}
+    dialog.vmodal::backdrop{background:rgba(12,44,34,.75);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+    .vframe{aspect-ratio:16/9;display:grid;place-items:center;text-align:center;padding:1.5rem}
     .vframe iframe{width:100%;height:100%;border:0}
-    .vclose{position:absolute;top:.7rem;right:.7rem;z-index:2;width:2.6rem;height:2.6rem;border-radius:50%;border:0;background:rgba(11,31,58,.85);color:#fff;cursor:pointer;display:grid;place-items:center}
+    .vclose{position:absolute;top:.7rem;right:.7rem;z-index:2;width:2.6rem;height:2.6rem;border-radius:50%;border:0;background:rgba(250,247,242,.16);color:#fff;cursor:pointer;display:grid;place-items:center}
 
     /* =====================================================
-       14. PRICING
+       15. PRICING
        ===================================================== */
-    .plans{display:grid;gap:1.5rem;align-items:stretch}
+    .plans{display:grid;gap:1.4rem;align-items:stretch}
     @media (min-width:900px){.plans{grid-template-columns:repeat(3,1fr);align-items:center}}
-    .plan{position:relative;background:var(--white);border-radius:var(--r-card);padding:2.2rem 1.9rem;box-shadow:var(--shadow-1);border:1px solid var(--cream-2);display:flex;flex-direction:column;transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+    .plan{position:relative;background:var(--card);border-radius:var(--r-card);padding:2.2rem 1.9rem;box-shadow:var(--shadow-1);border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
     .plan:hover{transform:translateY(-6px);box-shadow:var(--shadow-2)}
-    .plan--pop{background:var(--navy);color:#C9D5E8;border-color:var(--gold);box-shadow:var(--shadow-2),0 0 0 2px var(--gold)}
+    .plan--pop{background:var(--pine);color:#CBD8CB;border-color:var(--pine);box-shadow:var(--shadow-2)}
     @media (min-width:900px){.plan--pop{padding-block:3rem;transform:scale(1.04)}.plan--pop:hover{transform:scale(1.04) translateY(-6px)}}
-    .plan--pop h3,.plan--pop .price{color:var(--white)}
-    .pop-flag{position:absolute;top:-.95rem;left:50%;transform:translateX(-50%);display:inline-flex;align-items:center;gap:.4rem;background:var(--gold);color:var(--navy);font-weight:600;font-size:.85rem;padding:.4rem 1rem;border-radius:999px;white-space:nowrap}
+    .plan--pop h3{color:#FDFBF6}
+    .plan--pop .price{color:#FDFBF6}
+    .pop-flag{position:absolute;top:-.95rem;left:50%;transform:translateX(-50%);display:inline-flex;align-items:center;gap:.4rem;background:var(--amber);color:var(--pine-deep);font-weight:700;font-size:.84rem;padding:.42rem 1.05rem;border-radius:999px;white-space:nowrap}
     .pop-flag .ico{width:1rem;height:1rem}
     .plan .for{margin-top:.4rem;font-size:.95rem;color:var(--muted)}
-    .plan--pop .for{color:#9FB0CA}
-    .price{margin:1.4rem 0 .2rem;font:600 2.8rem/1 var(--font-head);color:var(--navy)}
+    .plan--pop .for{color:#AFC0AE}
+    .price{margin:1.4rem 0 .2rem;font:600 2.7rem/1 var(--font-head);color:var(--pine-deep)}
     .price small{font:400 .95rem var(--font-body);color:var(--muted)}
-    .plan--pop .price small{color:#9FB0CA}
+    .plan--pop .price small{color:#AFC0AE}
     .plan ul{margin:1.5rem 0 2rem;display:grid;gap:.75rem;font-size:.98rem}
     .plan li{display:flex;gap:.7rem;align-items:flex-start}
-    .plan li .ico{color:var(--gold-deep);width:1.2rem;height:1.2rem;margin-top:.2rem}
-    .plan--pop li .ico{color:var(--gold)}
+    .plan li .ico{color:var(--leaf);width:1.2rem;height:1.2rem;margin-top:.2rem}
+    .plan--pop li .ico{color:var(--amber)}
     .plan .btn{margin-top:auto}
     .batch-note{margin-top:2.2rem;text-align:center;color:var(--muted);font-size:.97rem}
+    .sample-pill{display:inline-flex;align-items:center;gap:.45rem;font:600 .8rem var(--font-body);letter-spacing:.06em;color:var(--terra-deep);background:var(--terra-soft);border:1px dashed var(--terra);border-radius:999px;padding:.45rem 1rem;margin-top:1.1rem}
 
     /* =====================================================
-       15. FAQ
+       16. SCHEDULE TABLE
+       ===================================================== */
+    .timetable-wrap{overflow-x:auto;border-radius:var(--r-card);box-shadow:var(--shadow-2);border:1px solid var(--line)}
+    table.timetable{width:100%;min-width:600px;border-collapse:collapse;background:var(--card);font-size:.96rem}
+    .timetable caption{text-align:left;padding:1.1rem 1.3rem;font-weight:600;color:var(--pine-deep);background:var(--paper-2);border-bottom:1px solid var(--line);font-size:.95rem}
+    .timetable th,.timetable td{padding:1rem 1.25rem;text-align:left;border-bottom:1px solid var(--line)}
+    .timetable thead th{background:var(--pine);color:#FDFBF6;font-weight:600;white-space:nowrap;border-bottom:none;font-size:.9rem;letter-spacing:.04em;text-transform:uppercase}
+    .timetable tbody tr:last-child td{border-bottom:none}
+    .timetable tbody tr:nth-child(even){background:#FCFAF4}
+    .timetable td:first-child{font-weight:600;color:var(--pine-deep)}
+    .timetable .tag{display:inline-block;font-size:.8rem;font-weight:600;background:var(--leaf-soft);color:var(--pine);border-radius:999px;padding:.25rem .8rem}
+
+    /* =====================================================
+       17. RESOURCES — glass lead-magnet cards
+       ===================================================== */
+    .resource{background:rgba(255,255,255,.66);-webkit-backdrop-filter:blur(16px) saturate(150%);backdrop-filter:blur(16px) saturate(150%);border:1px solid rgba(255,255,255,.9);border-radius:var(--r-card);padding:2rem 1.8rem;box-shadow:var(--shadow-1);display:flex;flex-direction:column;transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+    .resource:hover{transform:translateY(-6px);box-shadow:var(--shadow-2)}
+    .resource .badge{width:3.2rem;height:3.2rem;border-radius:15px;background:var(--terra-soft);color:var(--terra-deep);display:grid;place-items:center;margin-bottom:1.2rem}
+    .resource .badge .ico{width:1.55rem;height:1.55rem}
+    .resource h3{font-size:1.28rem}
+    .resource>p{margin-top:.6rem;color:var(--muted);font-size:.98rem}
+    .resource-form{margin-top:1.3rem;display:grid;gap:.8rem}
+    .resource-form .btn{justify-self:start}
+
+    /* =====================================================
+       18. FAQ
        ===================================================== */
     .faq{max-width:780px;margin-inline:auto;display:grid;gap:.9rem}
-    .qa{background:var(--cream);border-radius:20px;border:1px solid var(--cream-2);transition:border-color .3s,box-shadow .3s}
-    .qa.open{border-color:var(--gold);box-shadow:var(--shadow-1)}
+    .qa{background:var(--card);border-radius:18px;border:1px solid var(--line);transition:border-color .3s,box-shadow .3s}
+    .qa.open{border-color:var(--terra);box-shadow:var(--shadow-1)}
     .qa h3{font:inherit}
-    .q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;text-align:left;background:none;border:0;padding:1.25rem 1.5rem;font:600 1.08rem var(--font-body);color:var(--navy);cursor:pointer;border-radius:20px}
-    .q .ico{transition:transform .4s var(--ease);color:var(--gold-deep)}
+    .q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;text-align:left;background:none;border:0;padding:1.25rem 1.5rem;font:600 1.06rem var(--font-body);color:var(--pine-deep);cursor:pointer;border-radius:18px}
+    .q .ico{transition:transform .4s var(--ease);color:var(--terra)}
     .qa.open .q .ico{transform:rotate(180deg)}
     .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
     .qa.open .a{grid-template-rows:1fr}
@@ -380,97 +490,89 @@
     .a p{padding:0 1.5rem 1.4rem;color:var(--muted)}
 
     /* =====================================================
-       16. CONTACT
+       19. CONTACT + FORMS
        ===================================================== */
-    .contact-grid{display:grid;gap:2.5rem}
-    @media (min-width:960px){.contact-grid{grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}}
-    .form-card{background:var(--white);border-radius:var(--r-card);padding:2rem 1.7rem;box-shadow:var(--shadow-2)}
-    .form-card h3{font-size:1.7rem}
+    .contact-grid{display:grid;gap:1.6rem}
+    @media (min-width:960px){.contact-grid{grid-template-columns:1fr 1fr;gap:2.2rem;align-items:start}}
+    .form-card{background:rgba(255,255,255,.78);-webkit-backdrop-filter:blur(16px) saturate(150%);backdrop-filter:blur(16px) saturate(150%);border:1px solid rgba(255,255,255,.9);border-radius:var(--r-card);padding:2.1rem 1.8rem;box-shadow:var(--shadow-2)}
+    .form-card h3{font-size:1.65rem}
     .form-card>p{color:var(--muted);margin:.5rem 0 1.5rem;font-size:1rem}
-    .field{margin-bottom:1.1rem}
-    .field label{display:block;font-weight:600;font-size:.95rem;margin-bottom:.4rem;color:var(--navy)}
-    .field input,.field select{width:100%;padding:.9rem 1rem;border-radius:var(--r-field);border:1.5px solid #D9D2C0;background:var(--cream);font:inherit;color:var(--ink);transition:border-color .25s,box-shadow .25s,background-color .25s}
-    .field input:focus,.field select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 4px rgba(212,164,65,.25);background:var(--white)}
-    .field input:user-invalid{border-color:#B3261E}
+    .field{margin-bottom:1.05rem}
+    .field label{display:block;font-weight:600;font-size:.94rem;margin-bottom:.42rem;color:var(--pine-deep)}
+    .field input,.field select,.field textarea{width:100%;padding:.9rem 1rem;border-radius:var(--r-field);border:1.5px solid var(--line);background:var(--paper);font:inherit;color:var(--ink);transition:border-color .25s,box-shadow .25s,background-color .25s}
+    .field textarea{min-height:7rem;resize:vertical}
+    .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--terra);box-shadow:0 0 0 4px rgba(192,83,44,.18);background:#fff}
+    .field input:user-invalid,.field select:user-invalid{border-color:#B3261E}
     .row2{display:grid;gap:0 1rem}
     @media (min-width:560px){.row2{grid-template-columns:1fr 1fr}}
-    .form-status{margin-top:1.1rem;padding:1rem 1.2rem;border-radius:var(--r-field);background:#E8F5EC;color:#14532D;font-size:.97rem}
+    .form-status{margin-top:1.1rem;padding:1rem 1.2rem;border-radius:var(--r-field);font-size:.96rem}
     .form-status[hidden]{display:none}
-    .form-status .btn{margin-top:.8rem}
-    .side{display:grid;gap:1.4rem}
-    .info{display:grid;gap:1rem}
+    .form-status.ok{background:#E7F4EC;color:#14532D;border:1px solid #BFE3CC}
+    .form-status.err{background:#FBEDEC;color:#8C1D18;border:1px solid #F0C4C0}
+    .side{display:grid;gap:1.5rem}
+    .info{display:grid;gap:1rem;background:var(--card);border:1px solid var(--line);border-radius:var(--r-card);padding:1.7rem;box-shadow:var(--shadow-1)}
     .info li{display:flex;gap:.9rem;align-items:flex-start}
-    .info .ico{color:var(--gold-deep);margin-top:.2rem}
-    .info a{text-decoration:none;font-weight:500}
+    .info .ico{color:var(--terra);margin-top:.2rem}
+    .info a{text-decoration:none;font-weight:600;color:var(--pine-deep)}
     .info a:hover{text-decoration:underline}
-    .map{border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-1);aspect-ratio:4/3;background:var(--cream-2)}
+    .map{border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-1);aspect-ratio:16/8;background:var(--paper-2);border:1px solid var(--line)}
     .map iframe{width:100%;height:100%;border:0}
 
     .wa-float{position:fixed;right:1.1rem;bottom:1.1rem;z-index:90;width:3.7rem;height:3.7rem;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 14px 30px -8px rgba(0,0,0,.45);transition:transform .35s var(--ease)}
     .wa-float:hover{transform:scale(1.1) rotate(-6deg)}
+    .wa-float:active{transform:scale(.94)}
     .wa-float .ico{width:1.9rem;height:1.9rem;stroke-width:1.8}
 
     /* =====================================================
-       17. FOOTER
+       20. FOOTER
        ===================================================== */
-    .foot{background:var(--navy);color:#B9C6DB;padding:4rem 0 2rem;font-size:.97rem}
+    .foot{background:var(--pine-deep);color:#AFC0AE;padding:4rem 0 2rem;font-size:.96rem}
     .foot-grid{display:grid;gap:2.5rem}
     @media (min-width:800px){.foot-grid{grid-template-columns:1.5fr 1fr 1fr 1.2fr}}
-    .foot h4{font:600 1.1rem var(--font-head);color:var(--white);margin-bottom:1rem}
+    .foot .logo{color:#FDFBF6}
+    .foot .logo .mark{background:rgba(253,251,246,.12);color:var(--amber)}
+    .foot h4{font:600 1.08rem var(--font-head);color:#FDFBF6;margin-bottom:1rem}
     .foot ul{display:grid;gap:.6rem}
     .foot a{text-decoration:none}
-    .foot a:hover{color:var(--gold)}
+    .foot a:hover{color:var(--amber)}
     .foot p.about{margin-top:1rem;max-width:22em}
     .social{display:flex;gap:.7rem;margin-top:1.2rem}
-    .social a{width:2.7rem;height:2.7rem;border-radius:50%;border:1px solid rgba(255,255,255,.25);display:grid;place-items:center;color:var(--white);transition:background-color .3s,color .3s,transform .3s var(--ease)}
-    .social a:hover{background:var(--gold);color:var(--navy);transform:translateY(-3px)}
-    .copy{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem;font-size:.9rem}
+    .social a{width:2.7rem;height:2.7rem;border-radius:50%;border:1px solid rgba(253,251,246,.28);display:grid;place-items:center;color:#FDFBF6;transition:background-color .3s,color .3s,transform .3s var(--ease)}
+    .social a:hover{background:var(--terra);border-color:var(--terra);color:#fff;transform:translateY(-3px)}
+    .social a:active{transform:scale(.94)}
+    .copy{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(253,251,246,.14);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem;font-size:.88rem}
 
     /* =====================================================
-       18. REDUCED MOTION
+       21. REDUCED MOTION
        ===================================================== */
     @media (prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}
       *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important}
       .js .reveal:not(.in){opacity:1;transform:none}
-      .f{opacity:1;transform:rotate(var(--a))}
+      .marquee-track{animation:none;flex-wrap:wrap;width:auto}
     }
-
-    /* ---------- Batch timetable ---------- */
-    .timetable-wrap{overflow-x:auto;border-radius:var(--r-card);box-shadow:var(--shadow-2)}
-    table.timetable{width:100%;min-width:560px;border-collapse:collapse;background:var(--white);font-size:.95rem}
-    .timetable th,.timetable td{padding:.95rem 1.1rem;text-align:left;border-bottom:1px solid #ECE7D8}
-    .timetable thead th{background:var(--navy);color:#fff;font-weight:600;border-bottom:none;white-space:nowrap}
-    .timetable tbody tr:last-child td{border-bottom:none}
-    .timetable tbody tr:nth-child(even){background:#FBF9F3}
-    /* ---------- Resource lead-magnet forms ---------- */
-    .resource-form{margin-top:1.1rem}
-    .resource-form .field{margin-bottom:.8rem}
   </style>
-</head>
 
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <!-- =====================================================
-       SVG ICON SPRITE: reuse with <svg class="ico"><use href="#i-name"/></svg>
-       ===================================================== -->
+  <!-- SVG ICON SPRITE -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-    <symbol id="i-feather" viewBox="0 0 32 32"><path d="M27 4C15 4 8 11 8 21l-3 7 3.600-1.500c1.600.9 3.400 1.500 5.400 1.500 9 0 14-8 13-24z" fill="currentColor"/><path d="M9 26L21 12" style="stroke:var(--navy)" stroke-width="1.5" stroke-linecap="round" fill="none"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 4C10 4 5 10 5 19l-1.5 3L6 20.6c1.2.7 2.5 1.1 4 1.1 7 0 10.5-7 10-17.7z" fill="currentColor"/><path d="M6.5 20.5L15 10" stroke="rgba(255,255,255,.85)" stroke-width="1.3" stroke-linecap="round" fill="none"/></symbol>
     <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></symbol>
-    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.600 7.100L4 20l1-4.600A8 8 0 1 1 21 12z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></symbol>
     <symbol id="i-brief" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
-    <symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.500 2 4 2 4-2 4-2M9 9.500h.01M15 9.500h.01"/></symbol>
+    <symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9.5h.01M15 9.5h.01"/></symbol>
     <symbol id="i-building" viewBox="0 0 24 24"><path d="M4 21V5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v16M15 9h4a1 1 0 0 1 1 1v11M3 21h18M8 8h3M8 12h3M8 16h3"/></symbol>
-    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.500"/><path d="M2.500 20a6.500 6.500 0 0 1 13 0M16 4.600a3.500 3.500 0 0 1 0 6.800M18 14.200A6.500 6.500 0 0 1 21.500 20"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.2A6.5 6.5 0 0 1 21.5 20"/></symbol>
     <symbol id="i-live" viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3"/></symbol>
     <symbol id="i-feedback" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></symbol>
-    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.500 14L7 22l5-3 5 3-1.500-8"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7.500"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
     <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
     <symbol id="i-level" viewBox="0 0 24 24"><path d="M5 20v-4M10 20v-8M15 20V8M20 20V4"/></symbol>
-    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.200 7-11.500A7 7 0 0 0 5 9.500C5 14.800 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/></symbol>
-    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
     <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/></symbol>
     <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
@@ -478,35 +580,35 @@
     <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
     <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
     <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
-    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.500l2.900 6 6.600.9-4.800 4.600 1.200 6.500L12 17.300l-5.900 3.200 1.200-6.500L2.500 9.400l6.600-.9z" fill="currentColor" stroke="none"/></symbol>
-    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M20.500 12a8.500 8.500 0 0 1-12.600 7.400L3.500 20.500l1.200-4.200A8.500 8.500 0 1 1 20.500 12z"/><path d="M9 8.500c0 3.500 3 6.500 6.500 6.500l1-1.500-2-1-1 .8a4 4 0 0 1-2-2l.8-1-1-2z"/></symbol>
-    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.500 6.500h.01"/></symbol>
-    <symbol id="i-youtube" viewBox="0 0 24 24"><rect x="2.500" y="5" width="19" height="14" rx="4"/><path d="M10 9.500v5l4.500-2.500z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.3l-5.9 3.2 1.2-6.5L2.5 9.4l6.6-.9z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.2-4.2A8.5 8.5 0 1 1 20.5 12z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 .8a4 4 0 0 1-2-2l.8-1-1-2z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5z"/></symbol>
     <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></symbol>
     <symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7h.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5 5l1.8 1.8M17.2 17.2L19 19M19 5l-1.8 1.8M6.8 17.2L5 19"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4z" fill="currentColor" stroke="none"/><path d="M19 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z" fill="currentColor" stroke="none"/></symbol>
   </svg>
 
-  <!-- =====================================================
-       NAVBAR
-       ===================================================== -->
+  <!-- NAVBAR -->
   <nav class="nav" id="nav" aria-label="Primary">
     <div class="wrap nav-in">
       <a class="logo" href="#top" aria-label="Confident Wings, home">
-        <svg class="ico ico--fill" aria-hidden="true"><use href="#i-feather"/></svg>
+        <span class="mark"><svg class="ico ico--fill" aria-hidden="true"><use href="#i-leaf"/></svg></span>
         Confident Wings
       </a>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#courses">Courses</a>
         <a href="#journey">Journey</a>
-        <a href="#trainers">Trainers</a>
+        <a href="#coach">Coach</a>
         <a href="#stories">Stories</a>
         <a href="#pricing">Pricing</a>
         <a href="#schedule">Schedule</a>
         <a href="#resources">Resources</a>
         <a href="#faq">FAQ</a>
       </div>
-      <a class="btn btn--gold btn--sm nav-cta" href="#contact">Book Free Demo</a>
+      <a class="btn btn--terra btn--sm nav-cta" href="#contact">Book Free Demo</a>
       <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
         <svg class="ico i-menu" aria-hidden="true"><use href="#i-menu"/></svg>
         <svg class="ico i-close" aria-hidden="true"><use href="#i-close"/></svg>
@@ -517,79 +619,92 @@
     <a href="#about">About</a>
     <a href="#courses">Courses</a>
     <a href="#journey">Journey</a>
-    <a href="#trainers">Trainers</a>
+    <a href="#coach">Coach</a>
     <a href="#stories">Stories</a>
     <a href="#pricing">Pricing</a>
     <a href="#schedule">Schedule</a>
     <a href="#resources">Resources</a>
     <a href="#faq">FAQ</a>
-    <a class="btn btn--gold" href="#contact">Book Free Demo</a>
+    <a class="btn btn--terra" href="#contact">Book Free Demo</a>
   </div>
 
   <main id="main">
 
-    <!-- =====================================================
-         HERO
-         ===================================================== -->
+    <!-- HERO -->
     <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="hero-glow" data-parallax="0.18" aria-hidden="true"></div>
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <p class="hero-tag">Spoken English and public speaking institute</p>
-          <h1 id="hero-title">Give Your Voice Wings</h1>
+          <p class="hero-eyebrow"><span class="dot" aria-hidden="true"></span>Basirhat · Since 2012</p>
+          <h1 id="hero-title">Give your voice <em>wings.</em></h1>
           <p class="lead">Speak clearly, think on your feet and hold any room. Small batches, live practice and a coach who gives you honest feedback after every session.</p>
           <div class="cta-row">
-            <a class="btn btn--gold" href="#contact">Book Free Demo</a>
-            <a class="btn btn--ghost" href="#courses">Explore Courses</a>
+            <a class="btn btn--terra" href="#contact">Book Free Demo</a>
+            <a class="btn btn--outline" href="#courses">Explore Courses</a>
           </div>
-          <p class="fine">Free 30-minute demo class. No payment needed.</p>
+          <p class="fine"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Free 30-minute demo class. No payment needed.</p>
         </div>
 
-        <!-- Animated wing: feathers are generated by the script at the bottom of the page -->
-        <div class="hero-art" data-parallax="-0.1" aria-hidden="true">
-          <svg id="wing" viewBox="0 0 620 540" role="presentation">
+        <!-- Sunrise art: arcs + drifting birds + floating glass chips -->
+        <div class="hero-art" data-parallax="-0.08" aria-hidden="true">
+          <svg class="rise" viewBox="0 0 560 480" role="presentation">
             <defs>
-              <linearGradient id="fGold" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#D4A441"/><stop offset="1" stop-color="#F1D9A0"/></linearGradient>
-              <linearGradient id="fSoft" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#E3B957"/><stop offset="1" stop-color="#FBEFD0"/></linearGradient>
-              <linearGradient id="fCream" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FAF6EE"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".85"/></linearGradient>
+              <clipPath id="sky"><rect x="0" y="0" width="560" height="480" rx="28"/></clipPath>
             </defs>
-            <g transform="translate(110 450)"><g class="wing-idle" id="wingFeathers"></g></g>
+            <g clip-path="url(#sky)">
+              <rect x="0" y="0" width="560" height="480" fill="#F3EDDF"/>
+              <circle cx="280" cy="430" r="250" fill="#E9A13B" opacity=".18"/>
+              <circle cx="280" cy="430" r="195" fill="#E9A13B" opacity=".20"/>
+              <circle cx="280" cy="430" r="140" fill="#C0532C" opacity=".30"/>
+              <circle cx="280" cy="430" r="92" fill="#C0532C" opacity=".85"/>
+              <rect x="0" y="428" width="560" height="52" fill="#123F31"/>
+              <rect x="0" y="420" width="560" height="10" fill="#123F31" opacity=".35"/>
+              <g fill="none" stroke="#123F31" stroke-width="3" stroke-linecap="round">
+                <path class="bird" d="M120 150q12-10 24 0q12-10 24 0"/>
+                <path class="bird b2" d="M400 110q10-8 20 0q10-8 20 0"/>
+                <path class="bird b3" d="M250 80q9-7 18 0q9-7 18 0"/>
+              </g>
+            </g>
           </svg>
+          <div class="chip chip--a"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg>Max 10 per batch</div>
+          <div class="chip chip--b"><svg class="ico" aria-hidden="true"><use href="#i-award"/></svg>14 years of coaching</div>
         </div>
       </div>
-      <svg class="hero-curve" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 80V44C240 4 480 0 720 26s480 36 720-4v58z" fill="#FAF6EE"/></svg>
     </section>
 
-    <!-- =====================================================
-         STATS STRIP
-         ===================================================== -->
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Small batches <i class="sep">·</i> Live practice <i class="sep">·</i> Honest feedback <i class="sep">·</i> Since 2012 <i class="sep">·</i> Basirhat <i class="sep">·</i>&nbsp;</span>
+        <span>Small batches <i class="sep">·</i> Live practice <i class="sep">·</i> Honest feedback <i class="sep">·</i> Since 2012 <i class="sep">·</i> Basirhat <i class="sep">·</i>&nbsp;</span>
+      </div>
+    </div>
+
+    <!-- STATS -->
     <section class="stats" aria-label="Our results in numbers">
       <div class="wrap">
         <div class="stats-card reveal">
-          <div class="stat"><b data-count="8500" data-suffix="+">8,500+</b><span>Students trained</span></div>
-          <div class="stat"><b data-count="14">14</b><span>Years of experience</span></div>
-          <div class="stat"><b data-count="96" data-suffix="%">96%</b><span>Learners who reach their goal</span></div>
+          <div class="stat"><b><span data-count="8500">8,500</span><span class="suffix">+</span></b><span>Students trained</span></div>
+          <div class="stat"><b><span data-count="14">14</span></b><span>Years of experience</span></div>
+          <div class="stat"><b><span data-count="96">96</span><span class="suffix">%</span></b><span>Learners who reach their goal</span></div>
         </div>
       </div>
     </section>
 
-    <!-- =====================================================
-         ABOUT
-         ===================================================== -->
+    <!-- ABOUT -->
     <section class="sec" id="about" aria-labelledby="about-title">
       <div class="wrap about-grid">
         <div class="about-copy reveal">
-          <h2 id="about-title">A place where hesitation turns into presence</h2>
+          <p class="eyebrow">01 · About</p>
+          <h2 id="about-title">A place where hesitation turns into <em>presence</em></h2>
           <p>Confident Wings began in 2012 with one small classroom and one belief: anyone can learn to speak well if they get enough real practice in a room that feels safe.</p>
           <p>Today we coach school students, graduates, job seekers and working teams. Every class is built around speaking, not slides, so you leave each session having used your voice more than you did the day before.</p>
           <ul class="ticks">
-            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Classes in English, with Hindi and Bengali support for beginners</li>
-            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>A friendly, judgement-free room where mistakes are expected</li>
-            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Progress you can measure, tracked from your first day</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Classes in English, with Hindi and Bengali support for beginners</span></li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>A friendly, judgement-free room where mistakes are expected</span></li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Progress you can measure, tracked from your first day</span></li>
           </ul>
         </div>
         <aside class="mission reveal" style="--rd:.12s" aria-label="Our mission">
-          <svg class="wm ico ico--fill" aria-hidden="true"><use href="#i-feather"/></svg>
           <blockquote>Our mission is to help every learner say what they mean, in front of anyone, without fear.</blockquote>
           <footer>Susanta Mondal, founder</footer>
           <div class="facts">
@@ -601,14 +716,13 @@
       </div>
     </section>
 
-    <!-- =====================================================
-         COURSES (edit cards below; the "Enroll" button pre-selects the course in the form)
-         ===================================================== -->
+    <!-- COURSES -->
     <section class="sec sec--white" id="courses" aria-labelledby="courses-title">
       <div class="wrap">
-        <div class="sec-head reveal">
-          <h2 id="courses-title">Courses built around how you actually speak</h2>
-          <p>Pick the path that fits your goal. Not sure? Start with a free level check and we will point you to the right batch.</p>
+        <div class="sec-head center reveal">
+          <p class="eyebrow">02 · Courses</p>
+          <h2 id="courses-title">Courses built around how you <em>actually speak</em></h2>
+          <p class="lead">Pick the path that fits your goal. Not sure? Start with a free level check and we will point you to the right batch.</p>
         </div>
         <div class="grid-3" data-stagger>
           <article class="course reveal">
@@ -619,7 +733,7 @@
               <li><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>12 weeks, 3 classes a week</li>
               <li><svg class="ico" aria-hidden="true"><use href="#i-level"/></svg>Beginner to intermediate</li>
             </ul>
-            <button class="btn btn--outline btn--sm" type="button" data-enroll="Spoken English">Enroll</button>
+            <button class="btn btn--outline btn--sm" type="button" data-enroll="spoken-english">Enroll</button>
           </article>
 
           <article class="course reveal">
@@ -630,7 +744,7 @@
               <li><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>8 weeks, 2 classes a week</li>
               <li><svg class="ico" aria-hidden="true"><use href="#i-level"/></svg>Intermediate</li>
             </ul>
-            <button class="btn btn--outline btn--sm" type="button" data-enroll="Public Speaking">Enroll</button>
+            <button class="btn btn--outline btn--sm" type="button" data-enroll="public-speaking">Enroll</button>
           </article>
 
           <article class="course reveal">
@@ -641,7 +755,7 @@
               <li><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>4 weeks, 3 classes a week</li>
               <li><svg class="ico" aria-hidden="true"><use href="#i-level"/></svg>All levels</li>
             </ul>
-            <button class="btn btn--outline btn--sm" type="button" data-enroll="Interview Prep">Enroll</button>
+            <button class="btn btn--outline btn--sm" type="button" data-enroll="interview-prep">Enroll</button>
           </article>
 
           <article class="course reveal">
@@ -652,7 +766,7 @@
               <li><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>10 weeks, weekend batches</li>
               <li><svg class="ico" aria-hidden="true"><use href="#i-level"/></svg>Ages 8 to 17, grouped by age</li>
             </ul>
-            <button class="btn btn--outline btn--sm" type="button" data-enroll="Kids and Teens">Enroll</button>
+            <button class="btn btn--outline btn--sm" type="button" data-enroll="kids-teens">Enroll</button>
           </article>
 
           <article class="course reveal">
@@ -663,44 +777,47 @@
               <li><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>Custom schedule</li>
               <li><svg class="ico" aria-hidden="true"><use href="#i-level"/></svg>Teams of 10 or more</li>
             </ul>
-            <button class="btn btn--outline btn--sm" type="button" data-enroll="Corporate Training">Enquire</button>
+            <button class="btn btn--outline btn--sm" type="button" data-enroll="corporate">Enquire</button>
           </article>
 
           <article class="course course--cta reveal">
             <h3>Not sure where to start?</h3>
             <p>Take a free 15-minute level check with a coach and get a clear plan for your next 90 days.</p>
-            <a class="btn btn--gold" href="#contact">Book Free Demo</a>
+            <a class="btn btn--terra" href="#contact">Book Free Demo</a>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- =====================================================
-         WHY CHOOSE US
-         ===================================================== -->
-    <section class="sec sec--navy" id="why" aria-labelledby="why-title">
+    <!-- WHY CHOOSE US -->
+    <section class="sec sec--dark" id="why" aria-labelledby="why-title">
       <div class="wrap">
         <div class="sec-head reveal">
+          <p class="eyebrow">03 · Why us</p>
           <h2 id="why-title">Why learners choose Confident Wings</h2>
-          <p>Speaking is a skill you build by speaking. Everything here is designed to give you more time on your feet.</p>
+          <p class="lead">Speaking is a skill you build by speaking. Everything here is designed to give you more time on your feet.</p>
         </div>
         <div class="why-grid" data-stagger>
           <div class="why reveal">
+            <span class="n">01</span>
             <svg class="ico" aria-hidden="true"><use href="#i-users"/></svg>
             <h3>Small batches</h3>
             <p>No more than 10 learners, so you speak in every class and your coach knows your name and your goals.</p>
           </div>
           <div class="why reveal">
+            <span class="n">02</span>
             <svg class="ico" aria-hidden="true"><use href="#i-live"/></svg>
             <h3>Live practice</h3>
             <p>Role plays, debates and mock interviews in every session. Lectures are short; talking time is long.</p>
           </div>
           <div class="why reveal">
+            <span class="n">03</span>
             <svg class="ico" aria-hidden="true"><use href="#i-feedback"/></svg>
             <h3>Personal feedback</h3>
             <p>Written notes and recorded speeches reviewed with you each week, with one clear thing to improve next.</p>
           </div>
           <div class="why reveal">
+            <span class="n">04</span>
             <svg class="ico" aria-hidden="true"><use href="#i-award"/></svg>
             <h3>Certification</h3>
             <p>Finish your course with a performance assessment and a certificate you can add to your CV and LinkedIn.</p>
@@ -709,14 +826,13 @@
       </div>
     </section>
 
-    <!-- =====================================================
-         LEARNING JOURNEY
-         ===================================================== -->
+    <!-- LEARNING JOURNEY -->
     <section class="sec" id="journey" aria-labelledby="journey-title">
       <div class="wrap">
         <div class="sec-head reveal">
-          <h2 id="journey-title">Your journey from nervous to natural</h2>
-          <p>Four clear steps, repeated until speaking in public feels like second nature.</p>
+          <p class="eyebrow">04 · The method</p>
+          <h2 id="journey-title">Your journey from nervous to <em>natural</em></h2>
+          <p class="lead">Four clear steps, repeated until speaking in public feels like second nature.</p>
         </div>
         <ol class="steps" data-stagger>
           <li class="step reveal"><span class="step-n" aria-hidden="true">1</span><h3>Assess</h3><p>A short speaking check maps your fluency, pronunciation, vocabulary and stage nerves, so we start where you are.</p></li>
@@ -727,33 +843,45 @@
       </div>
     </section>
 
-    <!-- =====================================================
-         TRAINERS (replace the placeholder images with real photos, 400x480 works well)
-         ===================================================== -->
-    <section class="sec sec--white" id="trainers" aria-labelledby="trainers-title">
+    <!-- COACH -->
+    <section class="sec sec--white" id="coach" aria-labelledby="coach-title">
       <div class="wrap">
-        <div class="sec-head reveal">
-          <h2 id="trainers-title">Meet your coach</h2>
-          <p>Certified, experienced, and trained to give feedback that is kind and useful.</p>
+        <div class="sec-head center reveal">
+          <p class="eyebrow">05 · Your coach</p>
+          <h2 id="coach-title">Meet your <em>coach</em></h2>
+          <p class="lead">Certified, experienced, and trained to give feedback that is kind and useful.</p>
         </div>
-        <div class="trainers" data-stagger>
-          <article class="trainer reveal">
-            <div class="ph"><img loading="lazy" decoding="async" width="400" height="480" alt="Portrait of Susanta Mondal, founder and head trainer" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2313294B'/%3E%3Cstop offset='1' stop-color='%230B1F3A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='480' fill='url(%23g)'/%3E%3Ccircle cx='200' cy='185' r='72' fill='%23D4A441' opacity='.9'/%3E%3Cpath d='M56 480c0-96 64-158 144-158s144 62 144 158z' fill='%23D4A441' opacity='.9'/%3E%3C/svg%3E"></div>
-            <div class="body"><h3>Susanta Mondal</h3><p class="role">Founder and head trainer</p><p>Founder and head trainer with over 14 years of coaching experience. Specialises in voice, storytelling and stage confidence.</p><a class="btn btn--outline btn--sm" href="https://www.facebook.com/share/1VeRXPY2xN/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-facebook"/></svg>Follow on Facebook · 100K+ followers</a></div>
-          </article>
-          
-        </div>
+        <article class="coach reveal">
+          <div class="ph">
+            <!-- TODO: replace this placeholder artwork with a real photo of Susanta Mondal -->
+            <svg viewBox="0 0 400 480" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Portrait placeholder for Susanta Mondal">
+              <defs>
+                <linearGradient id="phg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#17493A"/><stop offset="1" stop-color="#0C2C22"/></linearGradient>
+              </defs>
+              <rect width="400" height="480" fill="url(#phg)"/>
+              <circle cx="320" cy="90" r="120" fill="#C0532C" opacity=".22"/>
+              <circle cx="200" cy="180" r="70" fill="#E9A13B" opacity=".85"/>
+              <path d="M60 480c0-94 62-154 140-154s140 60 140 154z" fill="#E9A13B" opacity=".85"/>
+              <path d="M40 60q20-16 40 0q20-16 40 0" stroke="#FAF7F2" stroke-width="4" fill="none" stroke-linecap="round" opacity=".5"/>
+            </svg>
+          </div>
+          <div class="body">
+            <h3>Susanta Mondal</h3>
+            <p class="role">Founder and head trainer</p>
+            <p>Founder and head trainer with over 14 years of coaching experience. Specialises in voice, storytelling and stage confidence.</p>
+            <a class="btn btn--outline btn--sm" href="https://www.facebook.com/share/1VeRXPY2xN/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-facebook"/></svg>Follow on Facebook · 100K+ followers</a>
+          </div>
+        </article>
       </div>
     </section>
 
-    <!-- =====================================================
-         TESTIMONIALS (carousel: add or remove <li class="story"> items)
-         ===================================================== -->
+    <!-- TESTIMONIALS -->
     <section class="sec" id="stories" aria-labelledby="stories-title">
       <div class="wrap">
         <div class="sec-head reveal">
-          <h2 id="stories-title">Stories from people who found their voice</h2>
-          <p>Real progress looks different for everyone. Here is how a few of our learners describe theirs.</p>
+          <p class="eyebrow">06 · Stories</p>
+          <h2 id="stories-title">Stories from people who found their <em>voice</em></h2>
+          <p class="lead">Real progress looks different for everyone. Here is how a few of our learners describe theirs.</p>
         </div>
         <div class="carousel reveal">
           <ul class="track" id="track" tabindex="0" aria-label="Student success stories, scroll sideways to read more">
@@ -787,28 +915,24 @@
       </div>
     </section>
 
-    <!-- =====================================================
-         VIDEO GALLERY (set each button's data-video to a YouTube video ID)
-         ===================================================== -->
-    <section class="sec sec--navy" id="gallery" aria-labelledby="gallery-title">
+    <!-- VIDEO GALLERY -->
+    <section class="sec sec--dark" id="gallery" aria-labelledby="gallery-title">
       <div class="wrap">
         <div class="sec-head reveal">
-          <h2 id="gallery-title">Watch our learners take the stage</h2>
-          <p>Short clips from our monthly open mic nights, filmed with permission.</p>
+          <p class="eyebrow">07 · On stage</p>
+          <h2 id="gallery-title">Watch our learners take the <em>stage</em></h2>
+          <p class="lead">Short clips from our monthly open mic nights, filmed with permission.</p>
         </div>
         <div class="videos" data-stagger>
           <button class="video reveal" type="button" data-video="VIDEO_ID_1" data-title="Open mic night highlights">
-            <svg class="feather-bg ico ico--fill" aria-hidden="true"><use href="#i-feather"/></svg>
             <span class="play" aria-hidden="true"><svg class="ico"><use href="#i-play"/></svg></span>
             <span class="cap"><b>Open mic night highlights</b><span>Twelve first-time speakers, one evening</span></span>
           </button>
           <button class="video reveal" type="button" data-video="VIDEO_ID_2" data-title="Riya's first keynote">
-            <svg class="feather-bg ico ico--fill" aria-hidden="true"><use href="#i-feather"/></svg>
             <span class="play" aria-hidden="true"><svg class="ico"><use href="#i-play"/></svg></span>
             <span class="cap"><b>Riya's first keynote</b><span>Public Speaking, batch 14</span></span>
           </button>
           <button class="video reveal" type="button" data-video="VIDEO_ID_3" data-title="Junior elocution finals">
-            <svg class="feather-bg ico ico--fill" aria-hidden="true"><use href="#i-feather"/></svg>
             <span class="play" aria-hidden="true"><svg class="ico"><use href="#i-play"/></svg></span>
             <span class="cap"><b>Junior elocution finals</b><span>Kids and Teens showcase</span></span>
           </button>
@@ -821,14 +945,13 @@
       <div class="vframe" id="vframe"></div>
     </dialog>
 
-    <!-- =====================================================
-         PRICING / BATCHES (placeholder prices, replace freely)
-         ===================================================== -->
-    <section class="sec" id="pricing" aria-labelledby="pricing-title">
+    <!-- PRICING -->
+    <section class="sec sec--white" id="pricing" aria-labelledby="pricing-title">
       <div class="wrap">
-        <div class="sec-head reveal">
-          <h2 id="pricing-title">Simple plans, no hidden fees</h2>
-          <p>Choose the level of attention you want. Every plan starts with a free demo class.</p>
+        <div class="sec-head center reveal">
+          <p class="eyebrow">08 · Pricing</p>
+          <h2 id="pricing-title">Simple plans, <em>no hidden fees</em></h2>
+          <p class="lead">Choose the level of attention you want. Every plan starts with a free demo class.</p>
         </div>
         <div class="plans" data-stagger>
           <article class="plan reveal">
@@ -856,7 +979,7 @@
               <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Recorded speech reviews</li>
               <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Mock interview and certificate</li>
             </ul>
-            <a class="btn btn--gold" href="#contact" data-plan="Confidence Pro">Choose Confidence Pro</a>
+            <a class="btn btn--terra" href="#contact" data-plan="Confidence Pro">Choose Confidence Pro</a>
           </article>
 
           <article class="plan reveal">
@@ -876,29 +999,28 @@
       </div>
     </section>
 
-
-    <!-- =====================================================
-         BATCH SCHEDULE (TODO: replace with Sir's real batch timings)
-         ===================================================== -->
-    <section class="sec sec--white" id="schedule" aria-labelledby="schedule-title">
+    <!-- BATCH SCHEDULE -->
+    <section class="sec" id="schedule" aria-labelledby="schedule-title">
       <div class="wrap">
         <div class="sec-head reveal">
-          <h2 id="schedule-title">Batches that fit around school and work</h2>
-          <p>Morning, evening and weekend batches. Pick a slot when you book your free demo.</p>
+          <p class="eyebrow">09 · Schedule</p>
+          <h2 id="schedule-title">Batches that fit around <em>school and work</em></h2>
+          <p class="lead">Morning, evening and weekend batches. Pick a slot when you book your free demo.</p>
+          <span class="sample-pill"><svg class="ico" aria-hidden="true" style="width:1rem;height:1rem"><use href="#i-clock"/></svg>Sample schedule — final timings confirmed on WhatsApp</span>
         </div>
         <div class="timetable-wrap reveal">
           <table class="timetable">
-            <caption class="sr-only">Weekly batch timetable</caption>
+            <caption>Weekly batch timetable (sample slots)</caption>
             <thead>
               <tr><th scope="col">Batch</th><th scope="col">Days</th><th scope="col">Time</th><th scope="col">Course</th></tr>
             </thead>
             <tbody>
-              <!-- TODO: replace these rows with the real batch timings -->
-              <tr><td>Morning Fluent Batch</td><td>Mon · Wed · Fri</td><td>8:00 – 9:00 AM</td><td>Spoken English</td></tr>
-              <tr><td>Evening Fluent Batch</td><td>Tue · Thu · Sat</td><td>6:00 – 7:00 PM</td><td>Spoken English</td></tr>
-              <tr><td>Stagecraft Batch</td><td>Tue · Thu</td><td>7:30 – 8:30 PM</td><td>Public Speaking</td></tr>
-              <tr><td>Interview Crash Batch</td><td>Sat · Sun</td><td>10:00 – 11:30 AM</td><td>Interview Prep</td></tr>
-              <tr><td>Kids Weekend Batch</td><td>Sat · Sun</td><td>9:00 – 10:00 AM</td><td>Kids and Teens</td></tr>
+              <!-- TODO: replace these rows with Sir's real batch timings -->
+              <tr><td>Morning Fluent Batch</td><td>Mon · Wed · Fri</td><td>8:00 – 9:00 AM</td><td><span class="tag">Spoken English</span></td></tr>
+              <tr><td>Evening Fluent Batch</td><td>Tue · Thu · Sat</td><td>6:00 – 7:00 PM</td><td><span class="tag">Spoken English</span></td></tr>
+              <tr><td>Stagecraft Batch</td><td>Tue · Thu</td><td>7:30 – 8:30 PM</td><td><span class="tag">Public Speaking</span></td></tr>
+              <tr><td>Interview Crash Batch</td><td>Sat · Sun</td><td>10:00 – 11:30 AM</td><td><span class="tag">Interview Prep</span></td></tr>
+              <tr><td>Kids Weekend Batch</td><td>Sat · Sun</td><td>9:00 – 10:00 AM</td><td><span class="tag">Kids and Teens</span></td></tr>
             </tbody>
           </table>
         </div>
@@ -906,57 +1028,58 @@
       </div>
     </section>
 
-    <!-- =====================================================
-         FREE RESOURCES (lead magnet: visitor shares name + phone on WhatsApp, institute replies with the PDF)
-         ===================================================== -->
-    <section class="sec" id="resources" aria-labelledby="resources-title">
+    <!-- FREE RESOURCES -->
+    <section class="sec sec--white" id="resources" aria-labelledby="resources-title">
       <div class="wrap">
-        <div class="sec-head reveal">
-          <h2 id="resources-title">Free resources, straight to your WhatsApp</h2>
-          <p>Study material our learners actually use. Tell us where to send it and we will reply with the PDF.</p>
+        <div class="sec-head center reveal">
+          <p class="eyebrow">10 · Free resources</p>
+          <h2 id="resources-title">Free resources, <em>straight to your WhatsApp</em></h2>
+          <p class="lead">Study material our learners actually use. Tell us where to send it and we will reply with the PDF.</p>
         </div>
         <div class="grid-3" data-stagger>
-          <article class="course reveal">
+          <article class="resource reveal">
             <div class="badge"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg></div>
             <h3>50 Daily-Use English Sentences</h3>
             <p>Sentences for home, market, office and travel — with simple Bengali and Hindi meanings.</p>
-            <form class="resource-form" data-resource="50 Daily-Use English Sentences PDF">
-              <div class="field"><label>Your name<input name="rname" required autocomplete="name" placeholder="Your name"></label></div>
-              <div class="field"><label>WhatsApp number<input name="rphone" required inputmode="tel" pattern="[0-9+ ]{10,15}" placeholder="+91"></label></div>
-              <button class="btn btn--gold btn--sm" type="submit">Send me the PDF</button>
+            <form class="resource-form" data-resource="sentences" autocomplete="on">
+              <div class="field"><label>Your name<input name="name" type="text" required autocomplete="name" placeholder="Your name"></label></div>
+              <div class="field"><label>WhatsApp number<input name="phone" type="tel" required inputmode="tel" pattern="[0-9+ ]{10,15}" placeholder="+91"></label></div>
+              <button class="btn btn--terra btn--sm" type="submit">Send me the PDF</button>
+              <div class="form-status" role="status" aria-live="polite" hidden></div>
             </form>
           </article>
-          <article class="course reveal">
+          <article class="resource reveal">
             <div class="badge"><svg class="ico" aria-hidden="true"><use href="#i-brief"/></svg></div>
             <h3>Interview Questions &amp; Smart Answers</h3>
             <p>The 20 questions almost every interviewer asks, with strong sample answers you can adapt.</p>
-            <form class="resource-form" data-resource="Interview Questions and Smart Answers PDF">
-              <div class="field"><label>Your name<input name="rname" required autocomplete="name" placeholder="Your name"></label></div>
-              <div class="field"><label>WhatsApp number<input name="rphone" required inputmode="tel" pattern="[0-9+ ]{10,15}" placeholder="+91"></label></div>
-              <button class="btn btn--gold btn--sm" type="submit">Send me the PDF</button>
+            <form class="resource-form" data-resource="interview" autocomplete="on">
+              <div class="field"><label>Your name<input name="name" type="text" required autocomplete="name" placeholder="Your name"></label></div>
+              <div class="field"><label>WhatsApp number<input name="phone" type="tel" required inputmode="tel" pattern="[0-9+ ]{10,15}" placeholder="+91"></label></div>
+              <button class="btn btn--terra btn--sm" type="submit">Send me the PDF</button>
+              <div class="form-status" role="status" aria-live="polite" hidden></div>
             </form>
           </article>
-          <article class="course reveal">
-            <div class="badge"><svg class="ico" aria-hidden="true"><use href="#i-feather"/></svg></div>
+          <article class="resource reveal">
+            <div class="badge"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg></div>
             <h3>Vocabulary Builder Worksheet</h3>
             <p>100 high-use words with meanings, example sentences and practice exercises.</p>
-            <form class="resource-form" data-resource="Vocabulary Builder Worksheet PDF">
-              <div class="field"><label>Your name<input name="rname" required autocomplete="name" placeholder="Your name"></label></div>
-              <div class="field"><label>WhatsApp number<input name="rphone" required inputmode="tel" pattern="[0-9+ ]{10,15}" placeholder="+91"></label></div>
-              <button class="btn btn--gold btn--sm" type="submit">Send me the PDF</button>
+            <form class="resource-form" data-resource="vocabulary" autocomplete="on">
+              <div class="field"><label>Your name<input name="name" type="text" required autocomplete="name" placeholder="Your name"></label></div>
+              <div class="field"><label>WhatsApp number<input name="phone" type="tel" required inputmode="tel" pattern="[0-9+ ]{10,15}" placeholder="+91"></label></div>
+              <button class="btn btn--terra btn--sm" type="submit">Send me the PDF</button>
+              <div class="form-status" role="status" aria-live="polite" hidden></div>
             </form>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- =====================================================
-         FAQ
-         ===================================================== -->
-    <section class="sec sec--white" id="faq" aria-labelledby="faq-title">
+    <!-- FAQ -->
+    <section class="sec" id="faq" aria-labelledby="faq-title">
       <div class="wrap">
-        <div class="sec-head reveal">
-          <h2 id="faq-title">Questions we hear often</h2>
+        <div class="sec-head center reveal">
+          <p class="eyebrow">11 · FAQ</p>
+          <h2 id="faq-title">Questions we <em>hear often</em></h2>
         </div>
         <div class="faq reveal" id="faqList">
           <div class="qa"><h3><button class="q" type="button" aria-expanded="false" aria-controls="a1" id="q1">I am a complete beginner. Is this for me?<svg class="ico" aria-hidden="true"><use href="#i-chevron"/></svg></button></h3><div class="a" id="a1" role="region" aria-labelledby="q1"><div><p>Yes. Our Foundation batches start from basic sentences. We use Hindi or Bengali to explain ideas when needed, then move you to English as your confidence grows.</p></div></div></div>
@@ -969,69 +1092,79 @@
       </div>
     </section>
 
-    <!-- =====================================================
-         CONTACT + DEMO BOOKING
-         ===================================================== -->
-    <section class="sec" id="contact" aria-labelledby="contact-title">
+    <!-- CONTACT -->
+    <section class="sec sec--white" id="contact" aria-labelledby="contact-title">
       <div class="wrap">
         <div class="sec-head reveal">
-          <h2 id="contact-title">Book your free demo class</h2>
-          <p>Tell us a little about you and we will call within one working day to confirm your slot.</p>
+          <p class="eyebrow">12 · Contact</p>
+          <h2 id="contact-title">Book your <em>free demo</em> class</h2>
+          <p class="lead">Tell us a little about you and we will call within one working day to confirm your slot.</p>
         </div>
         <div class="contact-grid">
           <div class="form-card reveal">
             <h3>Reserve your seat</h3>
             <p>Takes less than a minute.</p>
-            <form id="demoForm" autocomplete="on">
+            <form id="demo-form" autocomplete="on">
               <div class="field">
-                <label for="name">Full name</label>
-                <input id="name" name="name" type="text" autocomplete="name" required placeholder="Your name">
+                <label for="demo-name">Full name</label>
+                <input id="demo-name" name="name" type="text" autocomplete="name" required placeholder="Your name">
               </div>
               <div class="field">
-                <label for="phone">Phone number</label>
-                <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required pattern="[0-9+\s\-]{10,15}" placeholder="+91 80014 19550" title="Enter a 10 to 15 digit phone number">
+                <label for="demo-phone">Phone number</label>
+                <input id="demo-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required pattern="[0-9+\s\-]{10,15}" placeholder="+91 80014 19550" title="Enter a 10 to 15 digit phone number">
               </div>
-              <div class="row2">
-                <div class="field">
-                  <label for="course">Course</label>
-                  <select id="course" name="course" required>
-                    <option value="">Choose a course</option>
-                    <option>Spoken English</option>
-                    <option>Public Speaking</option>
-                    <option>Interview Prep</option>
-                    <option>Kids and Teens</option>
-                    <option>Corporate Training</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label for="time">Preferred time</label>
-                  <select id="time" name="time" required>
-                    <option value="">Choose a time</option>
-                    <option>Weekday morning</option>
-                    <option>Weekday evening</option>
-                    <option>Weekend morning</option>
-                    <option>Weekend evening</option>
-                  </select>
-                </div>
+              <div class="field">
+                <label for="demo-course">Course</label>
+                <select id="demo-course" name="course" required>
+                  <option value="">Choose a course</option>
+                  <option value="spoken-english">Spoken English</option>
+                  <option value="public-speaking">Public Speaking</option>
+                  <option value="interview-prep">Interview Prep</option>
+                  <option value="kids-teens">Kids and Teens</option>
+                  <option value="corporate">Corporate Training</option>
+                </select>
               </div>
-              <button class="btn btn--gold btn--block" type="submit">Book Free Demo</button>
-              <div class="form-status" id="formStatus" role="status" aria-live="polite" hidden></div>
+              <div class="field">
+                <label for="demo-note">Anything we should know? <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
+                <textarea id="demo-note" name="note" rows="3" placeholder="Your goal, your level, a question…"></textarea>
+              </div>
+              <button class="btn btn--terra btn--block" type="submit">Book Free Demo</button>
+              <div class="form-status" id="demoStatus" role="status" aria-live="polite" hidden></div>
             </form>
           </div>
 
           <div class="side reveal" style="--rd:.12s">
-            <ul class="info">
-              <!-- CONTACT DETAILS: edit here and in the footer -->
-              <li><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><span> Near Bhyabla Station, Basirhat , North 24 Parganas, West Bengal, India, 743412 </span></li>
+            <div class="form-card">
+              <h3>Prefer to write?</h3>
+              <p>Send us a message and we will reply on WhatsApp.</p>
+              <form id="contact-form" autocomplete="on">
+                <div class="field">
+                  <label for="contact-name">Full name</label>
+                  <input id="contact-name" name="name" type="text" autocomplete="name" required placeholder="Your name">
+                </div>
+                <div class="field">
+                  <label for="contact-phone">Phone number</label>
+                  <input id="contact-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required pattern="[0-9+\s\-]{10,15}" placeholder="+91 80014 19550" title="Enter a 10 to 15 digit phone number">
+                </div>
+                <div class="field">
+                  <label for="contact-message">Your message</label>
+                  <textarea id="contact-message" name="message" rows="3" required placeholder="How can we help?"></textarea>
+                </div>
+                <button class="btn btn--pine btn--block" type="submit">Send Message</button>
+                <div class="form-status" id="contactStatus" role="status" aria-live="polite" hidden></div>
+              </form>
+            </div>
+            <ul class="info" aria-label="Contact details">
+              <li><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><span>Near Bhyabla Station, Basirhat, North 24 Parganas, West Bengal, India, 743412</span></li>
               <li><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><a href="tel:+918001419550">+91 80014 19550</a></li>
               <li><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:hello@confidentwings.in">hello@confidentwings.in</a></li>
               <li><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg><span>Mon to Sun, 8 am to 8 pm</span></li>
             </ul>
-            <div class="map">
-              <!-- GOOGLE MAP: replace the src with the "Embed a map" link from Google Maps -->
-              <iframe title="Map showing the Confident Wings institute location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Bhyabla+Station+Basirhat +North+24+Parganas+India&amp;output=embed"></iframe>
-            </div>
           </div>
+        </div>
+        <div class="map reveal" style="margin-top:1.6rem">
+          <!-- GOOGLE MAP: replace the src with the "Embed a map" link from Google Maps -->
+          <iframe title="Map showing the Confident Wings institute location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Bhyabla+Station+Basirhat+North+24+Parganas+India&amp;output=embed"></iframe>
         </div>
       </div>
     </section>
@@ -1042,14 +1175,15 @@
     <svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg>
   </a>
 
-  <!-- =====================================================
-       FOOTER
-       ===================================================== -->
+  <!-- FOOTER -->
   <footer class="foot">
     <div class="wrap">
       <div class="foot-grid">
         <div>
-          <a class="logo" href="#top"><svg class="ico ico--fill" aria-hidden="true"><use href="#i-feather"/></svg>Confident Wings</a>
+          <a class="logo" href="#top" aria-label="Confident Wings, home">
+            <span class="mark"><svg class="ico ico--fill" aria-hidden="true"><use href="#i-leaf"/></svg></span>
+            Confident Wings
+          </a>
           <p class="about">Spoken English and public speaking coaching that helps you speak with clarity, courage and calm.</p>
           <div class="social">
             <!-- SOCIAL LINKS: replace each href -->
@@ -1064,7 +1198,7 @@
           <ul>
             <li><a href="#about">About us</a></li>
             <li><a href="#journey">Learning journey</a></li>
-            <li><a href="#trainers">Trainers</a></li>
+            <li><a href="#coach">Coach</a></li>
             <li><a href="#pricing">Pricing</a></li>
             <li><a href="#faq">FAQ</a></li>
           </ul>
@@ -1082,7 +1216,7 @@
         <div>
           <h4>Get in touch</h4>
           <ul>
-            <li> Near Bhyabla Station, Basirhat, West Bengal, India </li>
+            <li>Near Bhyabla Station, Basirhat, West Bengal, India</li>
             <li><a href="tel:+918001419550">+91 80014 19550</a></li>
             <li><a href="mailto:hello@confidentwings.in">hello@confidentwings.in</a></li>
           </ul>
@@ -1090,13 +1224,28 @@
       </div>
       <div class="copy">
         <span>&copy; <span id="year">2026</span> Confident Wings. All rights reserved.</span>
-        
       </div>
     </div>
   </footer>
 
   <!-- =====================================================
+       BACKEND (optional)
+       1. Paste your Firebase web config into window.CW_CONFIG below
+          after following backend/SETUP.md. The Firebase web API key is
+          public by design — firestore.rules is the security boundary.
+       2. backend/cw-backend.js captures every form lead to Firestore.
+       Leave firebase as null to run in WhatsApp-only mode (default).
+       ===================================================== -->
+  <script>
+    window.CW_CONFIG = { firebase: null };
+  </script>
+  <script src="backend/cw-backend.js"></script>
+
+  <!-- =====================================================
        SCRIPT (vanilla JS, no dependencies)
+       Backend hook: a module can define window.CWBackend.saveLead(lead).
+       If it is absent (no window.CW_CONFIG.firebase), the WhatsApp-only
+       flow below still works perfectly.
        ===================================================== -->
   <script>
   (() => {
@@ -1131,46 +1280,7 @@
     menu.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
     addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 
-    /* ---------- Hero wing: build feathers, then fan them open ---------- */
-    (function buildWing() {
-      const NS = 'http://www.w3.org/2000/svg';
-      const host = $('#wingFeathers'), svg = $('#wing');
-      // Each layer is a row of feathers fanning from the shoulder (the origin).
-      const layers = [
-        { n: 10, len: [330, 405], w: [34, 40], from: -6, to: 88, fill: 'url(#fGold)',  delay: 0   },
-        { n: 9,  len: [225, 285], w: [30, 34], from: 6,  to: 86, fill: 'url(#fSoft)',  delay: .5  },
-        { n: 8,  len: [130, 175], w: [24, 27], from: 14, to: 84, fill: 'url(#fCream)', delay: .9  }
-      ];
-      const shape = (L, W) => `M0 0C${W*.85} ${-L*.18} ${W} ${-L*.62} 0 ${-L}C${-W} ${-L*.62} ${-W*.85} ${-L*.18} 0 0Z`;
-      layers.forEach(l => {
-        for (let i = 0; i < l.n; i++) {
-          const t = i / (l.n - 1);
-          const angle = l.from + (l.to - l.from) * t;
-          const bell = 1 - Math.min(1, Math.abs(t - .4) * 1.3);
-          const L = l.len[0] + (l.len[1] - l.len[0]) * bell;
-          const W = l.w[0] + (l.w[1] - l.w[0]) * bell;
-          const g = document.createElementNS(NS, 'g');
-          g.setAttribute('class', 'f');
-          g.style.setProperty('--a', angle.toFixed(1) + 'deg');
-          g.style.setProperty('--d', (l.delay + i * .07).toFixed(2) + 's');
-          const body = document.createElementNS(NS, 'path');
-          body.setAttribute('d', shape(L, W));
-          body.setAttribute('fill', l.fill);
-          body.setAttribute('stroke', 'rgba(11,31,58,.28)');
-          body.setAttribute('stroke-width', '1');
-          const quill = document.createElementNS(NS, 'path');
-          quill.setAttribute('d', `M0 -8L0 ${-L * .9}`);
-          quill.setAttribute('stroke', 'rgba(11,31,58,.22)');
-          quill.setAttribute('stroke-width', '1.4');
-          quill.setAttribute('stroke-linecap', 'round');
-          g.append(body, quill);
-          host.append(g);
-        }
-      });
-      requestAnimationFrame(() => setTimeout(() => svg.classList.add('open'), 250));
-    })();
-
-    /* ---------- Parallax (hero glow + wing move at different speeds) ---------- */
+    /* ---------- Parallax (hero art drifts at a different speed) ---------- */
     if (!reduce) {
       const items = $$('[data-parallax]');
       let ticking = false;
@@ -1191,7 +1301,6 @@
         const el = e.target;
         el.classList.add('in');
         obs.unobserve(el);
-        // After the entrance finishes, drop the helper classes so hover styles apply normally.
         setTimeout(() => el.classList.remove('reveal', 'in'), 1300);
       });
     }, { threshold: .12, rootMargin: '0px 0px -6% 0px' });
@@ -1202,12 +1311,12 @@
       entries.forEach(e => {
         if (!e.isIntersecting) return;
         obs.unobserve(e.target);
-        const el = e.target, end = +el.dataset.count, suffix = el.dataset.suffix || '';
-        if (reduce) { el.textContent = end.toLocaleString('en-IN') + suffix; return; }
+        const el = e.target, end = +el.dataset.count;
+        if (reduce) { el.textContent = end.toLocaleString('en-IN'); return; }
         const t0 = performance.now(), dur = 1600;
         const tick = now => {
           const p = Math.min(1, (now - t0) / dur), eased = 1 - Math.pow(1 - p, 3);
-          el.textContent = Math.round(end * eased).toLocaleString('en-IN') + suffix;
+          el.textContent = Math.round(end * eased).toLocaleString('en-IN');
           if (p < 1) requestAnimationFrame(tick);
         };
         requestAnimationFrame(tick);
@@ -1216,12 +1325,12 @@
     $$('[data-count]').forEach(el => countIO.observe(el));
 
     /* ---------- "Enroll" and plan buttons feed the booking form ---------- */
-    const courseSel = $('#course');
+    const courseSel = $('#demo-course');
     let chosenPlan = '';
     $$('[data-enroll]').forEach(b => b.addEventListener('click', () => {
       courseSel.value = b.dataset.enroll;
       $('#contact').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
-      setTimeout(() => $('#name').focus({ preventScroll: true }), reduce ? 0 : 700);
+      setTimeout(() => $('#demo-name').focus({ preventScroll: true }), reduce ? 0 : 700);
     }));
     $$('[data-plan]').forEach(a => a.addEventListener('click', () => { chosenPlan = a.dataset.plan; }));
 
@@ -1292,30 +1401,136 @@
       });
     });
 
-    /* ---------- Demo booking form ----------
-       No server is attached. On submit we show a confirmation and offer to send the
-       details on WhatsApp. See README to connect Formspree, Google Forms or your own API. */
-    $('#demoForm').addEventListener('submit', e => {
-      e.preventDefault();
-      const f = e.target, d = Object.fromEntries(new FormData(f));
-      const msg = `Hi ${CONFIG.brand}, I'd like to book a free demo.\nName: ${d.name}\nPhone: ${d.phone}\nCourse: ${d.course}\nPreferred time: ${d.time}` + (chosenPlan ? `\nPlan of interest: ${chosenPlan}` : '');
-      const box = $('#formStatus');
+    /* =====================================================
+       FORMS — backend hook + WhatsApp fallback (always works)
+       ===================================================== */
+    const COURSE_LABELS = {
+      'spoken-english': 'Spoken English',
+      'public-speaking': 'Public Speaking',
+      'interview-prep': 'Interview Prep',
+      'kids-teens': 'Kids and Teens',
+      'corporate': 'Corporate Training'
+    };
+    const RESOURCE_NAMES = {
+      'sentences': '50 Daily-Use English Sentences PDF',
+      'interview': 'Interview Questions and Smart Answers PDF',
+      'vocabulary': 'Vocabulary Builder Worksheet PDF'
+    };
+
+    // Optional backend: a module may define window.CWBackend.saveLead(lead).
+    // Guarded — if window.CW_CONFIG?.firebase is absent, the backend is not
+    // configured and the WhatsApp-only flow below still works perfectly.
+    function saveLead(lead) {
+      try {
+        const backend = window.CWBackend;
+        if (backend && typeof backend.saveLead === 'function') {
+          const r = backend.saveLead(lead);
+          if (r && typeof r.catch === 'function') r.catch(() => {});
+        }
+      } catch (err) {
+        // Backend is best-effort; never block the WhatsApp handoff.
+      }
+    }
+
+    function showStatus(box, ok, html) {
       box.hidden = false;
-      box.innerHTML = '';
-      const p = document.createElement('p');
-      p.textContent = `Thank you, ${d.name.split(' ')[0]}. We will call you to confirm your ${d.time.toLowerCase()} demo for ${d.course}.`;
-      const a = document.createElement('a');
-      a.className = 'btn btn--navy btn--sm'; a.href = waLink(msg); a.target = '_blank'; a.rel = 'noopener';
-      a.textContent = 'Send details on WhatsApp';
-      box.append(p, a);
+      box.classList.remove('ok', 'err');
+      box.classList.add(ok ? 'ok' : 'err');
+      box.innerHTML = html;
+      box.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' });
+    }
+
+    function openWhatsApp(box, msg) {
+      const link = waLink(msg);
+      const win = window.open(link, '_blank', 'noopener');
+      if (!win) {
+        // Popup blocked: show an inline error with a manual link.
+        showStatus(box, false,
+          `<p>We couldn't open WhatsApp automatically. Please tap the button below to send your details.</p>` +
+          `<p><a class="btn btn--pine btn--sm" href="${link}" target="_blank" rel="noopener">Open WhatsApp</a></p>`);
+        return false;
+      }
+      return true;
+    }
+
+    const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+    /* ---------- Demo booking form ---------- */
+    $('#demo-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const f = e.target;
+      if (!f.checkValidity()) { f.reportValidity(); return; }
+      const d = Object.fromEntries(new FormData(f));
+      const courseLabel = COURSE_LABELS[d.course] || d.course;
+      const lead = {
+        type: 'demo',
+        name: d.name.trim(),
+        phone: d.phone.trim(),
+        course: d.course,
+        note: (d.note || '').trim(),
+        plan: chosenPlan || undefined,
+        page: location.href,
+        ts: new Date().toISOString()
+      };
+      saveLead(lead);
+      const msg = `Hi ${CONFIG.brand}, I'd like to book a free demo.\nName: ${lead.name}\nPhone: ${lead.phone}\nCourse: ${courseLabel}` +
+        (lead.note ? `\nNote: ${lead.note}` : '') +
+        (lead.plan ? `\nPlan of interest: ${lead.plan}` : '');
+      const box = $('#demoStatus');
+      if (openWhatsApp(box, msg)) {
+        showStatus(box, true,
+          `<p>Thank you, ${esc(lead.name.split(' ')[0])}! Your demo request for <b>${esc(courseLabel)}</b> is noted — we've opened WhatsApp so you can send it to us directly.</p>`);
+      }
       f.reset(); chosenPlan = '';
     });
-    /* Free resource lead-magnet forms: open WhatsApp with a prefilled request */
+
+    /* ---------- Contact form ---------- */
+    $('#contact-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const f = e.target;
+      if (!f.checkValidity()) { f.reportValidity(); return; }
+      const d = Object.fromEntries(new FormData(f));
+      const lead = {
+        type: 'contact',
+        name: d.name.trim(),
+        phone: d.phone.trim(),
+        message: d.message.trim(),
+        page: location.href,
+        ts: new Date().toISOString()
+      };
+      saveLead(lead);
+      const msg = `Hi ${CONFIG.brand}! I'm ${lead.name} (${lead.phone}).\n\n${lead.message}`;
+      const box = $('#contactStatus');
+      if (openWhatsApp(box, msg)) {
+        showStatus(box, true,
+          `<p>Thank you, ${esc(lead.name.split(' ')[0])}! We've opened WhatsApp — just press send and we'll get back to you.</p>`);
+      }
+      f.reset();
+    });
+
+    /* ---------- Free resource lead-magnet forms ---------- */
     $$('.resource-form').forEach(f => f.addEventListener('submit', e => {
       e.preventDefault();
+      if (!f.checkValidity()) { f.reportValidity(); return; }
       const d = Object.fromEntries(new FormData(f));
-      const msg = `Hi ${CONFIG.brand}! I'm ${d.rname} (${d.rphone}). Please send me the ${f.dataset.resource}.`;
-      window.open(waLink(msg), '_blank', 'noopener');
+      const slug = f.dataset.resource;
+      const resourceName = RESOURCE_NAMES[slug] || slug;
+      const lead = {
+        type: 'resource',
+        resource: slug,
+        resourceName,
+        name: d.name.trim(),
+        phone: d.phone.trim(),
+        page: location.href,
+        ts: new Date().toISOString()
+      };
+      saveLead(lead);
+      const msg = `Hi ${CONFIG.brand}! I'm ${lead.name} (${lead.phone}). Please send me the ${resourceName}.`;
+      const box = $('.form-status', f);
+      if (openWhatsApp(box, msg)) {
+        showStatus(box, true,
+          `<p>Thanks, ${esc(lead.name.split(' ')[0])}! We've opened WhatsApp — press send and we'll reply with your PDF.</p>`);
+      }
       f.reset();
     }));
   })();
