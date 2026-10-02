@@ -195,12 +195,17 @@
     [data-theme="dark"] .sample-pill{color:#9FD3E8;background:rgba(20,107,138,.16);border-color:var(--marine)}
     [data-theme="dark"] .timetable caption{color:var(--ink)}
     [data-theme="dark"] .timetable .tag{background:rgba(47,163,199,.22);color:#9FD8B8}
+    [data-theme="dark"] .timetable td:first-child{color:var(--ink)}
+    [data-theme="dark"] .price{color:#F2F7FA}
+    [data-theme="dark"] .field label{color:var(--ink)}
+    [data-theme="dark"] .info a{color:#7FC4DE}
+    [data-theme="dark"] .chip .ico,[data-theme="dark"] .meta .ico,[data-theme="dark"] .info .ico,[data-theme="dark"] .q .ico{color:var(--amber)}
     [data-theme="dark"] .car-btn{border-color:var(--muted);color:var(--ink)}
     [data-theme="dark"] .car-btn:hover:not(:disabled){background:var(--marine);border-color:var(--marine)}
     [data-theme="dark"] .theme-btn{background:linear-gradient(135deg,rgba(52,84,104,.78),rgba(16,24,35,.35));border-color:rgba(255,255,255,.16);color:var(--amber);box-shadow:0 8px 24px -8px rgba(0,0,0,.65),inset 0 1px 1px rgba(255,255,255,.14)}
     [data-theme="dark"] .stat b{background:linear-gradient(115deg,#7FC4DE 5%,#2FA3C7 60%,#9FD3E8 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
     [data-theme="dark"] .orb--a{background:radial-gradient(circle,rgba(20,107,138,.32),transparent 70%)}
-    [data-theme="dark"] .orb--b{background:radial-gradient(circle,rgba(233,161,59,.16),transparent 70%)}
+    [data-theme="dark"] .orb--b{background:radial-gradient(circle,rgba(200,162,79,.16),transparent 70%)}
     [data-theme="dark"] .rise .skybg{fill:#0C141C}
     [data-theme="dark"] img{filter:saturate(.96)}
 
@@ -317,9 +322,17 @@
     .mobile-menu.open{display:block}
     .mobile-menu a:not(.btn){display:block;color:#0E1B26;text-decoration:none;padding:.8rem 0;border-bottom:1px solid var(--line);font-weight:500}
     .mobile-menu .btn{margin-top:1.2rem;width:100%}
-    @media (min-width:1020px){
+    @media (min-width:1200px){
       .nav-links,.nav-cta{display:flex}
+      .nav-links{gap:1rem}
+      .nav-links a{font-size:.88rem;white-space:nowrap}
+      .logo .wordmark{font-size:1.2rem}
       .menu-btn,.mobile-menu{display:none!important}
+    }
+    @media (min-width:1400px){
+      .logo .wordmark{font-size:1.4rem}
+      .nav-links{gap:1.6rem}
+      .nav-links a{font-size:.94rem}
     }
 
     /* =====================================================
