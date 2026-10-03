@@ -100,6 +100,46 @@
           "addressRegion": "West Bengal",
           "addressCountry": "IN"
         }
+      },
+      {
+        "@type": "Place",
+        "name": "Confident Wings — Katiahat",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Katiahat",
+          "addressRegion": "West Bengal",
+          "addressCountry": "IN"
+        }
+      },
+      {
+        "@type": "Place",
+        "name": "Confident Wings — Kholapota",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Kholapota",
+          "addressRegion": "West Bengal",
+          "addressCountry": "IN"
+        }
+      },
+      {
+        "@type": "Place",
+        "name": "Confident Wings — Kendua Gopalpur",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Kendua Gopalpur",
+          "addressRegion": "West Bengal",
+          "addressCountry": "IN"
+        }
+      },
+      {
+        "@type": "Place",
+        "name": "Confident Wings — Barasat",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Barasat",
+          "addressRegion": "West Bengal",
+          "addressCountry": "IN"
+        }
       }
     ]
   }
@@ -315,6 +355,13 @@
        4. NAVBAR — frosted paper glass
        ===================================================== */
     .nav{position:fixed;inset:0 0 auto 0;z-index:100;height:var(--nav-h);background:rgba(250,247,242,.7);-webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%);border-bottom:1px solid rgba(31,42,35,.08);transition:box-shadow .3s,background-color .3s}
+    /* Admission notice bar (sits under the fixed nav, scrolls away) */
+    .notice-bar{margin-top:var(--nav-h);background:linear-gradient(90deg,#0B2237,#12456E 55%,#0B2237);color:#EAF3F8;text-align:center;padding:.72rem 1rem;position:relative;z-index:60;box-shadow:0 10px 24px -18px rgba(11,34,55,.7)}
+    .notice-bar p{margin:0;font-size:.95rem;line-height:1.5}
+    .notice-bar strong{color:#EFC86B;font-weight:700}
+    .notice-bar a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+    .notice-bar a:hover{color:#EFC86B}
+    @media (max-width:640px){.notice-bar p{font-size:.86rem}}
     .nav.scrolled{background:rgba(250,247,242,.92);box-shadow:0 12px 32px -20px rgba(31,42,35,.35)}
     .nav-in{height:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem}
     .logo{display:flex;align-items:center;gap:.65rem;text-decoration:none;color:#0E1B26;font:600 1.32rem var(--font-head);white-space:nowrap;letter-spacing:-.01em;flex-shrink:0;min-width:0}
@@ -377,7 +424,7 @@
     /* =====================================================
        5. HERO — editorial split + sunrise art
        ===================================================== */
-    .hero{position:relative;padding:calc(var(--nav-h) + 3.5rem) 0 5rem;overflow:hidden;background:
+    .hero{position:relative;padding:2.75rem 0 5rem;overflow:hidden;background:
       radial-gradient(46rem 30rem at 88% -6%,rgba(233,161,59,.16),transparent 60%),
       radial-gradient(40rem 26rem at -8% 30%,rgba(47,163,199,.12),transparent 60%),
       radial-gradient(34rem 22rem at 12% 6%,rgba(20,107,138,.12),transparent 60%),
@@ -829,6 +876,10 @@
   </div>
 
   <main id="main">
+    <!-- ADMISSION NOTICE: update this text when a new batch opens -->
+    <div class="notice-bar" role="region" aria-label="Admission notice">
+      <p><strong>Admissions open</strong> — new Spoken English &amp; Grammar batch starts <strong>December 2026</strong> · Enrolment through November · Seats limited <a href="#contact">Enrol now →</a></p>
+    </div>
 
     <!-- HERO -->
     <section class="hero" id="top" aria-labelledby="hero-title">
@@ -1355,6 +1406,7 @@
             <ul class="info" aria-label="Contact details">
               <li><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><span><strong>Basirhat</strong> — Near Bhyabla Station, Basirhat, North 24 Parganas, West Bengal, India, 743412</span></li>
               <li><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><span><strong>Hasnabad</strong> — Near Hasnabad BDO Office, Hasnabad, North 24 Parganas, West Bengal, India</span></li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><span><strong>Offline batches also at</strong> — Katiahat · Kholapota · Kendua Gopalpur · Barasat</span></li>
               <li><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><a href="tel:+918001419550">+91 80014 19550</a></li>
               <li><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:hello@confidentwings.in">hello@confidentwings.in</a></li>
               <li><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg><span>Mon to Sun, 8 am to 8 pm</span></li>
@@ -1428,6 +1480,7 @@
           <ul>
             <li><strong>Basirhat:</strong> Near Bhyabla Station, Basirhat, West Bengal, India</li>
             <li><strong>Hasnabad:</strong> Near Hasnabad BDO Office, Hasnabad, West Bengal, India</li>
+            <li><strong>Also at:</strong> Katiahat · Kholapota · Kendua Gopalpur · Barasat</li>
             <li><a href="tel:+918001419550">+91 80014 19550</a></li>
             <li><a href="mailto:hello@confidentwings.in">hello@confidentwings.in</a></li>
           </ul>
