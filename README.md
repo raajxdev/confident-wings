@@ -1,7 +1,7 @@
 # Confident Wings
 
 Website for **Confident Wings** — Spoken English & Public Speaking Institute,
-Basirhat, West Bengal. Coach: Susanta Mondal ("Sir").
+Basirhat, West Bengal. Coach: Sushanta Mondal ("Sir").
 
 Live: https://raajxdev.github.io/confident-wings/
 
